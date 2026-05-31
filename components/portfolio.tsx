@@ -136,7 +136,7 @@ export function Portfolio() {
                   </h3>
                   <p className="text-[#86868b] font-light">{project.category}</p>
                   {project.link && (
-                    
+                    <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"

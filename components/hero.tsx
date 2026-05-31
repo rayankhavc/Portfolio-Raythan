@@ -13,13 +13,13 @@ export function Hero() {
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          
+          <a
             href="#projets"
             className="inline-flex items-center px-8 py-4 bg-white text-black text-sm font-medium rounded-full hover:bg-[#f5f5f7] transition-all duration-300"
           >
             Voir les projets
           </a>
-          
+          <a
             href="#contact"
             className="inline-flex items-center px-8 py-4 bg-transparent text-white text-sm font-medium rounded-full border border-[#333333] hover:border-[#86868b] transition-all duration-300"
           >

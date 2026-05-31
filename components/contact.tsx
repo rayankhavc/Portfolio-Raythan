@@ -6,7 +6,7 @@ export function Contact() {
           Un projet en tête ?
         </h2>
 
-        
+        <a
           href="mailto:raythanwebdesign@gmail.com"
           className="inline-block text-2xl sm:text-3xl md:text-4xl font-light text-[#86868b] hover:text-white transition-colors duration-300 tracking-tight mb-16"
         >
