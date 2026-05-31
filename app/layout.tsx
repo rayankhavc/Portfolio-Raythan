@@ -1,17 +1,29 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const geistSans = Geist({ 
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-geist-sans',
+})
+const geistMono = Geist_Mono({ 
+  subsets: ["latin"],
+  variable: '--font-geist-mono',
 })
 
 export const metadata: Metadata = {
   title: 'Raythan Web Design | Expériences Numériques de Haute Précision',
   description: 'Agence de design web premium. Nous fusionnons design moderne et développement sur-mesure pour propulser votre marque.',
-  generator: 'v0.app',
+  openGraph: {
+    title: 'Raythan Web Design',
+    description: 'Sites et applications qui convertissent. No-code pour les commerces locaux, développement sur-mesure pour les projets ambitieux.',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       {
@@ -37,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} bg-black`}>
+    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} bg-black`}>
       <body className="font-sans antialiased bg-black text-white">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -1,18 +1,18 @@
 const steps = [
   {
     number: "01",
-    title: "Stratégie & Wireframe",
-    description: "Conception de la structure et du message.",
+    title: "Brief & Audit",
+    description: "Appel de cadrage 30 min. On définit l'objectif, le budget, le délai. Zéro surprise après.",
   },
   {
     number: "02",
-    title: "Design Premium",
-    description: "Création de l'identité visuelle moderne et épurée.",
+    title: "Design & Validation",
+    description: "Maquette Figma livrée en 5 jours. Un aller-retour de corrections inclus.",
   },
   {
     number: "03",
-    title: "Développement & Mise en ligne",
-    description: "Intégration technique et déploiement optimisé.",
+    title: "Dev & Mise en ligne",
+    description: "Intégration Astro/React ou Squarespace selon le projet. Livraison avec formation à l'administration.",
   },
 ]
 

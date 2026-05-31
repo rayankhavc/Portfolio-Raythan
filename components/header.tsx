@@ -18,8 +18,18 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#" className="text-white font-light tracking-[0.3em] text-sm">
-            RAYTHAN
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/10 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150" />
+              <img 
+                src="/logo-raythan.png" 
+                alt="Raythan" 
+                className="h-8 w-auto relative z-10"
+              />
+            </div>
+            <span className="text-white font-light tracking-[0.25em] text-xs uppercase hidden sm:inline">
+              Web Design
+            </span>
           </a>
 
           {/* Desktop Navigation */}
