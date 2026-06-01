@@ -2,55 +2,10 @@
 
 import { useState } from "react"
 import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
+import { projects } from "@/lib/lib/projects"
 
-const projects = [
-  {
-    name: "ZenHertz",
-    category: "Application web · Analyse bioacoustique & santé",
-    badge: "Bêta live",
-    tag: "App",
-    featured: true,
-    link: "https://rayankhavc.github.io/zenhertz/",
-  },
-  {
-    name: "FundedCalc",
-    category: "Application web · Simulateur Monte Carlo trading",
-    badge: "Bêta live",
-    tag: "App",
-    featured: false,
-    link: "https://fundedcalc.vercel.app/",
-  },
-  {
-    name: "La Baraka",
-    category: "Site vitrine · Fast-food burger",
-    tag: "No-Code",
-    featured: false,
-  },
-  {
-    name: "La Belle Broche",
-    category: "Site vitrine · Kebab",
-    tag: "No-Code",
-    featured: false,
-  },
-  {
-    name: "Au Fournil du Sillon",
-    category: "Site vitrine · Boulangerie artisanale",
-    tag: "No-Code",
-    featured: false,
-  },
-  {
-    name: "Les Jardins du Coran",
-    category: "Site vitrine · École arabe & coran",
-    tag: "No-Code",
-    featured: false,
-  },
-  {
-    name: "Avesta Kebap",
-    category: "Site vitrine · Restauration rapide",
-    tag: "No-Code",
-    featured: false,
-  },
-]
+import type { Project } from "@/lib/lib/projects"
 
 type Filter = "Tous" | "App" | "No-Code"
 
@@ -58,7 +13,7 @@ export function Portfolio() {
   const [filter, setFilter] = useState<Filter>("Tous")
 
   const filtered = projects.filter((p) =>
-    filter === "Tous" ? true : p.tag === filter
+    filter === "Tous" ? true : p.type === filter
   )
 
   return (
@@ -74,7 +29,7 @@ export function Portfolio() {
         </div>
 
         <div className="flex items-center justify-center gap-3 mb-12">
-          {(["Tous", "App", "No-Code"] as Filter[]).map((f) => (
+          {(['Tous', 'App', 'No-Code'] as Filter[]).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -92,7 +47,7 @@ export function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtered.map((project) => (
             <div
-              key={project.name}
+              key={project.slug}
               className={`group relative ${
                 project.featured && filter === "Tous" ? "md:col-span-2" : ""
               }`}
@@ -118,12 +73,12 @@ export function Portfolio() {
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-full ${
-                        project.tag === "App"
+                        project.type === "App"
                           ? "bg-white text-black"
                           : "bg-transparent text-[#86868b] border border-[#333333]"
                       }`}
                     >
-                      {project.tag}
+                      {project.type}
                     </span>
                     {project.badge && (
                       <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
@@ -131,21 +86,17 @@ export function Portfolio() {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-white mb-1">
                     {project.name}
                   </h3>
-                  <p className="text-[#86868b] font-light">{project.category}</p>
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 text-sm text-[#86868b] hover:text-white transition-colors duration-300 w-fit"
-                    >
-                      Voir le projet
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  )}
+                  <p className="text-[#86868b] font-light mb-4">{project.tagline}</p>
+                  <Link
+                    href={`/projets/${project.slug}`}
+                    className="inline-flex items-center gap-2 text-sm text-[#86868b] hover:text-white transition-colors duration-300 w-fit"
+                  >
+                    Voir l'étude de cas
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
                 </div>
 
                 <div className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center border border-[#333333] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -159,3 +110,5 @@ export function Portfolio() {
     </section>
   )
 }
+
+
