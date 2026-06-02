@@ -64,7 +64,7 @@ export const projects: Project[] = [
     valueAdded:
       "Création d'une présence web professionnelle pour renforcer la visibilité locale et centraliser les informations essentielles pour la clientèle de proximité.",
     type: "No-Code",
-    image: "/assets/labellebroche.jpg",
+    image: "/assets/Image belle broche (4).jpeg",
     images: [
       "/assets/Image belle broche (4).jpeg",
       "/assets/Image belle broche (2).jpeg",
