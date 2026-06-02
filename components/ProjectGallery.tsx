@@ -12,12 +12,12 @@ export function ProjectGallery({ images, name }: { images: string[]; name: strin
 
   return (
     <div className="space-y-3 mb-16">
-      <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#333333] bg-[#111]">
+      <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#333333] bg-[#1a1a1a]">
         <Image
           src={images[current]}
           alt={`${name} capture ${current + 1}`}
           fill
-          className="object-cover w-full h-full"
+          className="object-contain w-full h-full"
           unoptimized
         />
         {images.length > 1 && (
@@ -53,7 +53,7 @@ export function ProjectGallery({ images, name }: { images: string[]; name: strin
                   : "border-[#333333] opacity-40 hover:opacity-70"
               }`}
             >
-              <Image src={img} alt="" fill className="object-cover w-full h-full" unoptimized />
+              <Image src={img} alt="" fill className="object-contain w-full h-full" unoptimized />
             </button>
           ))}
         </div>

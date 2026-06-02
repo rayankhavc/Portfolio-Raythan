@@ -103,13 +103,13 @@ export function Portfolio() {
               className="group relative block h-full"
             >
               <div
-                className={`relative overflow-hidden border border-[#333333] rounded-2xl hover:border-[#86868b]/50 transition-all duration-500 bg-[#0d0d0d] h-full min-h-[420px]`}
+                className={`relative overflow-hidden border border-[#333333] rounded-2xl hover:border-[#86868b]/50 transition-all duration-500 bg-[#1a1a1a] h-full min-h-[420px]`}
               >
                 <Image
                   src={project.image}
                   alt={project.name}
                   fill
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                   unoptimized
                 />
@@ -179,7 +179,7 @@ export function Portfolio() {
                   src={project.image}
                   alt={project.name}
                   fill
-                  className={`object-cover w-full h-full transition-transform duration-700 group-hover:scale-105`}
+                  className={`object-contain w-full h-full transition-transform duration-700 group-hover:scale-105`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                   unoptimized
                 />
