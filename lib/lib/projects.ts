@@ -18,7 +18,7 @@ export const projects: Project[] = [
     name: "ZenHertz",
     tagline: "Web App de bien-être sonore basée sur les fréquences Hz",
     description:
-      "Application web permettant d'explorer les fréquences sonores thérapeutiques (432Hz, 528Hz…) associées à des états mentaux spécifiques. Conçue pour un public en quête d'optimisation cognitive et de bien-être, elle combine analyse audio, visualisations dynamiques et interface glassmorphism.",
+      "Web App interactive d'analyse et de bien-être sonore.",
     valueAdded:
       "Application déployée en production. Interface bilingue FR/EN, moteurs BPM & Hz intégrés, design system complet.",
     type: "Web App",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     name: "FundedCalc",
     tagline: "Calculateur de risk management optimisé pour les challenges Prop Firm.",
     description:
-      "Outil de calcul dédié aux traders passant des challenges en propfirm.",
+      "Calculateur de risque pour les Prop Firms.",
     valueAdded:
       "Application déployée sur Vercel. Interface claire, calculs en temps réel, adoptée par des traders en phase de challenge.",
     type: "Web App",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     name: "La Belle Broche",
     tagline: "Site vitrine pour un traiteur haut de gamme",
     description:
-      "Conception et développement d'un site vitrine no-code pour un kebab local. Intégration d'une galerie visuelle attrayante et présentation claire des informations pratiques.",
+      "Site vitrine pour un restaurant kebab local.",
     valueAdded:
       "Création d'une présence web professionnelle pour renforcer la visibilité locale et centraliser les informations essentielles pour la clientèle de proximité.",
     type: "No-Code",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     name: "Au Fournil du Sillon",
     tagline: "Boulangerie artisanale, identité web locale",
     description:
-      "Création d'un site vitrine pour une boulangerie artisanale. Architecture simple et rapide, orientée SEO local avec intégration de Google Maps et affichage dynamique des horaires.",
+      "Site vitrine pour une boulangerie artisanale.",
     valueAdded:
       "Mise en place d'une structure optimisée pour le référencement local, conçue pour capter les recherches de proximité et garantir une navigation fluide sur mobile pour les clients de passage.",
     type: "No-Code",
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     name: "Avesta Kebap",
     tagline: "Restaurant, commande en ligne et menu digital",
     description:
-      "Site vitrine et menu digital pour un restaurant kebab. Présentation structurée des formules et intégration d'un design mobile-first spécifiquement pensé pour la consultation sur smartphone.",
+      "Site vitrine présentant l'établissement et son menu.",
     valueAdded:
       "Modernisation de l'image de l'établissement et accessibilité immédiate du menu en ligne, facilitant le choix des clients avant leur passage physique ou leur commande.",
     type: "No-Code",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     name: "Les Jardins du Coran",
     tagline: "École coranique, plateforme d'apprentissage en ligne",
     description:
-      "Site vitrine informatif pour une structure d'enseignement. Architecture claire et contenu hiérarchisé pour présenter efficacement les différents services, niveaux et méthodes d'apprentissage.",
+      "Site vitrine de présentation pour un institut coranique.",
     valueAdded:
       "Digitalisation de la présentation de l'établissement, offrant une image institutionnelle sérieuse et un point d'accès centralisé pour découvrir les cursus proposés.",
     type: "No-Code",
