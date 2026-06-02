@@ -18,7 +18,7 @@ export const projects: Project[] = [
     name: "ZenHertz",
     tagline: "Web App interactive d'analyse et de bien-être sonore.",
     description:
-      "Web App interactive d'analyse et de bien-être sonore.",
+      "Outil d'analyse musicale basé sur l'IA. Le site traite les fréquences et le BPM des morceaux pour corréler les effets sur le bien-être et optimiser les activités quotidiennes (sommeil, sport, travail).",
     valueAdded:
       "Application déployée en production. Interface bilingue FR/EN, moteurs BPM & Hz intégrés, design system complet.",
     type: "Web App",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     name: "FundedCalc",
     tagline: "Calculateur de risque pour les Prop Firms.",
     description:
-      "Calculateur de risque pour les Prop Firms.",
+      "Outil de calcul stratégique pour les traders passant des challenges Prop Firm. L'outil analyse les paramètres utilisateur pour fournir des projections mathématiques précises de gestion du risque.",
     valueAdded:
       "Application déployée sur Vercel. Interface claire, calculs en temps réel, adoptée par des traders en phase de challenge.",
     type: "Web App",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     name: "La Belle Broche",
     tagline: "Site vitrine pour un restaurant kebab local.",
     description:
-      "Site vitrine pour un restaurant kebab local.",
+      "Site vitrine optimisé pour le référencement local. Mise en place de fonctionnalités pour la gestion des avis Google et intégration d'un système de commande par téléphone pour accroître les ventes.",
     valueAdded:
       "Création d'une présence web professionnelle pour renforcer la visibilité locale et centraliser les informations essentielles pour la clientèle de proximité.",
     type: "No-Code",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     name: "Au Fournil du Sillon",
     tagline: "Site vitrine pour une boulangerie artisanale.",
     description:
-      "Site vitrine pour une boulangerie artisanale.",
+      "Site vitrine multipages, moderne et fluide, permettant à la boulangerie d'étendre sa visibilité au-delà de la clientèle de proximité.",
     valueAdded:
       "Mise en place d'une structure optimisée pour le référencement local, conçue pour capter les recherches de proximité et garantir une navigation fluide sur mobile pour les clients de passage.",
     type: "No-Code",
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     name: "Avesta Kebap",
     tagline: "Site vitrine présentant l'établissement et son menu.",
     description:
-      "Site vitrine présentant l'établissement et son menu.",
+      "Site vitrine conçu pour exposer les produits de l'établissement et établir une présence en ligne claire et accessible.",
     valueAdded:
       "Modernisation de l'image de l'établissement et accessibilité immédiate du menu en ligne, facilitant le choix des clients avant leur passage physique ou leur commande.",
     type: "No-Code",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     name: "La Baraka",
     tagline: "Restaurant, présence web et carte en ligne",
     description:
-      "Conception d'un site vitrine pour un restaurant local avec une mise en avant stratégique de la carte, des horaires et de la localisation. Application d'un design chaleureux reflétant l'identité de l'établissement.",
+      "Site vitrine visant à moderniser l'image de l'établissement. Design personnalisé respectant l'identité visuelle du lieu (typographie et charte couleur) pour accroître la visibilité locale.",
     valueAdded:
       "Création d'une vitrine digitale accessible, permettant aux clients de consulter l'offre de restauration facilement depuis n'importe quel appareil et d'ancrer la présence en ligne du restaurant.",
     type: "No-Code",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     name: "Les Jardins du Coran",
     tagline: "Site vitrine de présentation pour un institut coranique.",
     description:
-      "Site vitrine de présentation pour un institut coranique.",
+      "Site vitrine pour une école de langue arabe et de culture coranique. L'objectif est d'asseoir une présence numérique pour diversifier les canaux d'acquisition d'étudiants au-delà du bouche-à-oreille.",
     valueAdded:
       "Digitalisation de la présentation de l'établissement, offrant une image institutionnelle sérieuse et un point d'accès centralisé pour découvrir les cursus proposés.",
     type: "No-Code",
