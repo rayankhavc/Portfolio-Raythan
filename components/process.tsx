@@ -1,59 +1,54 @@
-const steps = [
+import { FadeIn } from "./fade-in"
+
+const STEPS = [
   {
-    number: "01",
-    title: "Stratégie & Wireframe",
-    description: "Conception de la structure et du message.",
+    n: "01",
+    title: "Stratégie & Brief",
+    desc: "On commence par comprendre votre business, vos clients et vos objectifs. Structure, message, architecture de l'information — tout est posé avant qu'une ligne de code soit écrite.",
   },
   {
-    number: "02",
-    title: "Design Premium",
-    description: "Création de l'identité visuelle moderne et épurée.",
+    n: "02",
+    title: "Design & Prototype",
+    desc: "Identité visuelle, maquettes interactives, charte graphique. Vous validez chaque écran avant le développement. Aucune surprise à la livraison.",
   },
   {
-    number: "03",
+    n: "03",
     title: "Développement & Mise en ligne",
-    description: "Intégration technique et déploiement optimisé.",
+    desc: "Code propre, performances optimales, déploiement Vercel. On livre, on teste, on accompagne. Core Web Vitals dans le vert dès le premier jour.",
   },
 ]
 
 export function Process() {
   return (
-    <section id="process" className="py-24 md:py-32 px-6 lg:px-8 bg-[#0a0a0a]">
+    <section
+      id="process"
+      className="py-24 md:py-32 px-6 lg:px-8 bg-black border-t border-[#1a1a1a]"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Notre Process
-          </h2>
-          <p className="mt-4 text-[#86868b] font-light text-lg">
-            Une méthodologie éprouvée en trois étapes.
+        <FadeIn className="mb-16">
+          <p className="text-xs font-medium text-[#86868b] uppercase tracking-widest mb-4">
+            Process
           </p>
-        </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight max-w-lg">
+            Trois étapes, zéro flou.
+          </h2>
+        </FadeIn>
 
-        {/* Process Steps */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-12">
-          {steps.map((step, index) => (
-            <div key={step.number} className="relative">
-              {/* Connector Line (hidden on mobile, shown on md+) */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-[#333333] to-transparent z-0" />
-              )}
-              
-              <div className="relative z-10">
-                {/* Step Number */}
-                <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-[#1a1a1a] mb-4">
-                  {step.number}
-                </div>
-                
-                {/* Step Content */}
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
+        <div className="grid md:grid-cols-3 gap-px bg-[#1a1a1a] rounded-2xl overflow-hidden">
+          {STEPS.map((step, i) => (
+            <FadeIn key={step.n} delay={i * 0.1}>
+              <div className="bg-black p-8 md:p-10 h-full">
+                <p className="text-5xl font-bold text-[#1a1a1a] mb-8 font-mono">
+                  {step.n}
+                </p>
+                <h3 className="text-lg font-semibold text-white mb-4">
                   {step.title}
                 </h3>
-                <p className="text-[#86868b] font-light leading-relaxed">
-                  {step.description}
+                <p className="text-[#555] font-light text-sm leading-relaxed">
+                  {step.desc}
                 </p>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </div>
