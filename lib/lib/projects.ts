@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     slug: "zenhertz",
     name: "ZenHertz",
-    tagline: "Web App de bien-être sonore basée sur les fréquences Hz",
+    tagline: "Web App interactive d'analyse et de bien-être sonore.",
     description:
       "Web App interactive d'analyse et de bien-être sonore.",
     valueAdded:
@@ -37,7 +37,7 @@ export const projects: Project[] = [
   {
     slug: "fundedcalc",
     name: "FundedCalc",
-    tagline: "Calculateur de risk management optimisé pour les challenges Prop Firm.",
+    tagline: "Calculateur de risque pour les Prop Firms.",
     description:
       "Calculateur de risque pour les Prop Firms.",
     valueAdded:
@@ -58,7 +58,7 @@ export const projects: Project[] = [
   {
     slug: "la-belle-broche",
     name: "La Belle Broche",
-    tagline: "Site vitrine pour un traiteur haut de gamme",
+    tagline: "Site vitrine pour un restaurant kebab local.",
     description:
       "Site vitrine pour un restaurant kebab local.",
     valueAdded:
@@ -76,7 +76,7 @@ export const projects: Project[] = [
   {
     slug: "fournil-du-sillon",
     name: "Au Fournil du Sillon",
-    tagline: "Boulangerie artisanale, identité web locale",
+    tagline: "Site vitrine pour une boulangerie artisanale.",
     description:
       "Site vitrine pour une boulangerie artisanale.",
     valueAdded:
@@ -94,7 +94,7 @@ export const projects: Project[] = [
   {
     slug: "avesta-kebap",
     name: "Avesta Kebap",
-    tagline: "Restaurant, commande en ligne et menu digital",
+    tagline: "Site vitrine présentant l'établissement et son menu.",
     description:
       "Site vitrine présentant l'établissement et son menu.",
     valueAdded:
@@ -130,7 +130,7 @@ export const projects: Project[] = [
   {
     slug: "jardins-du-coran",
     name: "Les Jardins du Coran",
-    tagline: "École coranique, plateforme d'apprentissage en ligne",
+    tagline: "Site vitrine de présentation pour un institut coranique.",
     description:
       "Site vitrine de présentation pour un institut coranique.",
     valueAdded:
