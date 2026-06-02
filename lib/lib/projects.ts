@@ -37,7 +37,7 @@ export const projects: Project[] = [
   {
     slug: "fundedcalc",
     name: "FundedCalc",
-    tagline: "Calculateur de prop trading pour traders financés",
+    tagline: "Calculateur de risk management optimisé pour les challenges Prop Firm.",
     description:
       "Outil de calcul dédié aux traders passant des challenges en propfirm.",
     valueAdded:

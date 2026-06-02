@@ -44,7 +44,7 @@ export default async function ProjectPage({
                 : "bg-transparent text-[#86868b] border border-[#333333]"
             }`}
           >
-            {project.type === "Web App" ? "Application" : "Étude de cas"}
+            {project.type === "Web App" ? "Web App" : "Étude de cas"}
           </span>
           {project.badge && (
             <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full">
