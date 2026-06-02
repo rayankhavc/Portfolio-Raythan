@@ -1,11 +1,12 @@
 import { projects } from "@/lib/lib/projects"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
-import Image from "next/image"
+import { ProjectGallery } from "@/components/ProjectGallery"
 
 export async function generateStaticParams() {
-  return projects.map((p: (typeof projects)[number]) => ({ slug: p.slug }))
+  return projects.map((p) => ({ slug: p.slug }))
 }
 
 export default async function ProjectPage({
@@ -14,9 +15,14 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const project = projects.find((p: typeof projects[0]) => p.slug === slug)
+  const project = projects.find((p) => p.slug === slug)
 
   if (!project) notFound()
+
+  const allImages =
+    project.images && project.images.length > 0
+      ? project.images
+      : [project.image]
 
   return (
     <main className="min-h-screen bg-black px-6 lg:px-8 py-32">
@@ -50,23 +56,24 @@ export default async function ProjectPage({
         <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">
           {project.name}
         </h1>
-
         <p className="text-xl text-[#86868b] font-light mb-12">
           {project.tagline}
         </p>
 
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#333333] mb-16">
           <Image
-            src={project.image}
+            src={project.image as string}
             alt={project.name}
             fill
-            className="object-cover"
+            className="object-cover w-full h-full absolute top-0 left-0"
           />
         </div>
 
+        <ProjectGallery images={allImages} name={project.name} />
+
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="md:col-span-2">
-            <h2 className="text-sm font-medium text-[#86868b] uppercase tracking-widest mb-4">
+            <h2 className="text-xs font-medium text-[#86868b] uppercase tracking-widest mb-4">
               Le projet
             </h2>
             <p className="text-white font-light leading-relaxed text-lg">
@@ -74,7 +81,7 @@ export default async function ProjectPage({
             </p>
           </div>
           <div>
-            <h2 className="text-sm font-medium text-[#86868b] uppercase tracking-widest mb-4">
+            <h2 className="text-xs font-medium text-[#86868b] uppercase tracking-widest mb-4">
               Résultat
             </h2>
             <p className="text-white font-light leading-relaxed">
@@ -84,7 +91,7 @@ export default async function ProjectPage({
         </div>
 
         {project.link && (
-          <a
+          <Link
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -92,7 +99,7 @@ export default async function ProjectPage({
           >
             Voir le projet en ligne
             <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
         )}
 
       </div>

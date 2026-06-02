@@ -3,11 +3,21 @@
 import { useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
-import { projects } from "@/lib/lib/projects"
-
-import type { Project } from "@/lib/lib/projects"
+import Image from "next/image"
 
 type Filter = "Tous" | "App" | "No-Code"
+
+type Project = {
+  slug: string
+  image: string
+  name: string
+  tagline: string
+  type: "App" | "No-Code"
+  badge?: string
+  featured?: boolean
+}
+
+const projects: Project[] = []
 
 export function Portfolio() {
   const [filter, setFilter] = useState<Filter>("Tous")
@@ -29,7 +39,7 @@ export function Portfolio() {
         </div>
 
         <div className="flex items-center justify-center gap-3 mb-12">
-          {(['Tous', 'App', 'No-Code'] as Filter[]).map((f) => (
+          {(["Tous", "App", "No-Code"] as Filter[]).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -46,9 +56,10 @@ export function Portfolio() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtered.map((project) => (
-            <div
+            <Link
               key={project.slug}
-              className={`group relative ${
+              href={`/projets/${project.slug}`}
+              className={`group relative block ${
                 project.featured && filter === "Tous" ? "md:col-span-2" : ""
               }`}
             >
@@ -59,23 +70,23 @@ export function Portfolio() {
                     : "aspect-[4/3]"
                 }`}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]">
-                  <div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                      backgroundImage: `radial-gradient(circle at 1px 1px, #333333 1px, transparent 0)`,
-                      backgroundSize: "40px 40px",
-                    }}
-                  />
-                </div>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  unoptimized
+                />
 
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-full ${
                         project.type === "App"
                           ? "bg-white text-black"
-                          : "bg-transparent text-[#86868b] border border-[#333333]"
+                          : "bg-white/10 text-white border border-white/20"
                       }`}
                     >
                       {project.type}
@@ -89,26 +100,19 @@ export function Portfolio() {
                   <h3 className="text-2xl md:text-3xl font-semibold text-white mb-1">
                     {project.name}
                   </h3>
-                  <p className="text-[#86868b] font-light mb-4">{project.tagline}</p>
-                  <Link
-                    href={`/projets/${project.slug}`}
-                    className="inline-flex items-center gap-2 text-sm text-[#86868b] hover:text-white transition-colors duration-300 w-fit"
-                  >
-                    Voir l'étude de cas
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
+                  <p className="text-[#86868b] font-light text-sm">
+                    {project.tagline}
+                  </p>
                 </div>
 
-                <div className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center border border-[#333333] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowUpRight className="w-5 h-5 text-white" />
+                <div className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                  <ArrowUpRight className="w-4 h-4 text-white" />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
     </section>
   )
 }
-
-

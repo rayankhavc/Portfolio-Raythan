@@ -1,47 +1,57 @@
-const stackMain = ["Next.js", "React", "Astro", "TypeScript", "Tailwind CSS", "Vercel", "GitHub", "Squarespace"]
-const stackAI = ["Workflow IA-augmenté", "Claude", "v0"]
-
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 px-6 lg:px-8 bg-[#0a0a0a]">
+    <section id="about" className="py-24 md:py-32 px-6 lg:px-8 bg-black border-t border-[#1a1a1a]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-          {/* Left: Text */}
+        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-              Qui sommes-nous ?
-            </h2>
-            <p className="text-lg md:text-xl text-[#86868b] font-light leading-relaxed text-pretty">
-              Raythan Web Design, c&apos;est Rayan Khalifa et Ethan Guery, une agence indépendante basée à Nantes. On travaille avec des commerces locaux qui ont besoin d&apos;un site rapide, et des entrepreneurs qui ont besoin d&apos;une application sur-mesure.
+            <p className="text-xs font-medium text-[#86868b] uppercase tracking-widest mb-6">
+              À propos
             </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+              Une agence indépendante,<br />
+              <span className="text-[#86868b]">basée à Nantes.</span>
+            </h2>
           </div>
 
-          {/* Right: Tags */}
-          <div className="flex flex-col gap-4">
-            {/* Main Stack */}
-            <div className="flex flex-wrap gap-3 md:justify-end">
-              {stackMain.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-5 py-2.5 text-sm font-medium text-white border border-[#333333] rounded-full hover:border-[#86868b] transition-colors duration-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            {/* AI Stack (smaller, gray) */}
-            <div className="flex flex-wrap gap-2 md:justify-end">
-              {stackAI.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 text-xs font-medium text-[#86868b] border border-[#333333]/50 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
+          <div className="space-y-6 pt-2 md:pt-16">
+            <p className="text-[#86868b] font-light leading-relaxed text-lg">
+              Raythan Web Design conçoit des sites vitrine et des applications web pour les commerces locaux et les projets digitaux ambitieux.
+            </p>
+            <p className="text-[#86868b] font-light leading-relaxed">
+              Notre approche : livrer vite, livrer propre. No-code pour les besoins immédiats, développement sur-mesure quand le projet l&apos;exige.
+            </p>
+
+            <div className="pt-4 border-t border-[#1a1a1a]">
+              <p className="text-xs font-medium text-[#86868b] uppercase tracking-widest mb-4">
+                Stack
+              </p>
+              <p className="text-white font-light text-sm leading-relaxed">
+                Next.js · React · Astro · TypeScript · Tailwind CSS · Vercel · GitHub · Squarespace
+              </p>
+              <p className="mt-3 text-[#555] text-xs font-light">
+                Workflow IA-augmenté · Claude · v0
+              </p>
             </div>
           </div>
+
         </div>
+
+        <div className="grid grid-cols-3 gap-px mt-20 border border-[#1a1a1a] rounded-2xl overflow-hidden">
+          {[
+            { value: "7", label: "Projets livrés" },
+            { value: "2", label: "Apps en production" },
+            { value: "100%", label: "Remote France" },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-[#0a0a0a] px-6 py-8 text-center">
+              <p className="text-3xl md:text-4xl font-bold text-white mb-2">
+                {stat.value}
+              </p>
+              <p className="text-sm text-[#86868b] font-light">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   )
