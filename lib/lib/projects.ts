@@ -118,10 +118,10 @@ export const projects: Project[] = [
     valueAdded:
       "Création d'une vitrine digitale accessible, permettant aux clients de consulter l'offre de restauration facilement depuis n'importe quel appareil et d'ancrer la présence en ligne du restaurant.",
     type: "No-Code",
-    image: "/assets/labaraka.jpg",
+    image: "/assets/Image La Baraka 1.jpeg",
     images: [
-      "/assets/labaraka.jpg",
       "/assets/Image La Baraka 1.jpeg",
+      "/assets/labaraka.jpg",
       "/assets/Image La Baraka (2).jpeg",
       "/assets/Image La Baraka (3).jpeg",
       "/assets/Image La Baraka (4).jpeg",
