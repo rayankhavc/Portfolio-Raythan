@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { Dialog, DialogTrigger, DialogContent, DialogClose } from "@/components/ui/dialog"
+import { ProjectGallery } from "@/components/ProjectGallery"
 import { projects } from "@/lib/lib/projects"
 
 type Filter = "Tous" | "Web App" | "No-Code"
@@ -15,6 +17,10 @@ export function Portfolio() {
   const filtered = projects.filter((p) =>
     filter === "Tous" ? true : p.type === filter
   )
+
+  const topSlugs = ["zenhertz", "fundedcalc"]
+  const topApps = filtered.filter((p) => topSlugs.includes(p.slug))
+  const restProjects = filtered.filter((p) => !topSlugs.includes(p.slug))
 
   // Reset scroll position when filter changes
   useEffect(() => {
@@ -88,18 +94,13 @@ export function Portfolio() {
           </div>
         </div>
 
-        {/* Projects scroll list / grid */}
-        <div 
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto md:grid md:grid-cols-2 gap-6 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-none -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible"
-        >
-          {filtered.map((project) => (
+        {/* Top apps on desktop (ZenHertz + FundedCalc) */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6 mb-6">
+          {topApps.map((project) => (
             <Link
               key={project.slug}
               href={`/projets/${project.slug}`}
-              className={`group relative block flex-shrink-0 w-[82vw] sm:w-[450px] md:w-auto snap-center ${
-                project.featured && filter === "Tous" ? "md:col-span-2" : ""
-              }`}
+              className={`group relative block md:col-span-1 snap-center`}
             >
               <div
                 className={`relative overflow-hidden border border-[#333333] rounded-2xl hover:border-[#86868b]/50 transition-all duration-500 bg-[#0d0d0d] ${
@@ -108,12 +109,11 @@ export function Portfolio() {
                     : "aspect-[4/3]"
                 }`}
               >
-                {/* Image on Front */}
                 <Image
                   src={project.image}
                   alt={project.name}
                   fill
-                  className={`${project.slug === "zenhertz" || project.slug === "fundedcalc" ? "object-contain" : "object-cover"} transition-transform duration-700 group-hover:scale-105`}
+                  className={`object-cover w-full h-full transition-transform duration-700 group-hover:scale-105`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                   unoptimized
                 />
@@ -132,6 +132,87 @@ export function Portfolio() {
                         }`}
                       >
                         {project.type === "Web App" ? "Application" : "No-Code"}
+                    </span>
+                    {project.badge && (
+                      <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
+                        {project.badge}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-semibold text-white mb-1.5">
+                    {project.name}
+                  </h3>
+                  <p className="text-[#86868b] font-light text-sm line-clamp-2 md:line-clamp-none max-w-xl">
+                    {project.tagline}
+                  </p>
+                </div>
+
+                {/* Top-right arrow button */}
+                <div className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                  <ArrowUpRight className="w-4 h-4 text-white" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Projects scroll list / grid (mobile shows all; desktop hides topApps here) */}
+        <div
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto md:grid md:grid-cols-2 gap-6 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-none -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible"
+        >
+          {filtered.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/projets/${project.slug}`}
+              className={`group relative block flex-shrink-0 w-[82vw] sm:w-[450px] md:w-auto snap-center ${
+                project.featured && filter === "Tous" ? "md:col-span-2" : ""
+              } ${topSlugs.includes(project.slug) ? "md:hidden" : ""}`}
+            >
+              <div
+                className={`relative overflow-hidden border border-[#333333] rounded-2xl hover:border-[#86868b]/50 transition-all duration-500 bg-[#0d0d0d] ${
+                  project.featured && filter === "Tous"
+                    ? "aspect-[4/3] md:aspect-[16/9]"
+                    : "aspect-[4/3]"
+                }`}
+              >
+                {/* Image on Front */}
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className={`object-cover w-full h-full transition-transform duration-700 group-hover:scale-105`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+                  unoptimized
+                />
+
+                {/* Modal trigger: open gallery without removing navigation link */}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button aria-label={`Ouvrir la galerie de ${project.name}`} className="absolute inset-0 z-10 md:z-0" />
+                  </DialogTrigger>
+                  <DialogContent className="max-w-6xl w-full">
+                    <div className="p-0">
+                      <ProjectGallery images={project.images && project.images.length ? project.images : [project.image]} name={project.name} />
+                    </div>
+                    <DialogClose className="sr-only">Close</DialogClose>
+                  </DialogContent>
+                </Dialog>
+
+                {/* Dark gradient overlay for typography readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span
+                      className={`px-3 py-1 text-xs font-medium rounded-full ${
+                        project.type === "Web App"
+                          ? "bg-white text-black"
+                          : "bg-white/10 text-white border border-white/20"
+                      }`}
+                    >
+                      {project.type === "Web App" ? "Application" : "No-Code"}
                     </span>
                     {project.badge && (
                       <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
