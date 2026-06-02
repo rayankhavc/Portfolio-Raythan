@@ -24,13 +24,9 @@ export const projects: Project[] = [
     type: "Web App",
     badge: "Live",
     featured: true,
-    image: "/assets/image zenhertz (1).jpeg",
+    image: "/assets/zenhertz logo.jpeg",
     images: [
-      "/assets/image zenhertz (1).jpeg",
-      "/assets/image zenhertz (2).jpeg",
-      "/assets/image zenhertz (4).jpeg",
-      "/assets/image zenhertz 1.jpeg",
-      "/assets/image zenhertz 2 (1).jpeg",
+      "/assets/zenhertz logo.jpeg",
     ],
     link: "https://rayankhavc.github.io/zenhertz/",
   },
@@ -45,14 +41,9 @@ export const projects: Project[] = [
     type: "Web App",
     badge: "Live",
     featured: false,
-    image: "/assets/image funded calc.jpeg",
+    image: "/assets/fundedcalc logo.jpeg",
     images: [
-      "/assets/image funded calc.jpeg",
-      "/assets/Image funded Calc (2).jpeg",
-      "/assets/Image funded Calc (3).jpeg",
-      "/assets/Image funded Calc (4).jpeg",
-      "/assets/Image funded Calc (5).jpeg",
-      "/assets/Image funded Calc 1.jpeg",
+      "/assets/fundedcalc logo.jpeg",
     ],
     link: "https://fundedcalc.vercel.app/",
   },
@@ -65,13 +56,9 @@ export const projects: Project[] = [
     valueAdded:
       "Création d'une présence web professionnelle pour renforcer la visibilité locale et centraliser les informations essentielles pour la clientèle de proximité.",
     type: "No-Code",
-    image: "/assets/Image belle broche (1).jpeg",
+    image: "/assets/labellebroche.jpg",
     images: [
-      "/assets/Image belle broche (1).jpeg",
-      "/assets/Image belle broche (2).jpeg",
-      "/assets/Image belle broche (3).jpeg",
-      "/assets/Image belle broche (4).jpeg",
-      "/assets/Image belle broche (5).jpeg",
+      "/assets/labellebroche.jpg",
     ],
   },
   {
@@ -83,18 +70,9 @@ export const projects: Project[] = [
     valueAdded:
       "Mise en place d'une structure optimisée pour le référencement local, conçue pour capter les recherches de proximité et garantir une navigation fluide sur mobile pour les clients de passage.",
     type: "No-Code",
-    image: "/assets/Image fournil du sillon (1).jpeg",
+    image: "/assets/fournildusillon.png",
     images: [
-      "/assets/Image fournil du sillon (1).jpeg",
-      "/assets/Image fournil du sillon (2).jpeg",
-      "/assets/Image fournil du sillon (3).jpeg",
-      "/assets/image fournil du sillon (4).jpeg",
-      "/assets/Image fournil du sillon (5).jpeg",
-      "/assets/Image fournil du sillon (6).jpeg",
-      "/assets/Image fournil du sillon (7).jpeg",
-      "/assets/Image fournil du sillon (8).jpeg",
-      "/assets/image fournil du sillon (9).jpeg",
-      "/assets/Image fournil du sillon 1.jpeg",
+      "/assets/fournildusillon.png",
     ],
   },
   {
@@ -106,13 +84,9 @@ export const projects: Project[] = [
     valueAdded:
       "Modernisation de l'image de l'établissement et accessibilité immédiate du menu en ligne, facilitant le choix des clients avant leur passage physique ou leur commande.",
     type: "No-Code",
-    image: "/assets/Avesta Kebap (1).jpeg",
+    image: "/assets/avestakebap.png",
     images: [
-      "/assets/Avesta Kebap (1).jpeg",
-      "/assets/Avesta Kebap (2).jpeg",
-      "/assets/Avesta Kebap (3).jpeg",
-      "/assets/Avesta Kebap (4).jpeg",
-      "/assets/Avesta Kebap (5).jpeg",
+      "/assets/avestakebap.png",
     ],
   },
   {
@@ -124,13 +98,9 @@ export const projects: Project[] = [
     valueAdded:
       "Création d'une vitrine digitale accessible, permettant aux clients de consulter l'offre de restauration facilement depuis n'importe quel appareil et d'ancrer la présence en ligne du restaurant.",
     type: "No-Code",
-    image: "/assets/Image La Baraka (1).jpeg",
+    image: "/assets/labaraka.jpg",
     images: [
-      "/assets/Image La Baraka (1).jpeg",
-      "/assets/Image La Baraka (2).jpeg",
-      "/assets/Image La Baraka (3).jpeg",
-      "/assets/Image La Baraka (4).jpeg",
-      "/assets/Image La Baraka 1.jpeg",
+      "/assets/labaraka.jpg",
     ],
   },
   {
@@ -142,14 +112,9 @@ export const projects: Project[] = [
     valueAdded:
       "Digitalisation de la présentation de l'établissement, offrant une image institutionnelle sérieuse et un point d'accès centralisé pour découvrir les cursus proposés.",
     type: "No-Code",
-    image: "/assets/image jardin du coran  (1).jpeg",
+    image: "/assets/jardinsducoran.png",
     images: [
-      "/assets/image jardin du coran  (1).jpeg",
-      "/assets/image jardin du coran  (2).jpeg",
-      "/assets/image jardin du coran  (3).jpeg",
-      "/assets/image jardin du coran  (4).jpeg",
-      "/assets/image jardin du coran  (5).jpeg",
-      "/assets/image jardin du coran  (6).jpeg",
+      "/assets/jardinsducoran.png",
     ],
   },
 ]

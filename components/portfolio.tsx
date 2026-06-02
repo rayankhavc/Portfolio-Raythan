@@ -113,7 +113,7 @@ export function Portfolio() {
                   src={project.image}
                   alt={project.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`${project.slug === "zenhertz" || project.slug === "fundedcalc" ? "object-contain" : "object-cover"} transition-transform duration-700 group-hover:scale-105`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                   unoptimized
                 />
