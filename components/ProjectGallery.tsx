@@ -15,9 +15,9 @@ export function ProjectGallery({ images, name }: { images: string[]; name: strin
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#333333] bg-[#111]">
         <Image
           src={images[current]}
-          alt={`${name} — capture ${current + 1}`}
+          alt={`${name} capture ${current + 1}`}
           fill
-          className="object-cover"
+          className="object-cover w-full h-full"
           unoptimized
         />
         {images.length > 1 && (
@@ -53,7 +53,7 @@ export function ProjectGallery({ images, name }: { images: string[]; name: strin
                   : "border-[#333333] opacity-40 hover:opacity-70"
               }`}
             >
-              <Image src={img} alt="" fill className="object-cover" unoptimized />
+              <Image src={img} alt="" fill className="object-cover w-full h-full" unoptimized />
             </button>
           ))}
         </div>

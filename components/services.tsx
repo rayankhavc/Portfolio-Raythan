@@ -14,7 +14,7 @@ const services = [
   {
     icon: Repeat,
     title: "Refonte & Optimisation",
-    description: "Votre site existe déjà mais il performe mal ? On le repense de zéro — design, vitesse, conversion.",
+    description: "Votre site existe déjà mais il performe mal ? On le repense de zéro, design, vitesse, conversion.",
   },
 ]
 

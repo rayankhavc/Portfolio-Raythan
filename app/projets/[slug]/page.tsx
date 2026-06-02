@@ -65,7 +65,7 @@ export default async function ProjectPage({
             src={project.image as string}
             alt={project.name}
             fill
-            className={`${project.slug === "zenhertz" || project.slug === "fundedcalc" ? "object-contain" : "object-cover"} w-full h-full absolute top-0 left-0`}
+            className="object-cover w-full h-full absolute top-0 left-0"
           />
         </div>
 

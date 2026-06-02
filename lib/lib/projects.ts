@@ -27,6 +27,10 @@ export const projects: Project[] = [
     image: "/assets/zenhertz logo.jpeg",
     images: [
       "/assets/zenhertz logo.jpeg",
+      "/assets/image zenhertz (1).jpeg",
+      "/assets/image zenhertz (2).jpeg",
+      "/assets/image zenhertz 1.jpeg",
+      "/assets/image zenhertz 2 (1).jpeg",
     ],
     link: "https://rayankhavc.github.io/zenhertz/",
   },
@@ -44,6 +48,10 @@ export const projects: Project[] = [
     image: "/assets/fundedcalc logo.jpeg",
     images: [
       "/assets/fundedcalc logo.jpeg",
+      "/assets/image funded calc.jpeg",
+      "/assets/Image funded Calc (2).jpeg",
+      "/assets/Image funded Calc (3).jpeg",
+      "/assets/Image funded Calc 1.jpeg",
     ],
     link: "https://fundedcalc.vercel.app/",
   },
@@ -59,12 +67,16 @@ export const projects: Project[] = [
     image: "/assets/labellebroche.jpg",
     images: [
       "/assets/labellebroche.jpg",
+      "/assets/Image belle broche (2).jpeg",
+      "/assets/Image belle broche (3).jpeg",
+      "/assets/Image belle broche (4).jpeg",
+      "/assets/Image belle broche (5).jpeg",
     ],
   },
   {
     slug: "fournil-du-sillon",
     name: "Au Fournil du Sillon",
-    tagline: "Boulangerie artisanale — identité web locale",
+    tagline: "Boulangerie artisanale, identité web locale",
     description:
       "Création d'un site vitrine pour une boulangerie artisanale. Architecture simple et rapide, orientée SEO local avec intégration de Google Maps et affichage dynamique des horaires.",
     valueAdded:
@@ -73,12 +85,16 @@ export const projects: Project[] = [
     image: "/assets/fournildusillon.png",
     images: [
       "/assets/fournildusillon.png",
+      "/assets/Image fournil du sillon (1).jpeg",
+      "/assets/Image fournil du sillon (2).jpeg",
+      "/assets/image fournil du sillon (4).jpeg",
+      "/assets/image fournil du sillon (9).jpeg",
     ],
   },
   {
     slug: "avesta-kebap",
     name: "Avesta Kebap",
-    tagline: "Restaurant — commande en ligne et menu digital",
+    tagline: "Restaurant, commande en ligne et menu digital",
     description:
       "Site vitrine et menu digital pour un restaurant kebab. Présentation structurée des formules et intégration d'un design mobile-first spécifiquement pensé pour la consultation sur smartphone.",
     valueAdded:
@@ -87,12 +103,16 @@ export const projects: Project[] = [
     image: "/assets/avestakebap.png",
     images: [
       "/assets/avestakebap.png",
+      "/assets/Avesta Kebap (1).jpeg",
+      "/assets/Avesta Kebap (2).jpeg",
+      "/assets/Avesta Kebap (3).jpeg",
+      "/assets/Avesta Kebap (4).jpeg",
     ],
   },
   {
     slug: "la-baraka",
     name: "La Baraka",
-    tagline: "Restaurant — présence web et carte en ligne",
+    tagline: "Restaurant, présence web et carte en ligne",
     description:
       "Conception d'un site vitrine pour un restaurant local avec une mise en avant stratégique de la carte, des horaires et de la localisation. Application d'un design chaleureux reflétant l'identité de l'établissement.",
     valueAdded:
@@ -101,12 +121,16 @@ export const projects: Project[] = [
     image: "/assets/labaraka.jpg",
     images: [
       "/assets/labaraka.jpg",
+      "/assets/Image La Baraka 1.jpeg",
+      "/assets/Image La Baraka (2).jpeg",
+      "/assets/Image La Baraka (3).jpeg",
+      "/assets/Image La Baraka (4).jpeg",
     ],
   },
   {
     slug: "jardins-du-coran",
     name: "Les Jardins du Coran",
-    tagline: "École coranique — plateforme d'apprentissage en ligne",
+    tagline: "École coranique, plateforme d'apprentissage en ligne",
     description:
       "Site vitrine informatif pour une structure d'enseignement. Architecture claire et contenu hiérarchisé pour présenter efficacement les différents services, niveaux et méthodes d'apprentissage.",
     valueAdded:
@@ -115,6 +139,10 @@ export const projects: Project[] = [
     image: "/assets/jardinsducoran.png",
     images: [
       "/assets/jardinsducoran.png",
+      "/assets/image jardin du coran  (1).jpeg",
+      "/assets/image jardin du coran  (2).jpeg",
+      "/assets/image jardin du coran  (3).jpeg",
+      "/assets/image jardin du coran  (4).jpeg",
     ],
   },
 ]

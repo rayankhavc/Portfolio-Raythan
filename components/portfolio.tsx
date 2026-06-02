@@ -95,25 +95,21 @@ export function Portfolio() {
         </div>
 
         {/* Top apps on desktop (ZenHertz + FundedCalc) */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6 mb-6">
+        <div className="hidden md:grid md:grid-cols-2 gap-6 mb-6 auto-rows-fr">
           {topApps.map((project) => (
             <Link
               key={project.slug}
               href={`/projets/${project.slug}`}
-              className={`group relative block md:col-span-1 snap-center`}
+              className="group relative block h-full"
             >
               <div
-                className={`relative overflow-hidden border border-[#333333] rounded-2xl hover:border-[#86868b]/50 transition-all duration-500 bg-[#0d0d0d] ${
-                  project.featured && filter === "Tous"
-                    ? "aspect-[4/3] md:aspect-[16/9]"
-                    : "aspect-[4/3]"
-                }`}
+                className={`relative overflow-hidden border border-[#333333] rounded-2xl hover:border-[#86868b]/50 transition-all duration-500 bg-[#0d0d0d] h-full min-h-[420px]`}
               >
                 <Image
                   src={project.image}
                   alt={project.name}
                   fill
-                  className={`object-cover w-full h-full transition-transform duration-700 group-hover:scale-105`}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
                   unoptimized
                 />
@@ -122,16 +118,16 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
 
                 {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
+                  <div className="flex flex-wrap items-center gap-3">
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-full ${
                           project.type === "Web App"
                             ? "bg-white text-black"
                             : "bg-white/10 text-white border border-white/20"
                         }`}
-                      >
-                        {project.type === "Web App" ? "Application" : "No-Code"}
+                    >
+                      {project.type}
                     </span>
                     {project.badge && (
                       <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
@@ -139,12 +135,14 @@ export function Portfolio() {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-white mb-1.5">
-                    {project.name}
-                  </h3>
-                  <p className="text-[#86868b] font-light text-sm line-clamp-2 md:line-clamp-none max-w-xl">
-                    {project.tagline}
-                  </p>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-semibold text-white mb-1.5">
+                      {project.name}
+                    </h3>
+                    <p className="text-[#86868b] font-light text-sm line-clamp-2 md:line-clamp-none max-w-xl">
+                      {project.tagline}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Top-right arrow button */}
@@ -212,7 +210,7 @@ export function Portfolio() {
                           : "bg-white/10 text-white border border-white/20"
                       }`}
                     >
-                      {project.type === "Web App" ? "Application" : "No-Code"}
+                      {project.type}
                     </span>
                     {project.badge && (
                       <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
