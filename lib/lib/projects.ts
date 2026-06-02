@@ -3,7 +3,7 @@ export type Project = {
   name: string
   tagline: string
   description: string
-  result: string
+  valueAdded: string
   type: "App" | "No-Code"
   badge?: string
   featured?: boolean
@@ -18,8 +18,8 @@ export const projects: Project[] = [
     name: "ZenHertz",
     tagline: "App de bien-être sonore basée sur les fréquences Hz",
     description:
-      "ZenHertz est une application web permettant d'explorer les fréquences sonores thérapeutiques (432Hz, 528Hz…) associées à des états mentaux spécifiques. Conçue pour les 18-35 ans en quête d'optimisation cognitive et de bien-être, elle combine analyse audio, visualisations dynamiques et interface glassmorphism.",
-    result:
+      "Application web permettant d'explorer les fréquences sonores thérapeutiques (432Hz, 528Hz…) associées à des états mentaux spécifiques. Conçue pour un public en quête d'optimisation cognitive et de bien-être, elle combine analyse audio, visualisations dynamiques et interface glassmorphism.",
+    valueAdded:
       "Application déployée en production. Interface bilingue FR/EN, moteurs BPM & Hz intégrés, design system complet.",
     type: "App",
     badge: "Live",
@@ -39,8 +39,8 @@ export const projects: Project[] = [
     name: "FundedCalc",
     tagline: "Calculateur de prop trading pour traders financés",
     description:
-      "FundedCalc est un outil de calcul dédié aux traders passant des challenges de prop trading (FTMO, MyForexFunds…). Il permet de simuler les seuils de drawdown, objectifs de profit et règles de gestion du risque propres à chaque firme.",
-    result:
+      "Outil de calcul dédié aux traders passant des challenges en propfirm.",
+    valueAdded:
       "Application déployée sur Vercel. Interface claire, calculs en temps réel, adoptée par des traders en phase de challenge.",
     type: "App",
     badge: "Live",
@@ -61,9 +61,9 @@ export const projects: Project[] = [
     name: "La Belle Broche",
     tagline: "Site vitrine pour un traiteur haut de gamme",
     description:
-      "Conception et développement d'un site vitrine no-code pour un service de traiteur spécialisé dans la broche. Mise en valeur des prestations, galerie visuelle et formulaire de contact optimisé pour la conversion.",
-    result:
-      "Site livré et opérationnel. Présence web professionnelle, augmentation des demandes de devis.",
+      "Conception et développement d'un site vitrine no-code pour un kebab local. Intégration d'une galerie visuelle attrayante et présentation claire des informations pratiques.",
+    valueAdded:
+      "Création d'une présence web professionnelle pour renforcer la visibilité locale et centraliser les informations essentielles pour la clientèle de proximité.",
     type: "No-Code",
     image: "/assets/Image belle broche (1).jpeg",
     images: [
@@ -79,9 +79,9 @@ export const projects: Project[] = [
     name: "Au Fournil du Sillon",
     tagline: "Boulangerie artisanale — identité web locale",
     description:
-      "Création d'un site vitrine pour une boulangerie artisanale, pensé pour renforcer l'ancrage local et la visibilité Google. Architecture simple, rapide, orientée SEO local avec intégration Google Maps et horaires dynamiques.",
-    result:
-      "Meilleure visibilité locale, site optimisé mobile-first, SEO local structuré.",
+      "Création d'un site vitrine pour une boulangerie artisanale. Architecture simple et rapide, orientée SEO local avec intégration de Google Maps et affichage dynamique des horaires.",
+    valueAdded:
+      "Mise en place d'une structure optimisée pour le référencement local, conçue pour capter les recherches de proximité et garantir une navigation fluide sur mobile pour les clients de passage.",
     type: "No-Code",
     image: "/assets/Image fournil du sillon (1).jpeg",
     images: [
@@ -102,9 +102,9 @@ export const projects: Project[] = [
     name: "Avesta Kebap",
     tagline: "Restaurant — commande en ligne et menu digital",
     description:
-      "Site vitrine et menu digital pour un restaurant kebab. Présentation des formules, intégration d'un système de commande simplifié et design mobile-first adapté à une clientèle locale.",
-    result:
-      "Site livré, menu digital consulté quotidiennement, réduction des appels entrants pour les commandes.",
+      "Site vitrine et menu digital pour un restaurant kebab. Présentation structurée des formules et intégration d'un design mobile-first spécifiquement pensé pour la consultation sur smartphone.",
+    valueAdded:
+      "Modernisation de l'image de l'établissement et accessibilité immédiate du menu en ligne, facilitant le choix des clients avant leur passage physique ou leur commande.",
     type: "No-Code",
     image: "/assets/Avesta Kebap (1).jpeg",
     images: [
@@ -120,9 +120,9 @@ export const projects: Project[] = [
     name: "La Baraka",
     tagline: "Restaurant — présence web et carte en ligne",
     description:
-      "Conception d'un site vitrine pour un restaurant local. Mise en avant de la carte, des horaires et de la localisation. Design chaleureux adapté à l'identité de l'établissement.",
-    result:
-      "Présence web établie, carte consultable en ligne, site optimisé mobile.",
+      "Conception d'un site vitrine pour un restaurant local avec une mise en avant stratégique de la carte, des horaires et de la localisation. Application d'un design chaleureux reflétant l'identité de l'établissement.",
+    valueAdded:
+      "Création d'une vitrine digitale accessible, permettant aux clients de consulter l'offre de restauration facilement depuis n'importe quel appareil et d'ancrer la présence en ligne du restaurant.",
     type: "No-Code",
     image: "/assets/Image La Baraka (1).jpeg",
     images: [
@@ -138,9 +138,9 @@ export const projects: Project[] = [
     name: "Les Jardins du Coran",
     tagline: "École coranique — plateforme d'apprentissage en ligne",
     description:
-      "Site vitrine et plateforme de présentation pour une école d'apprentissage coranique. Architecture claire, parcours utilisateur simplifié pour l'inscription, contenu structuré pour différents niveaux.",
-    result:
-      "Site livré, inscriptions facilitées, image professionnelle renforcée pour l'établissement.",
+      "Site vitrine informatif pour une structure d'enseignement. Architecture claire et contenu hiérarchisé pour présenter efficacement les différents services, niveaux et méthodes d'apprentissage.",
+    valueAdded:
+      "Digitalisation de la présentation de l'établissement, offrant une image institutionnelle sérieuse et un point d'accès centralisé pour découvrir les cursus proposés.",
     type: "No-Code",
     image: "/assets/image jardin du coran  (1).jpeg",
     images: [

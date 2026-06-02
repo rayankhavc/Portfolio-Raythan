@@ -82,10 +82,10 @@ export default async function ProjectPage({
           </div>
           <div>
             <h2 className="text-xs font-medium text-[#86868b] uppercase tracking-widest mb-4">
-              Résultat
+              Valeur ajoutée
             </h2>
             <p className="text-white font-light leading-relaxed">
-              {project.result}
+              {project.valueAdded}
             </p>
           </div>
         </div>
