@@ -66,10 +66,10 @@ export const projects: Project[] = [
     type: "No-Code",
     image: "/assets/labellebroche.jpg",
     images: [
-      "/assets/labellebroche.jpg",
+      "/assets/Image belle broche (4).jpeg",
       "/assets/Image belle broche (2).jpeg",
       "/assets/Image belle broche (3).jpeg",
-      "/assets/Image belle broche (4).jpeg",
+      "/assets/labellebroche.jpg",
       "/assets/Image belle broche (5).jpeg",
     ],
   },
