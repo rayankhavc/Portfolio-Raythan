@@ -6,7 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { projects } from "@/lib/lib/projects"
 
-type Filter = "Tous" | "App" | "No-Code"
+type Filter = "Tous" | "Web App" | "No-Code"
 
 export function Portfolio() {
   const [filter, setFilter] = useState<Filter>("Tous")
@@ -49,7 +49,7 @@ export function Portfolio() {
 
         {/* Filter buttons */}
         <div className="flex items-center justify-center gap-3 mb-12">
-          {(["Tous", "App", "No-Code"] as Filter[]).map((f) => (
+          {(["Tous", "Web App", "No-Code"] as Filter[]).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -126,12 +126,12 @@ export function Portfolio() {
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-full ${
-                        project.type === "App"
-                          ? "bg-white text-black"
-                          : "bg-white/10 text-white border border-white/20"
-                      }`}
-                    >
-                      {project.type === "App" ? "Application" : "No-Code"}
+                          project.type === "Web App"
+                            ? "bg-white text-black"
+                            : "bg-white/10 text-white border border-white/20"
+                        }`}
+                      >
+                        {project.type === "Web App" ? "Application" : "No-Code"}
                     </span>
                     {project.badge && (
                       <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">

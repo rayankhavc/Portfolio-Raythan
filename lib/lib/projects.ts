@@ -4,7 +4,7 @@ export type Project = {
   tagline: string
   description: string
   valueAdded: string
-  type: "App" | "No-Code"
+  type: "Web App" | "No-Code"
   badge?: string
   featured?: boolean
   image: string
@@ -16,12 +16,12 @@ export const projects: Project[] = [
   {
     slug: "zenhertz",
     name: "ZenHertz",
-    tagline: "App de bien-être sonore basée sur les fréquences Hz",
+    tagline: "Web App de bien-être sonore basée sur les fréquences Hz",
     description:
       "Application web permettant d'explorer les fréquences sonores thérapeutiques (432Hz, 528Hz…) associées à des états mentaux spécifiques. Conçue pour un public en quête d'optimisation cognitive et de bien-être, elle combine analyse audio, visualisations dynamiques et interface glassmorphism.",
     valueAdded:
       "Application déployée en production. Interface bilingue FR/EN, moteurs BPM & Hz intégrés, design system complet.",
-    type: "App",
+    type: "Web App",
     badge: "Live",
     featured: true,
     image: "/assets/image zenhertz (1).jpeg",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
       "Outil de calcul dédié aux traders passant des challenges en propfirm.",
     valueAdded:
       "Application déployée sur Vercel. Interface claire, calculs en temps réel, adoptée par des traders en phase de challenge.",
-    type: "App",
+    type: "Web App",
     badge: "Live",
     featured: false,
     image: "/assets/image funded calc.jpeg",

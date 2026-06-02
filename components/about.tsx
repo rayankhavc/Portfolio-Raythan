@@ -40,7 +40,7 @@ export function About() {
         <div className="grid grid-cols-3 gap-px mt-20 border border-[#1a1a1a] rounded-2xl overflow-hidden">
           {[
             { value: "7", label: "Projets livrés" },
-            { value: "2", label: "Apps en production" },
+            { value: "2", label: "Web Apps en production" },
             { value: "100%", label: "Remote France" },
           ].map((stat) => (
             <div key={stat.label} className="bg-[#0a0a0a] px-6 py-8 text-center">

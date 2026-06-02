@@ -28,7 +28,7 @@ export function Hero() {
         </div>
 
         <p className="mt-8 text-sm text-[#86868b] font-light tracking-wide">
-          7 projets livrés · 2 apps en production · Nantes · Remote France
+          7 projets livrés · 2 Web Apps en production · Nantes · Remote France
         </p>
 
         <div className="mt-32 h-32 md:h-48" />

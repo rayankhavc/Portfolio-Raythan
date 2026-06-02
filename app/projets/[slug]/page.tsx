@@ -39,12 +39,12 @@ export default async function ProjectPage({
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <span
             className={`px-3 py-1 text-xs font-medium rounded-full ${
-              project.type === "App"
+              project.type === "Web App"
                 ? "bg-white text-black"
                 : "bg-transparent text-[#86868b] border border-[#333333]"
             }`}
           >
-            {project.type === "App" ? "Application" : "Étude de cas"}
+            {project.type === "Web App" ? "Application" : "Étude de cas"}
           </span>
           {project.badge && (
             <span className="px-3 py-1 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full">
