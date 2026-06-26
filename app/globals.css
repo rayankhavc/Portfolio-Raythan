@@ -103,3 +103,10 @@
     cursor: none !important;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  cursor: none; /* Le CustomCursor gère le curseur */
+}

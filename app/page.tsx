@@ -1,31 +1,28 @@
-import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { Marquee } from "@/components/marquee"
-import { About } from "@/components/about"
-import { Portfolio } from "@/components/portfolio"
-import { Services } from "@/components/services"
-import { Pricing } from "@/components/pricing"
-import { Process } from "@/components/process"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
-import { Grain } from "@/components/grain"
-import { Cursor } from "@/components/cursor"
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
+import { HeroSection } from '@/components/sections/HeroSection'
+import { ServicesOverview } from '@/components/sections/ServicesOverview'
+import { MarqueeSection } from '@/components/sections/MarqueeSection'
+import { WhyRaythan } from '@/components/sections/WhyRaythan'
+import { CTABand } from '@/components/sections/CTABand'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Agence digitale à Nantes — Sites, SEO, Pub, IA',
+  description:
+    'Raythan Web Design — Agence digitale indépendante à Nantes. Création de sites web, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
+  alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app' },
+}
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black">
-      <Grain />
-      <Cursor />
-      <Header />
-      <Hero />
-      <Marquee />
-      <About />
-      <Portfolio />
-      <Services />
-      <Pricing />
-      <Process />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      <HeroSection />
+      <MarqueeSection />
+      <ServicesOverview />
+      <WhyRaythan />
+      <CTABand />
+    </>
   )
 }

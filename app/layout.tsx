@@ -1,52 +1,46 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { Syne, Inter } from 'next/font/google'
 import './globals.css'
+import { Navbar } from '@/components/ui/Navbar'
+import { Footer } from '@/components/ui/Footer'
+import { CustomCursor } from '@/components/ui/CustomCursor'
 
-const geist = Geist({
+const syne = Syne({
   subsets: ['latin'],
-  variable: '--font-sans',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-syne',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Raythan Web Design | Sites & Applications qui convertissent',
-  description: 'Agence web indépendante basée à Nantes. No-code pour les commerces locaux, développement sur-mesure pour les projets ambitieux.',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+  metadataBase: new URL('https://portfolioraythanwebdesign.vercel.app'),
+  title: {
+    template: '%s | Raythan Web Design',
+    default: 'Raythan Web Design — Agence digitale à Nantes',
   },
+  description:
+    'Agence web indépendante à Nantes. Création de sites, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
   openGraph: {
-    title: 'Raythan Web Design',
-    description: 'Sites et applications qui convertissent. No-code pour les commerces locaux, développement sur-mesure pour les projets ambitieux.',
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
+    locale: 'fr_FR',
+    siteName: 'Raythan Web Design',
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${geist.variable} bg-black`}>
-      <body className="font-sans antialiased bg-black text-white">
-        {children}
+    <html lang="fr" className={`${syne.variable} ${inter.variable}`}>
+      <body className="bg-[#080808] text-white font-sans antialiased">
+        <CustomCursor />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
