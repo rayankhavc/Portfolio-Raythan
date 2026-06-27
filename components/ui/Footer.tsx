@@ -20,16 +20,19 @@ export function Footer() {
 
           {/* Logo + baseline */}
           <div className="flex flex-col gap-4">
-            <Link href="/">
+            <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/logo.png"
+                src="/logo-raythan.png"
                 alt="Raythan Web Design"
                 width={40}
                 height={40}
-                className="object-contain"
+                className="object-contain shrink-0"
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
-            </Link>
+            <span className="whitespace-nowrap text-sm font-medium text-white">
+              Raythan Web Design
+            </span>
+          </Link>
             <p className="text-zinc-600 text-sm leading-relaxed max-w-xs">
               Agence digitale indépendante — sites web, SEO, pub, automatisation et IA métier.
             </p>

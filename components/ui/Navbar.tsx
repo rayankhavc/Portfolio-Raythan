@@ -37,18 +37,20 @@ export function Navbar() {
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo.png"
+              src="/logo-raythan.png"
               alt="Raythan Web Design"
               width={44}
               height={44}
-              className="object-contain"
+              className="object-contain shrink-0"
               style={{ filter: 'brightness(0) invert(1)' }}
               priority
             />
+            <span className="whitespace-nowrap text-sm font-medium text-white">
+              Raythan Web Design
+            </span>
           </Link>
-
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(({ href, label }) => (
