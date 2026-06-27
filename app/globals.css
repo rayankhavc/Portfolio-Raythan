@@ -100,7 +100,7 @@
 /* Hide default cursor on desktop only */
 @media (pointer: fine) {
   *, *::before, *::after {
-    cursor: none !important;
+    cursor: yes;
   }
 }
 html {
@@ -108,5 +108,5 @@ html {
 }
 
 * {
-  cursor: none; /* Le CustomCursor gère le curseur */
+  cursor: yes; /* Le CustomCursor gère le curseur */
 }
