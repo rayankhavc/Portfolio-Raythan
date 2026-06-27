@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
@@ -34,12 +35,18 @@ export function Navbar() {
         }`}
       >
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-syne font-bold text-sm tracking-[0.2em] uppercase text-white hover:text-[#C8FF00] transition-colors"
-          >
-            RAYTHAN
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Raythan Web Design"
+              width={44}
+              height={44}
+              className="object-contain"
+              style={{ filter: 'brightness(0) invert(1)' }}
+              priority
+            />
           </Link>
 
           {/* Desktop links */}

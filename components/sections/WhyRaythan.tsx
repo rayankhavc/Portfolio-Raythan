@@ -26,7 +26,7 @@ export function WhyRaythan() {
           variants={staggerContainer(0.15, 0.1)}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: false, margin: '-80px' }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {WHY_RAYTHAN.map((item, i) => {
@@ -37,9 +37,7 @@ export function WhyRaythan() {
                   {Icon && <Icon size={20} className="text-[#C8FF00]" />}
                 </div>
                 <div>
-                  <h3 className="font-syne font-semibold text-white text-xl mb-2">
-                    {item.title}
-                  </h3>
+                  <h3 className="font-syne font-semibold text-white text-xl mb-2">{item.title}</h3>
                   <p className="text-zinc-500 text-sm leading-relaxed">{item.description}</p>
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#C8FF00]/30 to-transparent" />

@@ -2,24 +2,15 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, CalendarDays } from 'lucide-react'
-import { fadeUp, staggerContainer } from '@/lib/motion-variants'
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 overflow-hidden">
-      {/* Grain texture */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-        }}
-      />
-
-      {/* Radial glow */}
-      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-[#C8FF00]/4 blur-[120px]" />
+    <section className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 overflow-hidden bg-[#080808]">
+      {/* Glow subtil — pas de grain, pas de texture */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-[#C8FF00]/[0.03] blur-[150px]" />
 
       <div className="relative max-w-6xl mx-auto w-full">
-        {/* Badge disponibilité */}
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,7 +21,7 @@ export function HeroSection() {
           Disponible pour nouveaux projets
         </motion.div>
 
-        {/* Titre principal */}
+        {/* Titre */}
         <div className="mb-6" style={{ perspective: '1000px' }}>
           <motion.h1
             initial="hidden"
@@ -45,9 +36,7 @@ export function HeroSection() {
                 variants={{
                   hidden: { opacity: 0, y: 60, rotateX: -30 },
                   visible: {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
+                    opacity: 1, y: 0, rotateX: 0,
                     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
                   },
                 }}
@@ -56,23 +45,18 @@ export function HeroSection() {
               </motion.span>
             ))}
             <br />
-            {['réinventée.'].map((word, i) => (
-              <motion.span
-                key={i}
-                className="inline-block text-[#C8FF00]"
-                variants={{
-                  hidden: { opacity: 0, y: 60, rotateX: -30 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 },
-                  },
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
+            <motion.span
+              className="inline-block text-[#C8FF00]"
+              variants={{
+                hidden: { opacity: 0, y: 60, rotateX: -30 },
+                visible: {
+                  opacity: 1, y: 0, rotateX: 0,
+                  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 },
+                },
+              }}
+            >
+              réinventée.
+            </motion.span>
           </motion.h1>
         </div>
 
@@ -80,10 +64,10 @@ export function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, delay: 0.7 }}
           className="text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10"
         >
-          Sites web, SEO, réseaux sociaux, publicité, automatisation et IA — 
+          Sites web, SEO, réseaux sociaux, publicité, automatisation et IA —
           tout ce dont votre business a besoin pour dominer en ligne.
         </motion.p>
 
@@ -117,10 +101,10 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="flex items-center gap-6 mt-16 pt-8 border-t border-white/8"
+          className="flex flex-wrap items-center gap-8 mt-16 pt-8 border-t border-white/8"
         >
           {[
-            { value: '7', label: 'Projets livrés' },
+            { value: '7+', label: 'Projets livrés' },
             { value: '2', label: 'Apps en production' },
             { value: '100%', label: 'Remote France' },
           ].map(({ value, label }) => (
@@ -129,9 +113,6 @@ export function HeroSection() {
               <span className="text-xs text-zinc-600">{label}</span>
             </div>
           ))}
-          <div className="ml-auto hidden md:block">
-            <p className="text-xs text-zinc-600">Nantes · Remote France</p>
-          </div>
         </motion.div>
       </div>
     </section>
