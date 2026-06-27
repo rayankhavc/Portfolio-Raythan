@@ -72,7 +72,7 @@ export function ServicesPage() {
                 variants={isEven ? slideFromLeft : slideFromRight}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: '-60px' }}
+                viewport={{ once: false, margin: '-60px' }}
                 className="group rounded-3xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 overflow-hidden"
               >
                 <div className={`flex flex-col md:flex-row gap-0 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
