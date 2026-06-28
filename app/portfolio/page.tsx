@@ -4,7 +4,7 @@ import { PortfolioPage } from '@/components/sections/PortfolioPage'
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
-    'Nos réalisations — sites vitrines, web apps, outils digitaux. Découvrez les projets livrés par Raythan Web Design.',
+    'Nos réalisations sites vitrines, web apps, outils digitaux. Découvrez les projets livrés par Raythan Web Design.',
   alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app/portfolio' },
 }
 

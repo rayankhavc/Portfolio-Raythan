@@ -86,7 +86,7 @@ export const SERVICES: Service[] = [
     title: 'IA Métier',
     tagline: "Outils IA sur-mesure pour votre activité.",
     description:
-      "Chatbots intelligents, assistants de contenu, analyse de données — des solutions IA adaptées à vos besoins spécifiques.",
+      "Chatbots intelligents, assistants de contenu, analyse de données des solutions IA adaptées à vos besoins spécifiques.",
     benefits: [
       'Avantage concurrentiel durable',
       'Productivité multipliée sans augmenter les coûts',
