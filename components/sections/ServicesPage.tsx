@@ -3,9 +3,9 @@ import { motion } from 'framer-motion'
 import {
   Monitor, TrendingUp, Share2, BarChart3, Zap, Brain, Check,
 } from 'lucide-react'
-import { SERVICES } from '@/lib/data'
+import { SERVICES, type Service } from '@/lib/data'
 import { CTABand } from '@/components/sections/CTABand'
-import { staggerContainer, fadeUp, slideFromLeft, slideFromRight } from '@/lib/motion-variants'
+import { slideFromLeft, slideFromRight } from '@/lib/motion-variants'
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Monitor, TrendingUp, Share2, BarChart3, Zap, Brain,
@@ -62,7 +62,7 @@ export function ServicesPage() {
       {/* Services list */}
       <section className="pb-8 px-6">
         <div className="max-w-6xl mx-auto space-y-6">
-          {SERVICES.map((service, i) => {
+          {SERVICES.map((service: Service, i: number) => {
             const Icon = ICON_MAP[service.icon]
             const isEven = i % 2 === 0
 
@@ -104,7 +104,7 @@ export function ServicesPage() {
                             Ce que ça vous apporte
                           </p>
                           <ul className="space-y-2">
-                            {service.benefits.map((b, j) => (
+                            {service.benefits.map((b: string, j: number) => (
                               <li key={j} className="flex items-start gap-3 text-sm text-zinc-300">
                                 <Check size={14} className="text-[#C8FF00] shrink-0 mt-0.5" />
                                 {b}
@@ -119,7 +119,7 @@ export function ServicesPage() {
                             Secteurs cibles
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            {service.sectors.map((s) => (
+                            {service.sectors.map((s: string) => (
                               <span
                                 key={s}
                                 className="text-xs text-zinc-500 border border-white/10 px-3 py-1 rounded-full"

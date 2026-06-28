@@ -58,7 +58,7 @@ export const SERVICES: Service[] = [
     title: 'Publicité Google & Meta',
     tagline: 'Campagnes qui génèrent des résultats mesurables.',
     description:
-      'Création et gestion de campagnes Google Ads et Meta Ads (Facebook/Instagram). Ciblage précis, A/B testing, optimisation continue du ROI.',
+      'Création et gestion de campagnes Google Ads et Meta Ads. Ciblage précis, A/B testing, optimisation continue du ROI.',
     benefits: [
       'ROI mesurable dès les premières semaines',
       'Ciblage ultra-précis de votre audience idéale',
@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
     title: 'Automatisation',
     tagline: 'Make.com, workflows, intégrations.',
     description:
-      "Automatisation de vos processus métier : facturation, CRM, relances email, synchronisation d'outils. Moins de tâches répétitives, plus de temps pour ce qui compte.",
+      "Automatisation de vos processus métier : facturation, CRM, relances email. Moins de tâches répétitives, plus de temps pour ce qui compte.",
     benefits: [
       'Des heures récupérées chaque semaine',
       'Zéro erreur humaine sur les processus critiques',
@@ -86,9 +86,9 @@ export const SERVICES: Service[] = [
     title: 'IA Métier',
     tagline: "Outils IA sur-mesure pour votre activité.",
     description:
-      "Chatbots intelligents, assistants de contenu, analyse de données — des solutions IA adaptées à vos besoins spécifiques, déployées en production.",
+      "Chatbots intelligents, assistants de contenu, analyse de données — des solutions IA adaptées à vos besoins spécifiques.",
     benefits: [
-      'Avantage concurrentiel durable avant la démocratisation totale',
+      'Avantage concurrentiel durable',
       'Productivité multipliée sans augmenter les coûts',
       'Innovation perçue par vos clients et partenaires',
     ],
@@ -98,8 +98,11 @@ export const SERVICES: Service[] = [
 ]
 
 // ── PROJECTS ──────────────────────────────────────────────────────────────────
-// Images : mets tes captures d'écran dans /public/projects/
-// Nommage : zenhertz.jpg, fundedcalc.jpg, la-belle-broche.jpg etc.
+// Pour ajouter une image :
+// 1. Fais un screenshot de ton projet (plein écran, format 16/9)
+// 2. Renomme-le exactement comme indiqué ci-dessous
+// 3. Glisse-le dans le dossier /public/projects/
+// C'est tout — le site l'affiche automatiquement.
 
 export interface Project {
   id: string
@@ -110,7 +113,7 @@ export interface Project {
   status: 'Live' | 'En cours'
   image?: string
   category: string
-  url?: string
+  tags: string[]
 }
 
 export const PROJECTS: Project[] = [
@@ -120,10 +123,10 @@ export const PROJECTS: Project[] = [
     title: 'ZenHertz',
     type: 'Web App',
     status: 'Live',
-    description: "Outil d'analyse musicale IA — fréquences, BPM, effets sur le bien-être.",
-    image: '/projects/zenhertz.jpg',    // → mets ton screenshot ici
+    description: "Outil d'analyse musicale IA — fréquences, BPM et effets sur le bien-être.",
+    image: '/projects/zenhertz.jpg', // → screenshot à mettre dans public/projects/zenhertz.jpg
     category: 'Web App',
-    url: 'https://zenhertz.vercel.app',
+    tags: ['Next.js', 'IA', 'Audio'],
   },
   {
     id: 'fundedcalc',
@@ -132,58 +135,9 @@ export const PROJECTS: Project[] = [
     type: 'Web App',
     status: 'Live',
     description: 'Calculateur de risque pour traders en Prop Firms.',
-    image: '/projects/fundedcalc.jpg',  // → mets ton screenshot ici
+    image: '/projects/fundedcalc.jpg', // → screenshot à mettre dans public/projects/fundedcalc.jpg
     category: 'Web App',
-  },
-  {
-    id: 'la-belle-broche',
-    slug: 'la-belle-broche',
-    title: 'La Belle Broche',
-    type: 'No-Code',
-    status: 'Live',
-    description: 'Site vitrine pour un restaurant kebab local.',
-    image: '/projects/la-belle-broche.jpg',
-    category: 'No-Code',
-  },
-  {
-    id: 'fournil-du-sillon',
-    slug: 'fournil-du-sillon',
-    title: 'Au Fournil du Sillon',
-    type: 'No-Code',
-    status: 'Live',
-    description: 'Site vitrine pour une boulangerie artisanale.',
-    image: '/projects/fournil-du-sillon.jpg',
-    category: 'No-Code',
-  },
-  {
-    id: 'avesta-kebap',
-    slug: 'avesta-kebap',
-    title: 'Avesta Kebap',
-    type: 'No-Code',
-    status: 'Live',
-    description: "Site vitrine présentant l'établissement et son menu.",
-    image: '/projects/avesta-kebap.jpg',
-    category: 'No-Code',
-  },
-  {
-    id: 'la-baraka',
-    slug: 'la-baraka',
-    title: 'La Baraka',
-    type: 'No-Code',
-    status: 'Live',
-    description: 'Restaurant, présence web et carte en ligne.',
-    image: '/projects/la-baraka.jpg',
-    category: 'No-Code',
-  },
-  {
-    id: 'jardins-du-coran',
-    slug: 'jardins-du-coran',
-    title: 'Les Jardins du Coran',
-    type: 'No-Code',
-    status: 'Live',
-    description: 'Site vitrine de présentation pour un institut coranique.',
-    image: '/projects/jardins-du-coran.jpg',
-    category: 'No-Code',
+    tags: ['React', 'Finance', 'Tool'],
   },
 ]
 

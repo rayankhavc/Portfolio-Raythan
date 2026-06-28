@@ -1,23 +1,13 @@
 'use client'
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowUpRight, ExternalLink } from 'lucide-react'
 import { PROJECTS } from '@/lib/data'
 import { staggerContainer, fadeUp } from '@/lib/motion-variants'
 import { CTABand } from '@/components/sections/CTABand'
 
-const FILTERS = ['Tous', 'Web App', 'No-Code'] as const
-type Filter = (typeof FILTERS)[number]
-
 export function PortfolioPage() {
-  const [active, setActive] = useState<Filter>('Tous')
-
-  const filtered = active === 'Tous'
-    ? PROJECTS
-    : PROJECTS.filter((p) => p.type === active)
-
   return (
     <>
       {/* Hero */}
@@ -37,7 +27,7 @@ export function PortfolioPage() {
             variants={{ visible: { transition: { staggerChildren: 0.09 } } }}
             className="font-syne font-extrabold text-5xl md:text-7xl text-white leading-tight mb-6"
           >
-            {['Ce qu\'on', 'a livré.'].map((w, i) => (
+            {["Ce qu'on", 'a livré.'].map((w, i) => (
               <motion.span
                 key={i}
                 className="inline-block mr-[0.25em]"
@@ -59,103 +49,109 @@ export function PortfolioPage() {
             transition={{ delay: 0.4 }}
             className="text-zinc-400 text-xl max-w-lg leading-relaxed"
           >
-            Sites, apps et outils digitaux — du concret, pas des mockups.
+            Des apps web en production — du code propre, pas des mockups.
           </motion.p>
         </div>
       </section>
 
-      {/* Filters */}
+      {/* Grid */}
       <section className="px-6 pb-10">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-12">
-            {FILTERS.map((f) => (
-              <button
-                key={f}
-                onClick={() => setActive(f)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  active === f
-                    ? 'bg-[#C8FF00] text-black'
-                    : 'border border-white/10 text-zinc-500 hover:text-white hover:border-white/25'
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-            <span className="ml-auto text-xs text-zinc-600">
-              {filtered.length} projet{filtered.length > 1 ? 's' : ''}
-            </span>
-          </div>
-
-          {/* Grid */}
           <motion.div
-            variants={staggerContainer(0.08, 0)}
+            variants={staggerContainer(0.15, 0.1)}
             initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+            whileInView="visible"
+            viewport={{ once: false, margin: '-60px' }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            <AnimatePresence mode="popLayout">
-              {filtered.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={fadeUp}
-                  layout
-                  exit={{ opacity: 0, scale: 0.95 }}
+            {PROJECTS.map((project) => (
+              <motion.div key={project.id} variants={fadeUp}>
+                <Link
+                  href={`/projets/${project.slug}`}
+                  className="group block rounded-3xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-[#C8FF00]/20 transition-all duration-500 overflow-hidden"
                 >
-                  <Link
-                    href={`/projets/${project.slug}`}
-                    className="group block rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all duration-300 overflow-hidden"
-                  >
-                    {/* Image or placeholder */}
-                    <div className="aspect-[16/9] bg-zinc-900 relative overflow-hidden">
-                      {project.image ? (
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="font-syne font-bold text-4xl text-zinc-800 group-hover:text-zinc-700 transition-colors">
-                            {project.title.charAt(0)}
-                          </span>
-                        </div>
-                      )}
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span className="flex items-center gap-1 text-white text-xs font-medium">
-                          Voir le projet <ArrowUpRight size={12} />
+                  {/* Image */}
+                  <div className="aspect-[16/9] bg-[#111] relative overflow-hidden">
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700"
+                      />
+                    ) : (
+                      /* Placeholder élégant si pas encore de screenshot */
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                        <span className="font-syne font-black text-6xl text-white/10 group-hover:text-white/20 transition-colors">
+                          {project.title.charAt(0)}
                         </span>
+                        <span className="text-xs text-zinc-700">Screenshot bientôt</span>
                       </div>
+                    )}
+
+                    {/* Overlay gradient bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                    {/* Badge Live */}
+                    <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] animate-pulse" />
+                      <span className="text-xs text-white font-medium">{project.status}</span>
                     </div>
 
-                    {/* Info */}
-                    <div className="p-5">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="font-syne font-semibold text-white text-lg">
-                          {project.title}
-                        </h3>
-                        <ArrowUpRight
-                          size={14}
-                          className="text-zinc-600 group-hover:text-[#C8FF00] transition-colors"
-                        />
-                      </div>
-                      <p className="text-zinc-500 text-sm mb-3">{project.description}</p>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs border border-white/10 px-2.5 py-1 rounded-full text-zinc-600">
-                          {project.type}
-                        </span>
-                        <span className="flex items-center gap-1 text-xs text-zinc-600">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00]" />
-                          {project.status}
-                        </span>
+                    {/* Arrow top right */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                      <div className="w-8 h-8 rounded-full bg-[#C8FF00] flex items-center justify-center">
+                        <ArrowUpRight size={14} className="text-black" />
                       </div>
                     </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-4 mb-2">
+                      <h3 className="font-syne font-bold text-white text-2xl">
+                        {project.title}
+                      </h3>
+                      <ArrowUpRight
+                        size={18}
+                        className="text-zinc-700 group-hover:text-[#C8FF00] transition-colors shrink-0 mt-1"
+                      />
+                    </div>
+
+                    <p className="text-zinc-500 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex items-center flex-wrap gap-2">
+                      <span className="text-xs border border-[#C8FF00]/30 text-[#C8FF00] px-2.5 py-1 rounded-full">
+                        {project.type}
+                      </span>
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs border border-white/8 text-zinc-600 px-2.5 py-1 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
+
+          {/* Note "En cours de construction" */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ delay: 0.4 }}
+            className="text-center text-zinc-700 text-sm mt-10"
+          >
+            D'autres projets arrivent bientôt ✦
+          </motion.p>
         </div>
       </section>
 
