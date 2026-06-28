@@ -22,7 +22,7 @@ export function CTABand() {
             Un projet en tête ?
           </h2>
           <p className="text-zinc-500 text-lg max-w-md mx-auto mb-10">
-            Réservez un appel de 30 min gratuit. On analyse votre situation et on vous dit exactement ce qu'on peut faire.
+            Réservez un appel gratuit. On analyse votre situation et on vous dit exactement ce qu'on peut faire.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a

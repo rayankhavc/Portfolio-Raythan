@@ -1,25 +1,46 @@
-import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
-import { PROJECTS } from '@/lib/data'
+import { ArrowLeft, ArrowUpRight } from 'lucide-react'
+
+const PROJECTS = [
+  {
+    slug: 'zenhertz',
+    title: 'ZenHertz',
+    type: 'Web App',
+    description:
+      "Outil d'analyse musicale basé sur l'IA. Dépose un fichier audio ou colle un lien YouTube — ZenHertz détecte le BPM, les fréquences dominantes et t'explique les effets sur ton cerveau et ton corps.",
+    details: [
+      'Analyse BPM & fréquences en temps réel',
+      'Effets neurologiques et physiologiques de la musique',
+      'Support fichiers audio + liens YouTube',
+      'Interface bilingue FR / EN',
+    ],
+    url: 'https://zenhertz.vercel.app',
+    cta: "Tester l'outil",
+  },
+  {
+    slug: 'fundedcalc',
+    title: 'FundedCalc',
+    type: 'Web App',
+    description:
+      'Calculateur de gestion du risque pour les traders en Prop Firm. Calcule automatiquement la taille de position, le ratio risque/récompense et les seuils de drawdown selon les règles de ta firm.',
+    details: [
+      'Calcul de taille de position en temps réel',
+      'Gestion du drawdown journalier et global',
+      'Compatible avec les principales Prop Firms',
+      'Interface rapide et sans inscription',
+    ],
+    url: 'https://fundedcalc.vercel.app',
+    cta: 'Tester le calculateur',
+  },
+]
 
 interface Props {
   params: { slug: string }
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }))
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = PROJECTS.find((p) => p.slug === params.slug)
-  if (!project) return {}
-  return {
-    title: project.title,
-    description: project.description,
-  }
 }
 
 export default function ProjectPage({ params }: Props) {
@@ -28,75 +49,61 @@ export default function ProjectPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#080808] pt-28 pb-24 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
 
-        {/* Back */}
         <Link
           href="/portfolio"
-          className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm mb-10 group"
+          className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-sm mb-12 group"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           Retour au portfolio
         </Link>
 
-        {/* Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="flex items-center gap-1.5 text-xs text-zinc-500 border border-white/10 px-3 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] animate-pulse" />
-              {project.status}
-            </span>
-            <span className="text-xs text-[#C8FF00] border border-[#C8FF00]/30 px-3 py-1 rounded-full">
-              {project.type}
-            </span>
-          </div>
-
-          <h1 className="font-syne font-extrabold text-5xl md:text-7xl text-white mb-4">
-            {project.title}
-          </h1>
-          <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed">
-            {project.description}
-          </p>
+        <div className="flex items-center gap-2 mb-6">
+          <span className="flex items-center gap-1.5 text-xs text-zinc-500 border border-white/10 px-3 py-1 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] animate-pulse" />
+            Live
+          </span>
+          <span className="text-xs text-[#C8FF00] border border-[#C8FF00]/30 px-3 py-1 rounded-full">
+            {project.type}
+          </span>
         </div>
 
-        {/* Image principale */}
-        <div className="rounded-3xl border border-white/8 overflow-hidden aspect-[16/9] bg-[#111] relative mb-10">
-          {project.image ? (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover object-top"
-              priority
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-syne font-black text-8xl text-white/5">
-                {project.title.charAt(0)}
-              </span>
-            </div>
-          )}
-        </div>
+        <h1 className="font-syne font-extrabold text-6xl md:text-8xl text-white mb-6 leading-none">
+          {project.title}
+        </h1>
 
-        {/* Tags + CTA */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs border border-white/10 text-zinc-500 px-3 py-1.5 rounded-full"
-              >
-                {tag}
-              </span>
+        <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+          {project.description}
+        </p>
+
+        <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-6 mb-10">
+          <p className="text-xs text-zinc-600 uppercase tracking-widest mb-4">Ce que ça fait</p>
+          <ul className="space-y-3">
+            {project.details.map((d, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-zinc-300">
+                <span className="text-[#C8FF00] shrink-0 mt-0.5">→</span>
+                {d}
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
 
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#C8FF00] text-black font-semibold px-8 py-4 rounded-full hover:bg-white transition-colors text-base"
+          >
+            {project.cta}
+            <ArrowUpRight size={16} />
+          </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#C8FF00] text-black font-semibold px-5 py-2.5 rounded-full hover:bg-white transition-colors text-sm"
+            className="inline-flex items-center gap-2 border border-white/15 text-white font-medium px-8 py-4 rounded-full hover:border-white/40 transition-colors text-base"
           >
             Projet similaire ?
-            <ExternalLink size={13} />
           </Link>
         </div>
 

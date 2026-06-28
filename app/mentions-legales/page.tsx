@@ -27,10 +27,10 @@ export default function MentionsLegales() {
               <li><span className="text-zinc-500">Nom :</span> <span className="text-white">Rayan Khalifa</span></li>
               <li><span className="text-zinc-500">Activité :</span> <span className="text-white">Raythan Web Design</span></li>
               <li><span className="text-zinc-500">Statut :</span> <span className="text-white">Micro-entrepreneur</span></li>
-              <li><span className="text-zinc-500">SIRET :</span> <span className="text-zinc-400">[À REMPLIR]</span></li>
-              <li><span className="text-zinc-500">Adresse :</span> <span className="text-zinc-400">[À REMPLIR]</span></li>
+              <li><span className="text-zinc-500">SIRET :</span> <span className="text-zinc-400"></span></li>
+              <li><span className="text-zinc-500">Adresse :</span> <span className="text-zinc-400"></span></li>
               <li><span className="text-zinc-500">Email :</span> <a href="mailto:raythanwebdesign@gmail.com" className="text-[#C8FF00] hover:underline">raythanwebdesign@gmail.com</a></li>
-              <li><span className="text-zinc-500">Téléphone :</span> <span className="text-zinc-400">[À REMPLIR]</span></li>
+              <li><span className="text-zinc-500">Téléphone :</span> <span className="text-zinc-400">0651598293</span></li>
             </ul>
           </section>
 

@@ -21,7 +21,7 @@ export function About() {
           <FadeIn delay={0.15} className="space-y-5 pt-2 md:pt-16">
             <p className="text-[#86868b] font-light leading-relaxed text-lg">
               Raythan Web Design conçoit des sites vitrine et des applications
-              web pour les commerces locaux et les projets digitaux ambitieux.
+              web pour les commerces et les projets digitaux ambitieux.
             </p>
             <p className="text-[#555] font-light leading-relaxed text-sm">
               Notre approche : livrer vite, livrer propre. No-code pour les

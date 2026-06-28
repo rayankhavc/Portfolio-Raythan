@@ -49,7 +49,7 @@ export function PortfolioPage() {
             transition={{ delay: 0.4 }}
             className="text-zinc-400 text-xl max-w-lg leading-relaxed"
           >
-            Des apps web en production — du code propre, pas des mockups.
+            Nos web apps en production :
           </motion.p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export function PortfolioPage() {
             transition={{ delay: 0.4 }}
             className="text-center text-zinc-700 text-sm mt-10"
           >
-            D'autres projets arrivent bientôt ✦
+            D'autres projets arrivent bientôt
           </motion.p>
         </div>
       </section>

@@ -85,7 +85,7 @@ export function ContactPage() {
             transition={{ delay: 0.4 }}
             className="text-zinc-400 text-xl max-w-md mx-auto"
           >
-            Un message ou un appel — on s'adapte à vous.
+            Un message ou un appel, on s'adapte à vous.
           </motion.p>
         </div>
       </section>
@@ -120,7 +120,7 @@ export function ContactPage() {
                       Message envoyé !
                     </p>
                     <p className="text-zinc-500 text-sm">
-                      On revient vers vous sous 24h.
+                      On revient vers vous très vite !
                     </p>
                   </div>
                 </motion.div>
@@ -130,7 +130,7 @@ export function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-zinc-500 mb-1.5" htmlFor="name">
-                        Nom complet *
+                        Nom complet 
                       </label>
                       <input
                         id="name"
@@ -145,7 +145,7 @@ export function ContactPage() {
                     </div>
                     <div>
                       <label className="block text-xs text-zinc-500 mb-1.5" htmlFor="email">
-                        Email *
+                        Email 
                       </label>
                       <input
                         id="email"
@@ -198,7 +198,7 @@ export function ContactPage() {
                   {/* Message */}
                   <div>
                     <label className="block text-xs text-zinc-500 mb-1.5" htmlFor="message">
-                      Votre projet *
+                      Votre projet 
                     </label>
                     <textarea
                       id="message"
@@ -253,7 +253,7 @@ export function ContactPage() {
                   Réserver un appel
                 </h2>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  30 minutes, 100% gratuit. On analyse votre situation, vos objectifs, et on vous dit exactement ce qu'on peut faire pour vous.
+                  30 minutes, 100% gratuit. On analyse votre situation/objectifs, et on vous dit exactement ce qu'on peut faire pour vous.
                 </p>
                 <a
                   href="https://cal.com/rayankhavc"

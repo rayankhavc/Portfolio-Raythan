@@ -4,7 +4,7 @@ import { ContactPage } from '@/components/sections/ContactPage'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Discutons de votre projet digital. Formulaire de contact ou prise de RDV directe sur Cal.com.',
+    'Discutons de votre projet digital. Formulaire de contact ou prise de RDV via Cal.com.',
   alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app/contact' },
 }
 

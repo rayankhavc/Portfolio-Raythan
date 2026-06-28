@@ -8,7 +8,7 @@ const ITEMS = [
   "TypeScript",
   "Tailwind CSS",
   "Vercel",
-  "Nantes · Remote France",
+  "Nantes, France",
 ]
 
 export function Marquee() {

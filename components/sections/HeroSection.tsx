@@ -67,8 +67,8 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10"
         >
-          Sites web, SEO, réseaux sociaux, publicité, automatisation et IA —
-          tout ce dont votre business a besoin pour dominer en ligne.
+          Sites web, SEO, réseaux sociaux, publicité, automatisation et IA.
+          Tout ce dont votre business a besoin pour dominer en ligne.
         </motion.p>
 
         {/* CTAs */}
