@@ -145,7 +145,7 @@ export const PROJECTS: Project[] = [
 
 export const SECTORS = [
   'Restaurant', 'Artisan', 'PME', 'Startup',
-  'Salon de beauté', 'E-commerce', 'Tech & SaaS', 'Commerce local',
+  'E-commerce', 'Tech & SaaS', 'Commerce local',
 ]
 
 // ── WHY RAYTHAN ───────────────────────────────────────────────────────────────
