@@ -53,5 +53,5 @@ export const projects: Project[] = [
       "/assets/Image funded Calc (3).jpeg",
       "/assets/Image funded Calc 1.jpeg",
     ],
-    link: "https://fundedcalc.vercel.app/",
+    link: "https://fundedcalc.vercel.app",
   },]
