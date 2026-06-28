@@ -123,7 +123,7 @@ export const PROJECTS: Project[] = [
     title: 'ZenHertz',
     type: 'Web App',
     status: 'Live',
-    description: "Outil d'analyse musicale IA — fréquences, BPM et effets sur le bien-être.",
+    description: "Outil d'analyse musicale IA fréquences, BPM et effets sur le bien-être.",
     image: '/projects/zenhertz.jpg', // → screenshot à mettre dans public/projects/zenhertz.jpg
     category: 'Web App',
     tags: ['Next.js', 'IA', 'Audio'],
@@ -161,7 +161,7 @@ export const WHY_RAYTHAN = [
     icon: 'Code2',
     title: 'Code, pas de template',
     description:
-      'Chaque projet est développé sur-mesure. Next.js, Astro, TypeScript — des bases techniques solides pour durer.',
+      'Chaque projet est développé sur-mesure. Next.js, Astro, TypeScript... des bases solides pour durer.',
   },
   {
     icon: 'Target',

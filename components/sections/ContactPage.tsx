@@ -236,7 +236,7 @@ export function ContactPage() {
               )}
             </motion.div>
 
-            {/* Right side — Cal + infos */}
+            {/* Right side Cal + infos */}
             <motion.div
               variants={fadeUp}
               initial="hidden"

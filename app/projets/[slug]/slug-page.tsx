@@ -8,11 +8,11 @@ const PROJECTS = [
     title: 'ZenHertz',
     type: 'Web App',
     description:
-      "Outil d'analyse musicale basé sur l'IA. Dépose un fichier audio ou colle un lien YouTube — ZenHertz détecte le BPM, les fréquences dominantes et t'explique les effets sur ton cerveau et ton corps.",
+      "Outil d'analyse musicale basé sur l'IA. Dépose un fichier audio et ZenHertz détecte le BPM, les fréquences dominantes et t'explique les effets sur ton cerveau et ton corps.",
     details: [
       'Analyse BPM & fréquences en temps réel',
       'Effets neurologiques et physiologiques de la musique',
-      'Support fichiers audio + liens YouTube',
+      'Support fichiers audio',
       'Interface bilingue FR / EN',
     ],
     url: 'https://zenhertz.vercel.app',
@@ -23,11 +23,10 @@ const PROJECTS = [
     title: 'FundedCalc',
     type: 'Web App',
     description:
-      'Calculateur de gestion du risque pour les traders en Prop Firm. Calcule automatiquement la taille de position, le ratio risque/récompense et les seuils de drawdown selon les règles de ta firm.',
+      'Calculateur de gestion du risque pour les traders en Prop Firm. Calcule automatiquement les chances de passer le challenge, le ratio risque/récompense et les seuils de drawdown selon les règles de ta firm.',
     details: [
-      'Calcul de taille de position en temps réel',
-      'Gestion du drawdown journalier et global',
-      'Compatible avec les principales Prop Firms',
+      'Gestion du drawdown',
+      'chance de passer funded',
       'Interface rapide et sans inscription',
     ],
     url: 'https://fundedcalc.vercel.app',

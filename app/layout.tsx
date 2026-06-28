@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://portfolioraythanwebdesign.vercel.app'),
   title: {
     template: '%s | Raythan Web Design',
-    default: 'Raythan Web Design — Agence digitale',
+    default: 'Raythan Web Design Agence digitale',
   },
   description:
     'Agence web indépendante. Création de sites, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',

@@ -54,7 +54,7 @@ export function ServicesPage() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-zinc-400 text-xl max-w-xl leading-relaxed"
           >
-            Tout ce dont votre business a besoin pour exister, grandir et convertir en ligne — sous un même toit.
+            Tout ce dont votre business a besoin pour exister, grandir et convertir en ligne sous un même toit.
           </motion.p>
         </div>
       </section>
