@@ -34,7 +34,7 @@ export function Footer() {
             </span>
           </Link>
             <p className="text-zinc-600 text-sm leading-relaxed max-w-xs">
-              Agence digitale indépendante — sites web, SEO, pub, automatisation et IA métier.
+              Agence digitale indépendante sites web, SEO, pub, automatisation et IA métier.
             </p>
             <a
               href="mailto:raythanwebdesign@gmail.com"
@@ -64,7 +64,7 @@ export function Footer() {
           <div>
             <p className="text-xs text-zinc-600 uppercase tracking-widest mb-4">Démarrer</p>
             <p className="text-sm text-zinc-500 mb-4 leading-relaxed">
-              Un projet en tête ? Réservons un appel de 30 min, gratuit.
+              Un projet en tête ? Réservons un appel gratuit.
             </p>
             <a
               href="https://cal.com/rayankhavc"
