@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Portfolio' },
   { href: '/contact', label: 'Contact' },
 ]
 

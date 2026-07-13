@@ -98,8 +98,9 @@ export const SERVICES: Service[] = [
 ]
 
 // ── PROJECTS ──────────────────────────────────────────────────────────────────
-// Source de vérité unique pour tous les projets : grille /portfolio ET pages
-// de détail /projets/[slug].
+// Portfolio retiré du site pour l'instant — ces données ne sont branchées sur
+// aucune route. Elles alimenteront la future section « Ils nous ont fait
+// confiance » (exemples + retours clients) une fois les projets finalisés.
 // Pour ajouter une image de couverture : screenshot 16/9 dans /public/projects/,
 // puis renseigner `image`. Les captures de la galerie vont dans `images`.
 

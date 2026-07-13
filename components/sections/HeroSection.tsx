@@ -94,9 +94,9 @@ export function HeroSection() {
           className="flex flex-wrap items-center gap-8 mt-16 pt-8 border-t border-white/8"
         >
           {[
-            { value: '7+', label: 'Projets livrés' },
-            { value: '3', label: 'Projets en production' },
-            { value: '100%', label: 'Remote France' },
+            { value: '10', label: 'Projets développés' },
+            { value: '100%', label: 'Clients satisfaits' },
+            { value: '5-15 j', label: 'Délai de livraison' },
           ].map(({ value, label }) => (
             <div key={label} className="flex flex-col">
               <span className="font-semibold text-xl text-foreground">{value}</span>
