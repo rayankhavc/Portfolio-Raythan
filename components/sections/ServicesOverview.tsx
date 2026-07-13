@@ -18,17 +18,17 @@ export function ServicesOverview() {
         {/* Header */}
         <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <p className="text-[#C8FF00] text-xs font-medium tracking-widest uppercase mb-3">
+            <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
               Ce qu'on fait
             </p>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white leading-tight">
+            <h2 className="font-semibold tracking-tight text-4xl md:text-5xl text-foreground leading-tight">
               Une agence digitale<br />
-              <span className="text-zinc-500">complète.</span>
+              <span className="text-metallic">complète.</span>
             </h2>
           </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors shrink-0"
+            className="inline-flex items-center gap-2 text-sm text-metallic-light hover:text-foreground transition-colors shrink-0"
           >
             Voir tous les services <ArrowRight size={14} />
           </Link>
@@ -36,10 +36,10 @@ export function ServicesOverview() {
 
         {/* Cards grid — chaque card redirige vers /services */}
         <motion.div
-          variants={staggerContainer(0.1, 0.1)}
+          variants={staggerContainer(0.12, 0.1)}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: '-80px' }}
+          viewport={{ once: true, margin: '-80px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {SERVICES.map((service) => {
@@ -51,31 +51,31 @@ export function ServicesOverview() {
               >
                 <Link
                   href="/services"
-                  className="group relative p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-[#C8FF00]/30 transition-all duration-300 flex flex-col h-full cursor-pointer block"
+                  className="group relative p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 flex flex-col h-full cursor-pointer block"
                 >
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-xl bg-[#C8FF00]/10 flex items-center justify-center mb-4 group-hover:bg-[#C8FF00]/20 transition-colors">
-                    {Icon && <Icon size={18} className="text-[#C8FF00]" />}
+                  <div className="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center mb-4 group-hover:border-white/20 transition-colors duration-500">
+                    {Icon && <Icon size={18} className="text-metallic-light" />}
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-syne font-semibold text-white text-lg mb-1">
+                  <h3 className="font-semibold text-foreground text-lg mb-1">
                     {service.title}
                   </h3>
-                  <p className="text-zinc-500 text-sm mb-4">{service.tagline}</p>
+                  <p className="text-metallic text-sm mb-4">{service.tagline}</p>
 
                   {/* Benefits preview */}
                   <ul className="space-y-1.5 flex-1">
                     {service.benefits.slice(0, 2).map((b, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-zinc-600">
-                        <span className="text-[#C8FF00] shrink-0 mt-0.5">→</span>
+                      <li key={i} className="flex items-start gap-2 text-xs text-metallic">
+                        <span className="text-metallic-light shrink-0 mt-0.5">·</span>
                         {b}
                       </li>
                     ))}
                   </ul>
 
                   {/* Arrow always visible on hover */}
-                  <div className="flex items-center gap-1 mt-4 text-xs text-zinc-600 group-hover:text-[#C8FF00] transition-colors">
+                  <div className="flex items-center gap-1 mt-4 text-xs text-metallic group-hover:text-accent transition-colors duration-500">
                     En savoir plus <ArrowRight size={12} />
                   </div>
                 </Link>

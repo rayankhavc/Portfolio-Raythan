@@ -98,46 +98,107 @@ export const SERVICES: Service[] = [
 ]
 
 // ── PROJECTS ──────────────────────────────────────────────────────────────────
-// Pour ajouter une image :
-// 1. Fais un screenshot de ton projet (plein écran, format 16/9)
-// 2. Renomme-le exactement comme indiqué ci-dessous
-// 3. Glisse-le dans le dossier /public/projects/
-// C'est tout — le site l'affiche automatiquement.
+// Portfolio retiré du site pour l'instant — ces données ne sont branchées sur
+// aucune route. Elles alimenteront la future section « Ils nous ont fait
+// confiance » (exemples + retours clients) une fois les projets finalisés.
+// Pour ajouter une image de couverture : screenshot 16/9 dans /public/projects/,
+// puis renseigner `image`. Les captures de la galerie vont dans `images`.
 
 export interface Project {
-  id: string
   slug: string
-  title: string
-  type: 'Web App' | 'No-Code'
+  name: string
+  tagline: string
   description: string
+  valueAdded: string
+  type: 'Web App' | 'Site Vitrine' | 'No-Code'
   status: 'Live' | 'En cours'
-  image?: string
-  category: string
+  featured: boolean
   tags: string[]
+  details: string[]
+  cta: string
+  image?: string
+  images?: string[]
+  link?: string
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: 'zenhertz',
-    slug: 'zenhertz',
-    title: 'ZenHertz',
-    type: 'Web App',
+    slug: 'chikano',
+    name: 'Chikano',
+    tagline: 'Site vitrine pour un snack du littoral vendéen.',
+    description:
+      "Site vitrine one-page pour Chikano, restauration rapide à La Barre-de-Monts (Vendée). Structure claire, chargement rapide, et un référencement local pensé pour capter la clientèle touristique de la zone : Fromentine, Saint-Jean-de-Monts, Noirmoutier.",
+    valueAdded:
+      "Premier projet client de l'agence livré en production. SEO local orienté tourisme, informations pratiques accessibles en un scroll, site pensé pour transformer les visiteurs saisonniers en clients sur place.",
+    type: 'Site Vitrine',
     status: 'Live',
-    description: "Outil d'analyse musicale IA fréquences, BPM et effets sur le bien-être.",
-    image: '/projects/zenhertz.jpg', // → screenshot à mettre dans public/projects/zenhertz.jpg
-    category: 'Web App',
-    tags: ['Next.js', 'IA', 'Audio'],
+    featured: true,
+    tags: ['Next.js', 'Tailwind', 'SEO local'],
+    details: [
+      'One-page vitrine Next.js 14 + Tailwind',
+      'SEO optimisé tourisme (Fromentine, Saint-Jean-de-Monts, Noirmoutier)',
+      'Mobile-first, chargement rapide',
+      'Informations pratiques accessibles en un scroll',
+    ],
+    cta: 'Voir le site',
+    link: 'https://chikano.vercel.app',
   },
   {
-    id: 'fundedcalc',
-    slug: 'fundedcalc',
-    title: 'FundedCalc',
+    slug: 'zenhertz',
+    name: 'ZenHertz',
+    tagline: "Web App interactive d'analyse et de bien-être sonore.",
+    description:
+      "Outil d'analyse musicale basé sur l'IA. Le site traite les fréquences et le BPM des morceaux pour corréler les effets sur le bien-être et optimiser les activités quotidiennes (sommeil, sport, travail).",
+    valueAdded:
+      'Application déployée en production. Interface bilingue FR/EN, moteurs BPM & Hz intégrés, design system complet.',
     type: 'Web App',
     status: 'Live',
-    description: 'Calculateur de risque pour traders en Prop Firms.',
-    image: '/projects/fundedcalc.jpg', // → screenshot à mettre dans public/projects/fundedcalc.jpg
-    category: 'Web App',
+    featured: false,
+    tags: ['Next.js', 'IA', 'Audio'],
+    details: [
+      'Analyse BPM & fréquences',
+      'Effets neurologiques et physiologiques de la musique',
+      'Support fichiers audio',
+      'Interface bilingue FR / EN',
+    ],
+    cta: "Tester l'outil",
+    image: '/projects/zenhertz.jpg',
+    images: [
+      '/assets/zenhertz logo.jpeg',
+      '/assets/image zenhertz (1).jpeg',
+      '/assets/image zenhertz (2).jpeg',
+      '/assets/image zenhertz 1.jpeg',
+      '/assets/image zenhertz 2 (1).jpeg',
+    ],
+    link: 'https://zen-hertz.vercel.app',
+  },
+  {
+    slug: 'fundedcalc',
+    name: 'FundedCalc',
+    tagline: 'Calculateur de risque pour les Prop Firms.',
+    description:
+      "Outil de calcul stratégique pour les traders passant des challenges Prop Firm. L'outil analyse les paramètres utilisateur pour fournir des projections mathématiques précises de gestion du risque.",
+    valueAdded:
+      'Application déployée sur Vercel. Interface claire, calculs en temps réel, adoptée par des traders en phase de challenge.',
+    type: 'Web App',
+    status: 'Live',
+    featured: false,
     tags: ['React', 'Finance', 'Tool'],
+    details: [
+      'Gestion du drawdown',
+      'Chance de passer funded',
+      'Interface rapide et sans inscription',
+    ],
+    cta: 'Tester le calculateur',
+    image: '/projects/fundedcalc.jpg',
+    images: [
+      '/assets/fundedcalc logo.jpeg',
+      '/assets/image funded calc.jpeg',
+      '/assets/Image funded Calc (2).jpeg',
+      '/assets/Image funded Calc (3).jpeg',
+      '/assets/Image funded Calc 1.jpeg',
+    ],
+    link: 'https://fundedcalc.vercel.app',
   },
 ]
 

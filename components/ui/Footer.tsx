@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Portfolio' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -14,7 +13,7 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/8 bg-[#080808]">
+    <footer className="border-t border-white/8 bg-background">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
@@ -29,16 +28,16 @@ export function Footer() {
                 className="object-contain shrink-0"
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
-            <span className="whitespace-nowrap text-sm font-medium text-white">
+            <span className="whitespace-nowrap text-sm font-medium text-foreground">
               Raythan Web Design
             </span>
           </Link>
-            <p className="text-zinc-600 text-sm leading-relaxed max-w-xs">
+            <p className="text-metallic text-sm leading-relaxed max-w-xs">
               Agence digitale indépendante sites web, SEO, pub, automatisation et IA métier.
             </p>
             <a
               href="mailto:raythanwebdesign@gmail.com"
-              className="text-sm text-zinc-400 hover:text-[#C8FF00] transition-colors"
+              className="text-sm text-metallic-light hover:text-accent transition-colors"
             >
               raythanwebdesign@gmail.com
             </a>
@@ -46,13 +45,13 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="text-xs text-zinc-600 uppercase tracking-widest mb-4">Navigation</p>
+            <p className="text-xs text-metallic uppercase tracking-widest mb-4">Navigation</p>
             <nav className="flex flex-col gap-3">
               {NAV_LINKS.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-zinc-500 hover:text-white transition-colors"
+                  className="text-sm text-metallic hover:text-foreground transition-colors"
                 >
                   {label}
                 </Link>
@@ -62,15 +61,15 @@ export function Footer() {
 
           {/* CTA */}
           <div>
-            <p className="text-xs text-zinc-600 uppercase tracking-widest mb-4">Démarrer</p>
-            <p className="text-sm text-zinc-500 mb-4 leading-relaxed">
+            <p className="text-xs text-metallic uppercase tracking-widest mb-4">Démarrer</p>
+            <p className="text-sm text-metallic mb-4 leading-relaxed">
               Un projet en tête ? Réservons un appel gratuit.
             </p>
             <a
               href="https://cal.com/rayankhavc"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#C8FF00] text-black text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-white transition-colors"
+              className="cta-magnetic inline-flex items-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-4 py-2.5 rounded-full"
             >
               Prendre RDV →
             </a>
@@ -79,7 +78,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-zinc-700">
+          <p className="text-xs text-metallic">
             © {new Date().getFullYear()} Raythan Web Design. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6">
@@ -87,7 +86,7 @@ export function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="text-xs text-zinc-700 hover:text-zinc-400 transition-colors"
+                className="text-xs text-metallic hover:text-metallic-light transition-colors"
               >
                 {label}
               </Link>

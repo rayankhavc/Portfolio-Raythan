@@ -8,7 +8,6 @@ import { Menu, X } from 'lucide-react'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Portfolio' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -30,7 +29,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-black/60 backdrop-blur-xl border-b border-white/8'
+            ? 'bg-background/70 backdrop-blur-xl border-b border-white/8'
             : 'bg-transparent'
         }`}
       >
@@ -47,7 +46,7 @@ export function Navbar() {
               style={{ filter: 'brightness(0) invert(1)' }}
               priority
             />
-            <span className="whitespace-nowrap text-sm font-medium text-white">
+            <span className="whitespace-nowrap text-sm font-medium text-foreground">
               Raythan Web Design
             </span>
           </Link>
@@ -58,12 +57,12 @@ export function Navbar() {
                 key={href}
                 href={href}
                 className={`text-sm font-medium transition-colors relative group ${
-                  pathname === href ? 'text-white' : 'text-zinc-500 hover:text-white'
+                  pathname === href ? 'text-foreground' : 'text-metallic hover:text-foreground'
                 }`}
               >
                 {label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-px bg-[#C8FF00] transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300 ${
                     pathname === href ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 />
@@ -77,7 +76,7 @@ export function Navbar() {
               href="https://cal.com/rayankhavc"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#C8FF00] text-black text-sm font-semibold px-4 py-2 rounded-full hover:bg-white transition-colors"
+              className="cta-magnetic inline-flex items-center gap-2 bg-accent text-accent-foreground text-sm font-semibold px-4 py-2 rounded-full"
             >
               Prendre RDV
             </a>
@@ -85,7 +84,7 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-white p-1"
+            className="md:hidden text-foreground p-1"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
@@ -101,34 +100,34 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {NAV_LINKS.map(({ href, label }, i) => (
               <motion.div
                 key={href}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link
                   href={href}
-                  className="font-syne text-3xl font-bold text-white hover:text-[#C8FF00] transition-colors"
+                  className="text-3xl font-semibold tracking-tight text-foreground hover:text-accent transition-colors"
                 >
                   {label}
                 </Link>
               </motion.div>
             ))}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               <a
                 href="https://cal.com/rayankhavc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#C8FF00] text-black text-base font-semibold px-6 py-3 rounded-full"
+                className="cta-magnetic inline-flex items-center gap-2 bg-accent text-accent-foreground text-base font-semibold px-6 py-3 rounded-full"
               >
                 Prendre RDV
               </a>
