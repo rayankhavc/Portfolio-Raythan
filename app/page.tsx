@@ -1,7 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { MarqueeSection } from '@/components/sections/MarqueeSection'
