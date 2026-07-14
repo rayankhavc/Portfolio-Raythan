@@ -2,9 +2,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CalendarDays, Mail, Clock } from 'lucide-react'
-import { fadeUp } from '@/lib/motion-variants'
-
-const ease = [0.22, 1, 0.36, 1] as const
+import { ease, fadeUp } from '@/lib/motion-variants'
 
 const SERVICES_OPTIONS = [
   'Création de site web',

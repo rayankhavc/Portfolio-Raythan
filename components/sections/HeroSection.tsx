@@ -3,8 +3,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, CalendarDays } from 'lucide-react'
-
-const ease = [0.22, 1, 0.36, 1] as const
+import { ease } from '@/lib/motion-variants'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -20,7 +19,7 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 overflow-hidden"
     >
-      {/* Halo chaud très subtil, parallax doux au scroll */}
+      {/* Halo très subtil, parallax doux au scroll */}
       <motion.div
         style={prefersReducedMotion ? undefined : { y: glowY }}
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-accent/[0.04] blur-[150px]"

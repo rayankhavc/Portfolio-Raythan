@@ -26,10 +26,19 @@ export const metadata: Metadata = {
   },
 }
 
+// Exécuté avant le premier paint, à chaque chargement complet de document :
+// mémorise la page d'entrée de la session, et pose data-intro sur <html>
+// uniquement si la session commence par la home, que l'intro n'a pas encore
+// été jouée et que prefers-reduced-motion est inactif. L'overlay
+// (components/IntroOverlay.tsx) n'est visible que via cet attribut — les
+// visiteurs récurrents et les navigations internes ne voient jamais l'intro.
+const INTRO_ENTRY_SCRIPT = `(function(){try{var s=sessionStorage,p=location.pathname;if(!s.getItem('rwd-entry'))s.setItem('rwd-entry',p==='/'?'home':'other');if(p==='/'&&s.getItem('rwd-entry')==='home'&&!s.getItem('rwd-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.setAttribute('data-intro','')}catch(e){}})()`
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" className={inter.variable} suppressHydrationWarning>
       <body className="font-sans antialiased">
+        <script dangerouslySetInnerHTML={{ __html: INTRO_ENTRY_SCRIPT }} />
         <MotionProvider>
           <Navbar />
           <main>{children}</main>

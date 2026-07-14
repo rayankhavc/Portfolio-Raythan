@@ -15,8 +15,9 @@
   --secondary-foreground: #f5f1ea;
   --muted: #2c2c2e;
   --muted-foreground: #939398;
-  /* Beige chaud — accent unique, utilisé avec parcimonie */
-  --accent: #e8dcc8;
+  /* Gris très clair quasi blanc — accent unique, neutre et discret,
+     utilisé avec parcimonie */
+  --accent: #f0f0f1;
   --accent-foreground: #1d1d1f;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
@@ -71,16 +72,30 @@
   }
 }
 
+/* Intro plein écran — visible uniquement quand le script d'entrée
+   (app/layout.tsx) a posé data-intro sur <html> : première page de la session
+   = la home, intro pas encore jouée, et prefers-reduced-motion inactif.
+   Sans JavaScript, l'attribut n'est jamais posé : l'intro reste invisible. */
+#intro-overlay {
+  display: none;
+}
+html[data-intro] #intro-overlay {
+  display: flex;
+}
+html[data-intro] {
+  overflow: hidden;
+}
+
 /* CTA principal — micro-interaction magnétique : scale + ombre, pas de flash de couleur */
 .cta-magnetic {
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 4px 16px -8px rgba(232, 220, 200, 0.15);
+  box-shadow: 0 4px 16px -8px rgba(240, 240, 241, 0.15);
 }
 .cta-magnetic:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 32px -8px rgba(232, 220, 200, 0.3);
+  box-shadow: 0 12px 32px -8px rgba(240, 240, 241, 0.3);
 }
 .cta-magnetic:active {
   transform: scale(1.01);
