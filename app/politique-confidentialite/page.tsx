@@ -79,9 +79,9 @@ export default function PolitiqueConfidentialite() {
             <h2 className="font-semibold text-foreground text-xl mb-4">6. Sous-traitants</h2>
             <p>Nous utilisons les services tiers suivants :</p>
             <ul className="mt-3 space-y-2 ml-4 list-disc">
-              <li><strong className="text-foreground">Formspree</strong> (formspree.io) — traitement des formulaires de contact</li>
-              <li><strong className="text-foreground">Cal.com</strong> (cal.com) — prise de rendez-vous en ligne</li>
-              <li><strong className="text-foreground">Vercel</strong> (vercel.com) — hébergement du site</li>
+              <li><strong className="text-foreground">Formspree</strong> (formspree.io), pour le traitement des formulaires de contact</li>
+              <li><strong className="text-foreground">Cal.com</strong> (cal.com), pour la prise de rendez-vous en ligne</li>
+              <li><strong className="text-foreground">Vercel</strong> (vercel.com), pour l'hébergement du site</li>
             </ul>
             <p className="mt-3">Ces prestataires disposent de leurs propres politiques de confidentialité conformes au RGPD.</p>
           </section>

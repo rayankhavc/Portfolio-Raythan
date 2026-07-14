@@ -27,6 +27,14 @@ Langue du projet et des échanges : français.
   uniquement (zéro CLS), `prefers-reduced-motion` respecté partout.
 - Contraste WCAG AA (4.5:1) non négociable sur toute combinaison texte/fond,
   y compris sur les surfaces de carte et leurs états hover.
+- Jamais de tiret long (—) dans le texte visible du site (titres, paragraphes,
+  metadata, image OG). Rayan le trouve « atroce » et symptomatique d'un texte
+  généré par IA sans relecture. Utiliser une virgule, un point, ou reformuler.
+  Le point médian (·) reste autorisé pour séparer de courts éléments (ex.
+  « Devis gratuit · Réponse sous 48h »), ce n'est pas la même chose.
+- Ton des textes courts (FAQ, réassurance) : direct, neutre, carré — pas de
+  formulations qui « expliquent » ou adoucissent, pas de tournures IA
+  perceptibles.
 
 ## Points d'architecture
 
