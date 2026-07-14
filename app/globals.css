@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
 :root {
   /* Noir "produit" — plus chaud qu'un noir pur, registre Apple */
@@ -69,6 +68,13 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+  }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 

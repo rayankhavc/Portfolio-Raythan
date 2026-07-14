@@ -34,11 +34,27 @@ export const metadata: Metadata = {
 // visiteurs récurrents et les navigations internes ne voient jamais l'intro.
 const INTRO_ENTRY_SCRIPT = `(function(){try{var s=sessionStorage,p=location.pathname;if(!s.getItem('rwd-entry'))s.setItem('rwd-entry',p==='/'?'home':'other');if(p==='/'&&s.getItem('rwd-entry')==='home'&&!s.getItem('rwd-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.setAttribute('data-intro','')}catch(e){}})()`
 
+const LOCAL_BUSINESS_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Raythan Web Design',
+  description:
+    'Agence digitale indépendante : création de sites web, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
+  areaServed: 'Loire-Atlantique',
+  email: 'raythanwebdesign@gmail.com',
+  telephone: '+33651598293',
+  url: 'https://portfolioraythanwebdesign.vercel.app',
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={inter.variable} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <script dangerouslySetInnerHTML={{ __html: INTRO_ENTRY_SCRIPT }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
+        />
         <MotionProvider>
           <Navbar />
           <main>{children}</main>

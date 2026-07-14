@@ -1,11 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
   // Portfolio retiré temporairement — évite les 404 sur les URLs déjà indexées
   async redirects() {
     return [

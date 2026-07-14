@@ -7,9 +7,9 @@ import { WhyRaythan } from '@/components/sections/WhyRaythan'
 import { CTABand } from '@/components/sections/CTABand'
 
 export const metadata: Metadata = {
-  title: 'Agence digitale à Nantes — Sites, SEO, Pub, IA',
+  title: 'Agence digitale en Loire-Atlantique — Sites, SEO, Pub, IA',
   description:
-    'Raythan Web Design agence digitale indépendante à Nantes. Création de sites web, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
+    'Raythan Web Design, agence digitale indépendante en Loire-Atlantique. Création de sites web, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
   alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app' },
 }
 
