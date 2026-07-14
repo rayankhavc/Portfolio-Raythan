@@ -5,7 +5,6 @@ import {
 } from 'lucide-react'
 import { SERVICES, type Service } from '@/lib/data'
 import { CTABand } from '@/components/sections/CTABand'
-import { FAQSection } from '@/components/sections/FAQSection'
 import { ease, slideFromLeft, slideFromRight } from '@/lib/motion-variants'
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -126,7 +125,6 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <FAQSection />
       <CTABand />
     </>
   )

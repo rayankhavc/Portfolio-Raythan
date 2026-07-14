@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CalendarDays, Mail, Phone, Clock } from 'lucide-react'
 import { ease, fadeUp } from '@/lib/motion-variants'
-import { CopyableEmail } from '@/components/CopyableEmail'
+import { CopyableLink } from '@/components/CopyableLink'
 
 const SERVICES_OPTIONS = [
   'Création de site web',
@@ -269,7 +269,12 @@ export function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-metallic mb-0.5">Email</p>
-                    <CopyableEmail className="text-sm text-foreground hover:text-accent transition-colors" />
+                    <CopyableLink
+                      href="mailto:raythanwebdesign@gmail.com"
+                      label="raythanwebdesign@gmail.com"
+                      copyValue="raythanwebdesign@gmail.com"
+                      className="text-sm text-foreground hover:text-accent transition-colors"
+                    />
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -278,12 +283,12 @@ export function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-metallic mb-0.5">Téléphone</p>
-                    <a
+                    <CopyableLink
                       href="tel:+33651598293"
+                      label="06 51 59 82 93"
+                      copyValue="06 51 59 82 93"
                       className="text-sm text-foreground hover:text-accent transition-colors"
-                    >
-                      06 51 59 82 93
-                    </a>
+                    />
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
