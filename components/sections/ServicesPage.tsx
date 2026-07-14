@@ -5,9 +5,7 @@ import {
 } from 'lucide-react'
 import { SERVICES, type Service } from '@/lib/data'
 import { CTABand } from '@/components/sections/CTABand'
-import { slideFromLeft, slideFromRight } from '@/lib/motion-variants'
-
-const ease = [0.22, 1, 0.36, 1] as const
+import { ease, slideFromLeft, slideFromRight } from '@/lib/motion-variants'
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Monitor, TrendingUp, Share2, BarChart3, Zap, Brain,

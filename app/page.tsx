@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { IntroOverlay } from '@/components/IntroOverlay'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { MarqueeSection } from '@/components/sections/MarqueeSection'
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <IntroOverlay />
       <HeroSection />
       <MarqueeSection />
       <ServicesOverview />

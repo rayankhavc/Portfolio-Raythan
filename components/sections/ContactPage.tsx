@@ -2,9 +2,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CalendarDays, Mail, Clock } from 'lucide-react'
-import { fadeUp } from '@/lib/motion-variants'
-
-const ease = [0.22, 1, 0.36, 1] as const
+import { ease, fadeUp } from '@/lib/motion-variants'
 
 const SERVICES_OPTIONS = [
   'Création de site web',
@@ -69,7 +67,10 @@ export function ContactPage() {
             transition={{ duration: 0.9, ease, delay: 0.1 }}
             className="font-semibold tracking-tight text-5xl md:text-7xl text-foreground leading-tight mb-6"
           >
-            Démarrons <span className="text-accent">ensemble.</span>
+            Démarrons{' '}
+            <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
+              ensemble.
+            </span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
