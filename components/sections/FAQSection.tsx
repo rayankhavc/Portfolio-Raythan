@@ -4,43 +4,43 @@ const FAQ_ITEMS = [
   {
     question: 'Combien de temps pour livrer un site ?',
     answer:
-      'Entre 5 et 15 jours selon la complexité du projet, du premier appel à la mise en ligne. Un workflow IA-augmenté qui compresse les délais sans rogner sur la qualité.',
+      'En général entre 5 et 15 jours, du premier appel à la mise en ligne. Ça dépend surtout de la taille du projet et de la rapidité de vos retours.',
   },
   {
     question: 'Quel est le tarif pour un site vitrine ?',
     answer:
-      "Chaque projet est chiffré après un appel gratuit de 30 minutes, selon vos besoins réels. Un site vitrine simple et une application sur-mesure n'ont pas le même prix — pas de forfait générique, un devis adapté à votre activité.",
+      "Il n'y a pas de prix fixe affiché ici, chaque projet est différent. On en parle pendant l'appel gratuit de 30 minutes et vous repartez avec un devis gratuit et précis, sans engagement.",
   },
   {
     question: 'Quelles technologies utilisez-vous ?',
     answer:
-      'Next.js, TypeScript, Tailwind CSS principalement. Du code sur-mesure à chaque fois, jamais de template — des bases solides, rapides et faciles à faire évoluer.',
+      "Next.js, TypeScript et Tailwind CSS. Tout est codé sur-mesure, pas de template qu'on personnalise à moitié.",
   },
   {
     question: 'Dans quelle zone intervenez-vous ?',
     answer:
-      "100% remote, basé en Loire-Atlantique. La distance n'est jamais un frein : tout se fait par appel et par message, partout en France.",
+      "On est basé en Loire-Atlantique et on travaille à distance avec des clients partout en France. Un appel vidéo remplace largement un rendez-vous en personne.",
   },
   {
     question: 'Que se passe-t-il après la mise en ligne ?',
     answer:
-      "Un accompagnement reste possible : mises à jour, ajustements, évolutions du site. On en discute ensemble selon vos besoins, sans engagement imposé.",
+      "Le site vous appartient, vous pouvez le faire vivre seul ou nous solliciter pour des évolutions. On répond aux demandes de suivi au cas par cas.",
   },
   {
     question: "Pour quel type d'activité travaillez-vous ?",
     answer:
-      "PME, commerces locaux, artisans, restaurants, startups. Chaque secteur a ses propres attentes — le site est pensé pour votre clientèle, pas pour un modèle générique.",
+      "Beaucoup de PME, commerces locaux, artisans et restaurants, mais aussi des startups. Le site colle à votre clientèle réelle, pas à un modèle passe-partout.",
   },
 ]
 
 export function FAQSection() {
   return (
-    <section className="py-24 px-6 border-t border-white/8">
+    <section className="py-24 px-6 border-t border-white/8 bg-white/[0.015]">
       <div className="max-w-3xl mx-auto">
         <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
           Questions fréquentes
         </p>
-        <h2 className="font-semibold tracking-tight text-4xl md:text-5xl text-foreground leading-tight mb-10">
+        <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight mb-10">
           Vous vous demandez peut-être...
         </h2>
         <div className="space-y-3">

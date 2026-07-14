@@ -55,6 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
         />
+        <div
+          aria-hidden="true"
+          className="grain-overlay pointer-events-none fixed inset-0 z-40 opacity-[0.035] mix-blend-overlay"
+        />
         <MotionProvider>
           <Navbar />
           <main>{children}</main>

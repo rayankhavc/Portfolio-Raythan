@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CalendarDays, Mail, Phone, Clock } from 'lucide-react'
 import { ease, fadeUp } from '@/lib/motion-variants'
-import { CopyableEmail } from '@/components/CopyableEmail'
+import { CopyableLink } from '@/components/CopyableLink'
 
 const SERVICES_OPTIONS = [
   'Création de site web',
@@ -66,7 +66,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
-            className="font-semibold tracking-tight text-5xl md:text-7xl text-foreground leading-tight mb-6"
+            className="font-semibold tracking-tight text-display-md text-foreground leading-tight mb-6"
           >
             Démarrons{' '}
             <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
@@ -269,7 +269,12 @@ export function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-metallic mb-0.5">Email</p>
-                    <CopyableEmail className="text-sm text-foreground hover:text-accent transition-colors" />
+                    <CopyableLink
+                      href="mailto:raythanwebdesign@gmail.com"
+                      label="raythanwebdesign@gmail.com"
+                      copyValue="raythanwebdesign@gmail.com"
+                      className="text-sm text-foreground hover:text-accent transition-colors"
+                    />
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -278,12 +283,12 @@ export function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-metallic mb-0.5">Téléphone</p>
-                    <a
+                    <CopyableLink
                       href="tel:+33651598293"
+                      label="06 51 59 82 93"
+                      copyValue="06 51 59 82 93"
                       className="text-sm text-foreground hover:text-accent transition-colors"
-                    >
-                      06 51 59 82 93
-                    </a>
+                    />
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

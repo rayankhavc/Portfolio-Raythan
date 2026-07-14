@@ -21,7 +21,7 @@ export function ServicesOverview() {
             <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
               Ce qu'on fait
             </p>
-            <h2 className="font-semibold tracking-tight text-4xl md:text-5xl text-foreground leading-tight">
+            <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight">
               Une agence digitale<br />
               <span className="text-metallic">complète.</span>
             </h2>

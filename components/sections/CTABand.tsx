@@ -18,11 +18,11 @@ export function CTABand() {
           <p className="text-accent text-xs font-medium tracking-widest uppercase mb-4">
             Prêt à démarrer ?
           </p>
-          <h2 className="font-semibold tracking-tight text-4xl md:text-6xl text-foreground mb-4 leading-tight">
+          <h2 className="font-semibold tracking-tight text-display-cta text-foreground mb-4 leading-tight">
             Un projet en tête ?
           </h2>
           <p className="text-metallic text-lg max-w-md mx-auto mb-10">
-            Réservez un appel gratuit. On analyse votre situation et on vous dit exactement ce qu'on peut faire.
+            Réservez un appel gratuit et repartez avec un devis clair, sans engagement.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a

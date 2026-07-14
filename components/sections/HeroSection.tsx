@@ -44,7 +44,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.2 }}
-            className="font-semibold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-6"
+            className="font-semibold text-display-lg leading-[1.05] tracking-tight mb-6"
           >
             Votre présence digitale,
             <br />
@@ -88,6 +88,16 @@ export function HeroSection() {
               <ArrowRight size={14} />
             </Link>
           </motion.div>
+
+          {/* Devis gratuit */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease, delay: 0.75 }}
+            className="text-xs text-metallic mt-4"
+          >
+            Devis gratuit · Réponse sous 48h
+          </motion.p>
 
           {/* Stats */}
           <motion.div

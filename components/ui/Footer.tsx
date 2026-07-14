@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { CopyableEmail } from '@/components/CopyableEmail'
+import { CopyableLink } from '@/components/CopyableLink'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -36,13 +36,18 @@ export function Footer() {
             <p className="text-metallic text-sm leading-relaxed max-w-xs">
               Agence digitale indépendante sites web, SEO, pub, automatisation et IA métier.
             </p>
-            <CopyableEmail className="text-sm text-metallic-light hover:text-accent transition-colors" />
-            <a
-              href="tel:+33651598293"
+            <CopyableLink
+              href="mailto:raythanwebdesign@gmail.com"
+              label="raythanwebdesign@gmail.com"
+              copyValue="raythanwebdesign@gmail.com"
               className="text-sm text-metallic-light hover:text-accent transition-colors"
-            >
-              06 51 59 82 93
-            </a>
+            />
+            <CopyableLink
+              href="tel:+33651598293"
+              label="06 51 59 82 93"
+              copyValue="06 51 59 82 93"
+              className="text-sm text-metallic-light hover:text-accent transition-colors"
+            />
           </div>
 
           {/* Navigation */}
@@ -65,7 +70,7 @@ export function Footer() {
           <div>
             <p className="text-xs text-metallic uppercase tracking-widest mb-4">Démarrer</p>
             <p className="text-sm text-metallic mb-4 leading-relaxed">
-              Un projet en tête ? Réservons un appel gratuit.
+              Un projet en tête ? Réservons un appel, devis gratuit à la clé.
             </p>
             <a
               href="https://cal.com/rayankhavc"
