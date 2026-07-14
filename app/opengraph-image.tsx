@@ -29,7 +29,7 @@ export default async function Image() {
             textTransform: 'uppercase',
           }}
         >
-          Agence digitale — Loire-Atlantique
+          Agence digitale en Loire-Atlantique
         </div>
       </div>
     ),

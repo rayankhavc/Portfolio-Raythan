@@ -1,35 +1,37 @@
+import { ChevronDown } from 'lucide-react'
+
 // <details>/<summary> natif : accessible et fonctionnel sans JavaScript,
 // contrairement à un accordéon animé qui dépendrait de framer-motion.
 const FAQ_ITEMS = [
   {
     question: 'Combien de temps pour livrer un site ?',
     answer:
-      'En général entre 5 et 15 jours, du premier appel à la mise en ligne. Ça dépend surtout de la taille du projet et de la rapidité de vos retours.',
+      "5 à 15 jours en général, du premier appel à la mise en ligne. Ça dépend de la taille du projet et de la rapidité de vos retours.",
   },
   {
     question: 'Quel est le tarif pour un site vitrine ?',
     answer:
-      "Il n'y a pas de prix fixe affiché ici, chaque projet est différent. On en parle pendant l'appel gratuit de 30 minutes et vous repartez avec un devis gratuit et précis, sans engagement.",
+      "Pas de prix fixe ici, chaque projet est différent. Vous obtenez un devis gratuit et précis après l'appel de 30 minutes.",
   },
   {
     question: 'Quelles technologies utilisez-vous ?',
     answer:
-      "Next.js, TypeScript et Tailwind CSS. Tout est codé sur-mesure, pas de template qu'on personnalise à moitié.",
+      "Next.js, TypeScript, Tailwind CSS. Du code sur-mesure, jamais de template à moitié personnalisé.",
   },
   {
     question: 'Dans quelle zone intervenez-vous ?',
     answer:
-      "On est basé en Loire-Atlantique et on travaille à distance avec des clients partout en France. Un appel vidéo remplace largement un rendez-vous en personne.",
+      "Basé en Loire-Atlantique, à distance pour toute la France. Un appel vidéo suffit.",
   },
   {
     question: 'Que se passe-t-il après la mise en ligne ?',
     answer:
-      "Le site vous appartient, vous pouvez le faire vivre seul ou nous solliciter pour des évolutions. On répond aux demandes de suivi au cas par cas.",
+      "Le site vous appartient. Vous le gérez seul ou vous nous sollicitez pour des évolutions, au cas par cas.",
   },
   {
     question: "Pour quel type d'activité travaillez-vous ?",
     answer:
-      "Beaucoup de PME, commerces locaux, artisans et restaurants, mais aussi des startups. Le site colle à votre clientèle réelle, pas à un modèle passe-partout.",
+      "PME, commerces locaux, artisans, restaurants, startups. Le site colle à votre clientèle, pas à un modèle générique.",
   },
 ]
 
@@ -43,19 +45,17 @@ export function FAQSection() {
         <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight mb-10">
           Vous vous demandez peut-être...
         </h2>
-        <div className="space-y-3">
+        <div className="rounded-2xl border border-white/8 divide-y divide-white/8 overflow-hidden">
           {FAQ_ITEMS.map((item) => (
-            <details
-              key={item.question}
-              className="group rounded-2xl border border-white/8 bg-white/[0.02] open:bg-white/[0.04] transition-colors duration-300"
-            >
-              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-semibold text-foreground text-base">
+            <details key={item.question} className="group">
+              <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-semibold text-foreground text-base hover:bg-white/[0.03] transition-colors duration-300">
                 {item.question}
-                <span className="shrink-0 text-metallic-light text-xl leading-none transition-transform duration-300 group-open:rotate-45">
-                  +
-                </span>
+                <ChevronDown
+                  size={16}
+                  className="shrink-0 text-metallic-light transition-transform duration-300 group-open:rotate-180"
+                />
               </summary>
-              <p className="px-6 pb-6 text-metallic-light text-sm leading-relaxed">
+              <p className="px-6 pb-5 text-metallic-light text-sm leading-relaxed">
                 {item.answer}
               </p>
             </details>

@@ -9,7 +9,7 @@ import { ProcessSection } from '@/components/sections/ProcessSection'
 import { CTABand } from '@/components/sections/CTABand'
 
 export const metadata: Metadata = {
-  title: 'Agence digitale en Loire-Atlantique — Sites, SEO, Pub, IA',
+  title: 'Agence digitale en Loire-Atlantique : sites, SEO, pub, IA',
   description:
     'Raythan Web Design, agence digitale indépendante en Loire-Atlantique. Création de sites web, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
   alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app' },
@@ -20,11 +20,11 @@ export default function HomePage() {
     <>
       <IntroOverlay />
       <HeroSection />
-      <FAQSection />
       <MarqueeSection />
       <ServicesOverview />
       <WhyRaythan />
       <ProcessSection />
+      <FAQSection />
       <CTABand />
     </>
   )
