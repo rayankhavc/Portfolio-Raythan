@@ -66,7 +66,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
-            className="font-semibold tracking-tight text-5xl md:text-7xl text-foreground leading-tight mb-6"
+            className="font-semibold tracking-tight text-display-md text-foreground leading-tight mb-6"
           >
             Démarrons{' '}
             <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">

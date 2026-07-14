@@ -70,7 +70,7 @@ export function Footer() {
           <div>
             <p className="text-xs text-metallic uppercase tracking-widest mb-4">Démarrer</p>
             <p className="text-sm text-metallic mb-4 leading-relaxed">
-              Un projet en tête ? Réservons un appel gratuit.
+              Un projet en tête ? Réservons un appel, devis gratuit à la clé.
             </p>
             <a
               href="https://cal.com/rayankhavc"

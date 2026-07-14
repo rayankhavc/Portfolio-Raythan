@@ -10,13 +10,13 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 
 export function WhyRaythan() {
   return (
-    <section className="py-24 px-6 border-t border-white/8">
+    <section className="py-24 px-6 border-t border-white/8 bg-white/[0.015]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
           <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
             Pourquoi nous
           </p>
-          <h2 className="font-semibold tracking-tight text-4xl md:text-5xl text-foreground leading-tight">
+          <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight">
             Pas une agence<br />
             <span className="text-metallic">comme les autres.</span>
           </h2>

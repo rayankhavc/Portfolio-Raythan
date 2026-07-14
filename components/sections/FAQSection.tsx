@@ -9,7 +9,7 @@ const FAQ_ITEMS = [
   {
     question: 'Quel est le tarif pour un site vitrine ?',
     answer:
-      "Il n'y a pas de prix fixe affiché ici, chaque projet est différent. On en parle pendant l'appel gratuit de 30 minutes et vous repartez avec un chiffrage précis.",
+      "Il n'y a pas de prix fixe affiché ici, chaque projet est différent. On en parle pendant l'appel gratuit de 30 minutes et vous repartez avec un devis gratuit et précis, sans engagement.",
   },
   {
     question: 'Quelles technologies utilisez-vous ?',
@@ -35,12 +35,12 @@ const FAQ_ITEMS = [
 
 export function FAQSection() {
   return (
-    <section className="py-24 px-6 border-t border-white/8">
+    <section className="py-24 px-6 border-t border-white/8 bg-white/[0.015]">
       <div className="max-w-3xl mx-auto">
         <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
           Questions fréquentes
         </p>
-        <h2 className="font-semibold tracking-tight text-4xl md:text-5xl text-foreground leading-tight mb-10">
+        <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight mb-10">
           Vous vous demandez peut-être...
         </h2>
         <div className="space-y-3">
