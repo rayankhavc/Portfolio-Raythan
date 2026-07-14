@@ -46,7 +46,9 @@ export function HeroSection() {
         >
           Votre présence digitale,
           <br />
-          <span className="text-accent">réinventée.</span>
+          <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
+            réinventée.
+          </span>
         </motion.h1>
 
         {/* Sous-titre */}
