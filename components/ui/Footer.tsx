@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { CopyableEmail } from '@/components/CopyableEmail'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -35,11 +36,12 @@ export function Footer() {
             <p className="text-metallic text-sm leading-relaxed max-w-xs">
               Agence digitale indépendante sites web, SEO, pub, automatisation et IA métier.
             </p>
+            <CopyableEmail className="text-sm text-metallic-light hover:text-accent transition-colors" />
             <a
-              href="mailto:raythanwebdesign@gmail.com"
+              href="tel:+33651598293"
               className="text-sm text-metallic-light hover:text-accent transition-colors"
             >
-              raythanwebdesign@gmail.com
+              06 51 59 82 93
             </a>
           </div>
 

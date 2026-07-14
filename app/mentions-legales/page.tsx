@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { CopyableEmail } from '@/components/CopyableEmail'
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
@@ -29,8 +30,8 @@ export default function MentionsLegales() {
               <li><span className="text-metallic">Statut :</span> <span className="text-foreground">Micro-entrepreneur</span></li>
               <li><span className="text-metallic">SIRET :</span> <span className="text-metallic-light"></span></li>
               <li><span className="text-metallic">Adresse :</span> <span className="text-metallic-light"></span></li>
-              <li><span className="text-metallic">Email :</span> <a href="mailto:raythanwebdesign@gmail.com" className="text-accent hover:underline">raythanwebdesign@gmail.com</a></li>
-              <li><span className="text-metallic">Téléphone :</span> <span className="text-metallic-light">0651598293</span></li>
+              <li><span className="text-metallic">Email :</span> <CopyableEmail className="text-accent hover:underline" /></li>
+              <li><span className="text-metallic">Téléphone :</span> <a href="tel:+33651598293" className="text-accent hover:underline">06 51 59 82 93</a></li>
             </ul>
           </section>
 

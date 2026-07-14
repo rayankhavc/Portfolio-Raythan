@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { CopyableEmail } from '@/components/CopyableEmail'
 
 export const metadata: Metadata = {
   title: 'Politique de confidentialité',
@@ -21,7 +22,7 @@ export default function PolitiqueConfidentialite() {
 
           <section>
             <h2 className="font-semibold text-foreground text-xl mb-4">1. Responsable du traitement</h2>
-            <p>Le responsable du traitement des données est Rayan Khalifa (Raythan Web Design), joignable à <a href="mailto:raythanwebdesign@gmail.com" className="text-accent hover:underline">raythanwebdesign@gmail.com</a>.</p>
+            <p>Le responsable du traitement des données est Rayan Khalifa (Raythan Web Design), joignable à <CopyableEmail className="text-accent hover:underline" />.</p>
           </section>
 
           <div className="border-t border-white/8" />
@@ -68,7 +69,7 @@ export default function PolitiqueConfidentialite() {
               <li><strong className="text-foreground">Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
               <li><strong className="text-foreground">Droit d'opposition</strong> : vous opposer au traitement de vos données</li>
             </ul>
-            <p className="mt-3">Pour exercer vos droits : <a href="mailto:raythanwebdesign@gmail.com" className="text-accent hover:underline">raythanwebdesign@gmail.com</a></p>
+            <p className="mt-3">Pour exercer vos droits : <CopyableEmail className="text-accent hover:underline" /></p>
             <p className="mt-3">Vous pouvez également introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">cnil.fr</a></p>
           </section>
 
