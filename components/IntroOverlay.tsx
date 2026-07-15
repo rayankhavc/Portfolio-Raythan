@@ -4,13 +4,15 @@ import { motion, type Variants } from 'framer-motion'
 import { ease } from '@/lib/motion-variants'
 
 const LETTERS = 'Raythan'.split('')
-// Sortie automatique à 1.8s : lettres + soulignement + label sont posés,
-// le fade de 0.45s amène le total à ~2.25s, sous le plafond des 2.5s.
-const AUTO_DISMISS_MS = 1800
+// Sortie automatique à 2.3s (+0.5s demandé par Rayan par rapport à la
+// version initiale à 1.8s) : lettres + soulignement + label sont posés,
+// le fade de 0.45s amène le total à ~2.75s.
+const AUTO_DISMISS_MS = 2300
 
-// idle : premier rendu (identique au SSR), rien ne bouge tant que la
-// présence de data-intro n'est pas vérifiée. off : overlay retiré.
-type Phase = 'idle' | 'playing' | 'leaving' | 'off'
+// playing : rendu initial identique au serveur (shouldPlay=true), l'overlay
+// est déjà dans le HTML envoyé, aucun JS requis pour qu'il couvre l'écran.
+// leaving : fade de sortie. off : overlay retiré du DOM.
+type Phase = 'playing' | 'leaving' | 'off'
 
 const letterVariants: Variants = {
   hidden: { opacity: 0, y: 14, filter: 'blur(10px)' },
@@ -32,29 +34,23 @@ const labelVariants: Variants = {
   visible: { opacity: 1, transition: { duration: 0.6, ease, delay: 0.95 } },
 }
 
-export function IntroOverlay() {
-  const [phase, setPhase] = useState<Phase>('idle')
-
-  useEffect(() => {
-    const root = document.documentElement
-    if (!root.hasAttribute('data-intro')) {
-      setPhase('off')
-      return
-    }
-    try {
-      sessionStorage.setItem('rwd-intro', '1')
-    } catch {}
-    // Filet de sécurité si la préférence a changé depuis le script d'entrée
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      root.removeAttribute('data-intro')
-      setPhase('off')
-      return
-    }
-    setPhase('playing')
-  }, [])
+export function IntroOverlay({ shouldPlay }: { shouldPlay: boolean }) {
+  // shouldPlay vient du cookie lu côté serveur : identique au premier rendu
+  // client, donc aucun mismatch d'hydratation possible.
+  const [phase, setPhase] = useState<Phase>(shouldPlay ? 'playing' : 'off')
 
   useEffect(() => {
     if (phase !== 'playing') return
+    document.documentElement.style.overflow = 'hidden'
+    // Filet de sécurité si la préférence a changé depuis le rendu serveur.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.overflow = ''
+      try {
+        document.cookie = 'rwd-intro=1; path=/; SameSite=Lax'
+      } catch {}
+      setPhase('off')
+      return
+    }
     const dismiss = () => setPhase('leaving')
     const timer = setTimeout(dismiss, AUTO_DISMISS_MS)
     window.addEventListener('keydown', dismiss)
@@ -75,15 +71,18 @@ export function IntroOverlay() {
       transition={{ duration: 0.45, ease }}
       onAnimationComplete={() => {
         if (phase !== 'leaving') return
-        document.documentElement.removeAttribute('data-intro')
+        document.documentElement.style.overflow = ''
+        try {
+          document.cookie = 'rwd-intro=1; path=/; SameSite=Lax'
+        } catch {}
         setPhase('off')
       }}
       onClick={() => setPhase((p) => (p === 'playing' ? 'leaving' : p))}
-      className="fixed inset-0 z-[100] items-center justify-center bg-background"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
     >
       <motion.div
         initial="hidden"
-        animate={phase === 'idle' ? 'hidden' : 'visible'}
+        animate="visible"
         className="flex flex-col items-center gap-5 px-6"
       >
         <div className="flex">
