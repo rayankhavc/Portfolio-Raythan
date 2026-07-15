@@ -130,30 +130,6 @@ html[data-theme='light'] {
   }
 }
 
-/* Intro plein écran — visible uniquement quand le script d'entrée
-   (app/layout.tsx) a posé data-intro sur <html> : première page de la session
-   = la home, intro pas encore jouée, et prefers-reduced-motion inactif.
-   Sans JavaScript, l'attribut n'est jamais posé : l'intro reste invisible.
-   Les règles critiques (display/position/couleur) sont dupliquées en inline
-   dans <head> (voir app/layout.tsx) pour ne dépendre d'aucune feuille de
-   style externe au premier paint ; ce bloc-ci est la version "de croisière"
-   qui prend le relais une fois globals.css chargé, strictement identique. */
-#intro-overlay {
-  display: none;
-}
-html[data-intro] #intro-overlay {
-  display: flex;
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--background);
-}
-html[data-intro] {
-  overflow: hidden;
-}
-
 /* Grain discret sur tout le site — casse le côté "flat" du fond uni,
    texture filmique quasi imperceptible, aucune image à charger (SVG inline). */
 .grain-overlay {
