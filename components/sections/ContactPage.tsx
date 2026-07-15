@@ -16,7 +16,7 @@ const SERVICES_OPTIONS = [
 ]
 
 const INPUT_CLASSES =
-  'w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-metallic focus:outline-none focus:border-accent/60 transition-colors'
+  'w-full bg-[rgb(var(--overlay)/5%)] border border-[rgb(var(--overlay)/10%)] rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-metallic focus:outline-none focus:border-accent/60 transition-colors'
 
 export function ContactPage() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -94,7 +94,7 @@ export function ContactPage() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="rounded-3xl border border-white/8 bg-white/[0.02] p-8"
+              className="card-surface rounded-3xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/2%)] p-8"
             >
               <h2 className="font-semibold tracking-tight text-2xl text-foreground mb-6">
                 Envoyez-nous un message
@@ -180,7 +180,7 @@ export function ContactPage() {
                         name="service"
                         value={form.service}
                         onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-metallic-light focus:outline-none focus:border-accent/60 transition-colors appearance-none"
+                        className="w-full bg-[rgb(var(--overlay)/5%)] border border-[rgb(var(--overlay)/10%)] rounded-xl px-4 py-3 text-sm text-metallic-light focus:outline-none focus:border-accent/60 transition-colors appearance-none"
                       >
                         <option value="" className="bg-secondary">Choisir...</option>
                         {SERVICES_OPTIONS.map((s) => (
@@ -208,7 +208,7 @@ export function ContactPage() {
                   </div>
 
                   {status === 'error' && (
-                    <p className="text-red-400 text-xs">
+                    <p className="text-[var(--error-text)] text-xs">
                       Une erreur s'est produite. Réessayez ou contactez-nous directement.
                     </p>
                   )}
@@ -262,9 +262,9 @@ export function ContactPage() {
               </div>
 
               {/* Infos */}
-              <div className="rounded-3xl border border-white/8 bg-white/[0.02] p-8 space-y-5">
+              <div className="card-surface rounded-3xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/2%)] p-8 space-y-5">
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-[rgb(var(--overlay)/5%)] flex items-center justify-center shrink-0">
                     <Mail size={14} className="text-metallic-light" />
                   </div>
                   <div>
@@ -278,7 +278,7 @@ export function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-[rgb(var(--overlay)/5%)] flex items-center justify-center shrink-0">
                     <Phone size={14} className="text-metallic-light" />
                   </div>
                   <div>
@@ -292,7 +292,7 @@ export function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-[rgb(var(--overlay)/5%)] flex items-center justify-center shrink-0">
                     <Clock size={14} className="text-metallic-light" />
                   </div>
                   <div>

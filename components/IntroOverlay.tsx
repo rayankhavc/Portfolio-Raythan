@@ -100,7 +100,7 @@ export function IntroOverlay() {
         </div>
         <motion.div
           variants={lineVariants}
-          className="h-px w-full origin-left bg-white/20"
+          className="h-px w-full origin-left bg-[rgb(var(--overlay)/20%)]"
         />
         <motion.p
           variants={labelVariants}

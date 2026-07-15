@@ -33,7 +33,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.1 }}
-            className="inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-1.5 text-xs text-metallic-light mb-8"
+            className="inline-flex items-center gap-2 border border-[rgb(var(--overlay)/10%)] rounded-full px-4 py-1.5 text-xs text-metallic-light mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             Disponible pour nouveaux projets
@@ -82,7 +82,7 @@ export function HeroSection() {
             </a>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 border border-white/15 text-foreground font-medium px-6 py-3 rounded-full hover:border-white/40 transition-colors duration-300 text-sm"
+              className="inline-flex items-center gap-2 border border-[rgb(var(--overlay)/15%)] text-foreground font-medium px-6 py-3 rounded-full hover:border-[rgb(var(--overlay)/40%)] transition-colors duration-300 text-sm"
             >
               Voir nos services
               <ArrowRight size={14} />
@@ -104,7 +104,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8, ease }}
-            className="flex flex-wrap items-center gap-8 mt-16 pt-8 border-t border-white/8"
+            className="flex flex-wrap items-center gap-8 mt-16 pt-8 border-t border-[rgb(var(--overlay)/8%)]"
           >
             {[
               { value: '10', label: 'Projets développés' },
@@ -129,9 +129,9 @@ export function HeroSection() {
           transition={{ duration: 0.9, ease, delay: 0.5 }}
           className="relative hidden lg:flex items-center justify-center h-[420px]"
         >
-          <div className="absolute w-64 h-80 rounded-3xl border border-white/8 bg-white/[0.02] rotate-6 translate-x-10 translate-y-6" />
-          <div className="absolute w-64 h-80 rounded-3xl border border-white/10 bg-white/[0.03] -rotate-3 -translate-x-6" />
-          <div className="relative w-64 h-80 rounded-3xl border border-white/15 bg-card flex flex-col items-center justify-center gap-4">
+          <div className="absolute w-64 h-80 rounded-3xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/2%)] rotate-6 translate-x-10 translate-y-6" />
+          <div className="absolute w-64 h-80 rounded-3xl border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] -rotate-3 -translate-x-6" />
+          <div className="card-surface relative w-64 h-80 rounded-3xl border border-[rgb(var(--overlay)/15%)] bg-card flex flex-col items-center justify-center gap-4">
             <span className="text-7xl font-semibold bg-gradient-to-br from-foreground to-metallic-light bg-clip-text text-transparent">
               R
             </span>

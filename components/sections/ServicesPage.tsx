@@ -59,17 +59,17 @@ export function ServicesPage() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-60px' }}
-                className="group rounded-3xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 overflow-hidden"
+                className="card-surface group rounded-3xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/2%)] hover:bg-[rgb(var(--overlay)/4%)] transition-all duration-500 overflow-hidden"
               >
                 <div className={`flex flex-col md:flex-row gap-0 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
                   {/* Left / Right color strip */}
-                  <div className="md:w-2 bg-gradient-to-b from-white/15 to-transparent shrink-0 h-1 md:h-auto w-full" />
+                  <div className="md:w-2 bg-gradient-to-b from-[rgb(var(--overlay)/15%)] to-transparent shrink-0 h-1 md:h-auto w-full" />
 
                   <div className="p-8 md:p-10 flex-1">
                     <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8`}>
                       {/* Icon + Title */}
                       <div className="md:w-64 shrink-0">
-                        <div className="w-12 h-12 rounded-2xl border border-white/10 bg-white/[0.03] flex items-center justify-center mb-4 group-hover:border-white/20 transition-colors duration-500">
+                        <div className="w-12 h-12 rounded-2xl border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] flex items-center justify-center mb-4 group-hover:border-[rgb(var(--overlay)/20%)] transition-colors duration-500">
                           {Icon && <Icon size={20} className="text-metallic-light" />}
                         </div>
                         <h2 className="font-semibold tracking-tight text-2xl text-foreground mb-1">
@@ -108,7 +108,7 @@ export function ServicesPage() {
                             {service.sectors.map((s: string) => (
                               <span
                                 key={s}
-                                className="text-xs text-metallic border border-white/10 px-3 py-1 rounded-full"
+                                className="text-xs text-metallic border border-[rgb(var(--overlay)/10%)] px-3 py-1 rounded-full"
                               >
                                 {s}
                               </span>

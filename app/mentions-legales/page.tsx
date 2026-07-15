@@ -35,7 +35,7 @@ export default function MentionsLegales() {
             </ul>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           {/* Hébergeur */}
           <section>
@@ -48,7 +48,7 @@ export default function MentionsLegales() {
             </ul>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           {/* Propriété intellectuelle */}
           <section>
@@ -61,7 +61,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           {/* Responsabilité */}
           <section>
@@ -74,7 +74,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           {/* Données personnelles */}
           <section>
@@ -93,7 +93,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           {/* Cookies */}
           <section>
@@ -103,7 +103,7 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           {/* Droit applicable */}
           <section>

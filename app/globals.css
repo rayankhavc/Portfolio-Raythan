@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 
 :root {
-  /* Noir "produit" — plus chaud qu'un noir pur, registre Apple */
+  /* Noir "produit" — plus chaud qu'un noir pur, registre Apple. Thème par
+     défaut de la marque (sombre) ; le clair est une surcouche explicite via
+     html[data-theme="light"] ci-dessous, jamais une inversion mécanique. */
   --background: #1d1d1f;
   --foreground: #f5f1ea;
   --card: #242427;
@@ -28,6 +30,49 @@
      sur les surfaces de carte, pas seulement sur le fond */
   --metallic: #939398;
   --metallic-light: #a1a1a6;
+  /* Rouge d'erreur — #f87171 (red-400) passe AA sur le fond sombre (6.08:1)
+     mais échoue sur fond clair (2.5:1) ; valeur thémable plutôt qu'un choix
+     unique qui ne marcherait que dans un thème. */
+  --error-text: #f87171;
+  /* Canal RGB de "la couleur qui contraste avec le fond" — blanc en sombre,
+     noir en clair. Toutes les bordures/surfaces subtiles (border-white/N,
+     bg-white/[N]) référencent ce canal via rgb(var(--overlay)/N%), pour que
+     les mêmes paliers d'opacité déjà calibrés fonctionnent dans les deux
+     thèmes sans dupliquer chaque valeur. */
+  --overlay: 255 255 255;
+}
+
+html[data-theme='light'] {
+  --background: #f5f4f2;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  --primary: #1d1d1f;
+  --primary-foreground: #f5f4f2;
+  --secondary: #ececea;
+  --secondary-foreground: #1d1d1f;
+  --muted: #ececea;
+  --muted-foreground: #616165;
+  /* CTA/accent inversé : le rôle (contraste fort, élément cliquable) reste
+     identique, mais un gris quasi blanc disparaîtrait sur fond clair — la
+     teinte sombre de la marque (#1D1D1F) reprend ce rôle ici. */
+  --accent: #1d1d1f;
+  --accent-foreground: #f5f4f2;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #e2e0dc;
+  --input: #ececea;
+  --ring: #616165;
+  /* Recalculés pour AA (4.5:1) sur fond clair ET sur les cartes blanches
+     (le cas le plus exigeant), pas de simple inversion des valeurs sombres.
+     --metallic-light est ici la teinte la PLUS prononcée (plus sombre),
+     l'inverse du sombre où "light" signifiait plus clair/visible. */
+  --metallic: #616165;
+  --metallic-light: #45454a;
+  --error-text: #b91c1c;
+  --overlay: 0 0 0;
 }
 
 @theme inline {
@@ -74,6 +119,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   a:focus-visible,
   button:focus-visible,
@@ -87,12 +133,22 @@
 /* Intro plein écran — visible uniquement quand le script d'entrée
    (app/layout.tsx) a posé data-intro sur <html> : première page de la session
    = la home, intro pas encore jouée, et prefers-reduced-motion inactif.
-   Sans JavaScript, l'attribut n'est jamais posé : l'intro reste invisible. */
+   Sans JavaScript, l'attribut n'est jamais posé : l'intro reste invisible.
+   Les règles critiques (display/position/couleur) sont dupliquées en inline
+   dans <head> (voir app/layout.tsx) pour ne dépendre d'aucune feuille de
+   style externe au premier paint ; ce bloc-ci est la version "de croisière"
+   qui prend le relais une fois globals.css chargé, strictement identique. */
 #intro-overlay {
   display: none;
 }
 html[data-intro] #intro-overlay {
   display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
 }
 html[data-intro] {
   overflow: hidden;
@@ -112,19 +168,56 @@ svg.lucide {
   stroke-width: 1.5;
 }
 
-/* CTA principal — micro-interaction magnétique : scale + ombre, pas de flash de couleur */
+/* CTA principal — micro-interaction magnétique : scale + ombre, pas de flash
+   de couleur. color-mix() référence --accent dynamiquement : l'ombre reste
+   teintée correctement même quand l'accent bascule (gris quasi blanc en
+   sombre, sombre en clair). */
 .cta-magnetic {
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 4px 16px -8px rgba(240, 240, 241, 0.15);
+  box-shadow: 0 4px 16px -8px color-mix(in srgb, var(--accent) 15%, transparent);
 }
 .cta-magnetic:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 32px -8px rgba(240, 240, 241, 0.3);
+  box-shadow: 0 12px 32px -8px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 .cta-magnetic:active {
   transform: scale(1.01);
+}
+
+/* Élévation des cartes — no-op en sombre (les bordures/tints white/N
+   suffisent déjà), vraies ombres portées douces en clair où le détourage
+   par bordure fine seule ne recrée pas la même hiérarchie visuelle. */
+html[data-theme='light'] .card-surface {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo — un seul asset (chrome/dégradé), aplati en silhouette par filtre CSS
+   selon le thème : blanc en sombre (comme avant), noir en clair. */
+.logo-mark {
+  filter: brightness(0) invert(1);
+}
+html[data-theme='light'] .logo-mark {
+  filter: brightness(0);
+}
+
+/* Toggle de thème — icônes soleil/lune commutées en CSS pur selon
+   data-theme, aucun état JS à resynchroniser au montage (donc aucun flash
+   d'icône incorrecte avant hydratation). */
+.theme-icon-sun {
+  display: none;
+}
+.theme-icon-moon {
+  display: block;
+}
+html[data-theme='light'] .theme-icon-sun {
+  display: block;
+}
+html[data-theme='light'] .theme-icon-moon {
+  display: none;
 }
 
 /* Utility to hide scrollbars */
@@ -148,6 +241,9 @@ svg.lucide {
   .cta-magnetic:active {
     transition: none;
     transform: none;
+  }
+  body {
+    transition: none;
   }
   .animate-pulse {
     animation: none;

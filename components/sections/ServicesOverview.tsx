@@ -51,10 +51,10 @@ export function ServicesOverview() {
               >
                 <Link
                   href="/services"
-                  className="group relative p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 flex flex-col h-full cursor-pointer block"
+                  className="card-surface group relative p-6 rounded-2xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/3%)] hover:bg-[rgb(var(--overlay)/6%)] hover:border-[rgb(var(--overlay)/20%)] transition-all duration-500 flex flex-col h-full cursor-pointer block"
                 >
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center mb-4 group-hover:border-white/20 transition-colors duration-500">
+                  <div className="w-10 h-10 rounded-xl border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] flex items-center justify-center mb-4 group-hover:border-[rgb(var(--overlay)/20%)] transition-colors duration-500">
                     {Icon && <Icon size={18} className="text-metallic-light" />}
                   </div>
 

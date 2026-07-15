@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -29,7 +30,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-background/70 backdrop-blur-xl border-b border-white/8'
+            ? 'bg-background/70 backdrop-blur-xl border-b border-[rgb(var(--overlay)/8%)]'
             : 'bg-transparent'
         }`}
       >
@@ -42,8 +43,7 @@ export function Navbar() {
               alt="Raythan Web Design"
               width={44}
               height={44}
-              className="object-contain shrink-0"
-              style={{ filter: 'brightness(0) invert(1)' }}
+              className="logo-mark object-contain shrink-0"
               priority
             />
             <span className="whitespace-nowrap text-sm font-medium text-foreground">
@@ -71,7 +71,8 @@ export function Navbar() {
           </div>
 
           {/* CTA desktop */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <a
               href="https://cal.com/rayankhavc"
               target="_blank"
@@ -82,14 +83,17 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden text-foreground p-1"
-            onClick={() => setOpen(!open)}
-            aria-label="Menu"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile: toggle thème + menu */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="text-foreground p-1"
+              onClick={() => setOpen(!open)}
+              aria-label="Menu"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </nav>
       </header>
 
