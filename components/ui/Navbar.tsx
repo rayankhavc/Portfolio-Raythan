@@ -1,11 +1,11 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
+import { Logo } from '@/components/ui/Logo'
 
 const NAV_LINKS = [
   { href: '/', label: 'Accueil' },
@@ -40,14 +40,7 @@ export function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo-raythan.png"
-              alt="Raythan Web Design"
-              width={44}
-              height={44}
-              className="logo-mark object-contain shrink-0"
-              priority
-            />
+            <Logo className="w-10 h-10 shrink-0" />
             <span className="whitespace-nowrap text-sm font-medium text-foreground">
               Raythan Web Design
             </span>

@@ -53,9 +53,11 @@ Langue du projet et des échanges : français.
 - `.card-surface` : classe à ajouter sur toute carte élevée (form, service,
   FAQ container, CTA band...) — no-op en sombre, vraie ombre portée douce en
   clair (une bordure fine seule ne recrée pas la hiérarchie visuelle).
-- Logo : un seul asset (`/logo-raythan.png`), classe `.logo-mark` avec
-  filtre CSS conditionnel au thème (blanc en sombre, noir en clair). Pas de
-  composants `LogoLight`/`LogoDark` séparés.
+- Logo : badge (R en aplat dans une tuile arrondie), `components/ui/Logo.tsx`,
+  SVG inline sur `fill-accent`/`fill-accent-foreground` — thémable gratuitement
+  via les tokens existants, aucun filtre CSS ni double asset. Favicon
+  (`public/icon.svg`) même mark, variante clair/sombre via `prefers-color-scheme`
+  (pas d'accès à `data-theme` côté favicon).
 - Toute couleur non tokenisée (ex. rouge d'erreur) doit être vérifiée AA
   dans les deux thèmes avant d'être codée en dur — `red-400` par exemple
   passe en sombre mais échoue largement en clair.

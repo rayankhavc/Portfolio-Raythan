@@ -195,15 +195,6 @@ html[data-theme='light'] .card-surface {
     0 8px 24px -8px rgba(0, 0, 0, 0.08);
 }
 
-/* Logo — un seul asset (chrome/dégradé), aplati en silhouette par filtre CSS
-   selon le thème : blanc en sombre (comme avant), noir en clair. */
-.logo-mark {
-  filter: brightness(0) invert(1);
-}
-html[data-theme='light'] .logo-mark {
-  filter: brightness(0);
-}
-
 /* Toggle de thème — icônes soleil/lune commutées en CSS pur selon
    data-theme, aucun état JS à resynchroniser au montage (donc aucun flash
    d'icône incorrecte avant hydratation). */

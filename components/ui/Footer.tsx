@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { CopyableLink } from '@/components/CopyableLink'
+import { Logo } from '@/components/ui/Logo'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -21,13 +21,7 @@ export function Footer() {
           {/* Logo + baseline */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo-raythan.png"
-                alt="Raythan Web Design"
-                width={40}
-                height={40}
-                className="logo-mark object-contain shrink-0"
-              />
+              <Logo className="w-9 h-9 shrink-0" />
             <span className="whitespace-nowrap text-sm font-medium text-foreground">
               Raythan Web Design
             </span>
