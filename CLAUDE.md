@@ -36,6 +36,30 @@ Langue du projet et des échanges : français.
   formulations qui « expliquent » ou adoucissent, pas de tournures IA
   perceptibles.
 
+## Thème clair/sombre
+
+- `data-theme="light"|"dark"` sur `<html>` (absent = sombre, défaut de la marque).
+  Toggle dans la Navbar. Persistance `localStorage` (`rwd-theme`), lue par un
+  script bloquant dans `<head>` (anti-flash, même logique que `data-intro`).
+- Le clair n'est jamais une inversion mécanique : chaque token est repensé
+  dans `html[data-theme='light']` (`app/globals.css`), CTA/accent basculé en
+  teinte sombre au lieu du gris quasi blanc, `--metallic`/`--metallic-light`
+  recalculés pour l'AA sur fond ET sur carte, pas de simple `invert()`.
+- Bordures/surfaces subtiles : jamais `border-white/N` ou `bg-white/[N]` en
+  dur — utiliser `border-[rgb(var(--overlay)/N%)]` / `bg-[rgb(var(--overlay)/N%)]`.
+  `--overlay` bascule `255 255 255` (sombre) / `0 0 0` (clair) ; les paliers
+  d'opacité déjà calibrés (8%, 10%, 15%, 20%, 40%, 2%, 3%, 4%, 5%, 6%, 1.5%)
+  restent identiques dans les deux thèmes.
+- `.card-surface` : classe à ajouter sur toute carte élevée (form, service,
+  FAQ container, CTA band...) — no-op en sombre, vraie ombre portée douce en
+  clair (une bordure fine seule ne recrée pas la hiérarchie visuelle).
+- Logo : un seul asset (`/logo-raythan.png`), classe `.logo-mark` avec
+  filtre CSS conditionnel au thème (blanc en sombre, noir en clair). Pas de
+  composants `LogoLight`/`LogoDark` séparés.
+- Toute couleur non tokenisée (ex. rouge d'erreur) doit être vérifiée AA
+  dans les deux thèmes avant d'être codée en dur — `red-400` par exemple
+  passe en sombre mais échoue largement en clair.
+
 ## Points d'architecture
 
 - Tailwind v4 : les tokens vivent dans `app/globals.css` (`:root` + `@theme inline`).
