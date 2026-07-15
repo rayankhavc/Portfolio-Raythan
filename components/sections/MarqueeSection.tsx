@@ -36,7 +36,7 @@ function MarqueeTrack({ reverse = false }: { reverse?: boolean }) {
 
 export function MarqueeSection() {
   return (
-    <section className="py-6 border-y border-white/8 overflow-hidden">
+    <section className="py-6 border-y border-[rgb(var(--overlay)/8%)] overflow-hidden">
       <MarqueeTrack />
     </section>
   )

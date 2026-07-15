@@ -26,13 +26,35 @@ export const metadata: Metadata = {
   },
 }
 
-// Exécuté avant le premier paint, à chaque chargement complet de document :
-// mémorise la page d'entrée de la session, et pose data-intro sur <html>
+// Exécutés dans <head>, avant tout <link> vers globals.css : posent les
+// attributs data-theme / data-intro sur <html> avant le premier paint, sans
+// dépendre du chargement d'aucune ressource externe (feuille de style
+// comprise). C'est la seule garantie réelle contre un flash de contenu non
+// stylé sur connexion lente — un script placé n'importe où dans <body>
+// s'exécute toujours après que le navigateur ait eu une chance de peindre
+// le <head> et le tout début du document.
+
+// Lit la préférence stockée ; ne touche à rien si sombre (thème par défaut
+// de la marque, valeurs déjà dans :root — aucun attribut à poser).
+const THEME_INIT_SCRIPT = `(function(){try{if(localStorage.getItem('rwd-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}})()`
+
+// Mémorise la page d'entrée de la session, et pose data-intro sur <html>
 // uniquement si la session commence par la home, que l'intro n'a pas encore
 // été jouée et que prefers-reduced-motion est inactif. L'overlay
 // (components/IntroOverlay.tsx) n'est visible que via cet attribut — les
 // visiteurs récurrents et les navigations internes ne voient jamais l'intro.
 const INTRO_ENTRY_SCRIPT = `(function(){try{var s=sessionStorage,p=location.pathname;if(!s.getItem('rwd-entry'))s.setItem('rwd-entry',p==='/'?'home':'other');if(p==='/'&&s.getItem('rwd-entry')==='home'&&!s.getItem('rwd-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.setAttribute('data-intro','')}catch(e){}})()`
+
+// Duplique en dur (donc indépendamment de globals.css) les règles qui
+// déterminent si l'overlay d'intro couvre correctement l'écran : display,
+// position, z-index et couleur de fond. Se limiter au display/overflow
+// demandés initialement ne suffit pas — un <div> display:flex sans
+// position:fixed/inset/z-index resterait visible dans le flux du document,
+// juste sous une autre forme de flash. Les couleurs de fond sont dupliquées
+// en dur (deux thèmes) car les variables CSS de globals.css ne sont pas
+// non plus garanties disponibles à cet instant ; à resynchroniser
+// manuellement si --background change un jour.
+const CRITICAL_INTRO_CSS = `#intro-overlay{display:none}html[data-intro] #intro-overlay{display:flex;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;background-color:#1d1d1f}html[data-theme="light"][data-intro] #intro-overlay{background-color:#f5f4f2}html[data-intro]{overflow:hidden}`
 
 const LOCAL_BUSINESS_JSON_LD = {
   '@context': 'https://schema.org',
@@ -49,8 +71,12 @@ const LOCAL_BUSINESS_JSON_LD = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={inter.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: INTRO_ENTRY_SCRIPT }} />
+        <style dangerouslySetInnerHTML={{ __html: CRITICAL_INTRO_CSS }} />
+      </head>
+      <body className="font-sans antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}

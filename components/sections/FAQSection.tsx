@@ -37,7 +37,7 @@ const FAQ_ITEMS = [
 
 export function FAQSection() {
   return (
-    <section className="py-24 px-6 border-t border-white/8 bg-white/[0.015]">
+    <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
       <div className="max-w-3xl mx-auto">
         <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
           Questions fréquentes
@@ -45,10 +45,10 @@ export function FAQSection() {
         <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight mb-10">
           Vous vous demandez peut-être...
         </h2>
-        <div className="rounded-2xl border border-white/8 divide-y divide-white/8 overflow-hidden">
+        <div className="card-surface rounded-2xl border border-[rgb(var(--overlay)/8%)] divide-y divide-[rgb(var(--overlay)/8%)] overflow-hidden">
           {FAQ_ITEMS.map((item) => (
             <details key={item.question} className="group">
-              <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-semibold text-foreground text-base hover:bg-white/[0.03] transition-colors duration-300">
+              <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-semibold text-foreground text-base hover:bg-[rgb(var(--overlay)/3%)] transition-colors duration-300">
                 {item.question}
                 <ChevronDown
                   size={16}

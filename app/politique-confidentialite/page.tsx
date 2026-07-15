@@ -25,7 +25,7 @@ export default function PolitiqueConfidentialite() {
             <p>Le responsable du traitement des données est Rayan Khalifa (Raythan Web Design), joignable à <CopyableLink href="mailto:raythanwebdesign@gmail.com" label="raythanwebdesign@gmail.com" copyValue="raythanwebdesign@gmail.com" className="text-accent hover:underline" />.</p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           <section>
             <h2 className="font-semibold text-foreground text-xl mb-4">2. Données collectées</h2>
@@ -39,7 +39,7 @@ export default function PolitiqueConfidentialite() {
             <p className="mt-3">Aucune donnée n'est collectée automatiquement sans votre consentement explicite.</p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           <section>
             <h2 className="font-semibold text-foreground text-xl mb-4">3. Finalité du traitement</h2>
@@ -50,14 +50,14 @@ export default function PolitiqueConfidentialite() {
             </ul>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           <section>
             <h2 className="font-semibold text-foreground text-xl mb-4">4. Durée de conservation</h2>
             <p>Vos données sont conservées pendant une durée maximale de 3 ans à compter du dernier contact, conformément aux recommandations de la CNIL.</p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           <section>
             <h2 className="font-semibold text-foreground text-xl mb-4">5. Vos droits</h2>
@@ -73,7 +73,7 @@ export default function PolitiqueConfidentialite() {
             <p className="mt-3">Vous pouvez également introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">cnil.fr</a></p>
           </section>
 
-          <div className="border-t border-white/8" />
+          <div className="border-t border-[rgb(var(--overlay)/8%)]" />
 
           <section>
             <h2 className="font-semibold text-foreground text-xl mb-4">6. Sous-traitants</h2>

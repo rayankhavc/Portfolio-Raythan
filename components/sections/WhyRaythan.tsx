@@ -10,7 +10,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 
 export function WhyRaythan() {
   return (
-    <section className="py-24 px-6 border-t border-white/8 bg-white/[0.015]">
+    <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
           <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
@@ -33,14 +33,14 @@ export function WhyRaythan() {
             const Icon = ICON_MAP[item.icon]
             return (
               <motion.div key={i} variants={fadeUp} className="flex flex-col gap-4">
-                <div className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl border border-[rgb(var(--overlay)/10%)] flex items-center justify-center">
                   {Icon && <Icon size={20} className="text-metallic-light" />}
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground text-xl mb-2">{item.title}</h3>
                   <p className="text-metallic text-sm leading-relaxed">{item.description}</p>
                 </div>
-                <div className="h-px bg-gradient-to-r from-white/15 to-transparent" />
+                <div className="h-px bg-gradient-to-r from-[rgb(var(--overlay)/15%)] to-transparent" />
               </motion.div>
             )
           })}

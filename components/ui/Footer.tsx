@@ -14,7 +14,7 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/8 bg-background">
+    <footer className="border-t border-[rgb(var(--overlay)/8%)] bg-background">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
@@ -26,8 +26,7 @@ export function Footer() {
                 alt="Raythan Web Design"
                 width={40}
                 height={40}
-                className="object-contain shrink-0"
-                style={{ filter: 'brightness(0) invert(1)' }}
+                className="logo-mark object-contain shrink-0"
               />
             <span className="whitespace-nowrap text-sm font-medium text-foreground">
               Raythan Web Design
@@ -84,7 +83,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-[rgb(var(--overlay)/5%)] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-metallic">
             © {new Date().getFullYear()} Raythan Web Design. Tous droits réservés.
           </p>

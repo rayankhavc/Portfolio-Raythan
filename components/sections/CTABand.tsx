@@ -12,7 +12,7 @@ export function CTABand() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-16 md:px-16 text-center overflow-hidden"
+          className="card-surface relative rounded-3xl border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] px-8 py-16 md:px-16 text-center overflow-hidden"
         >
           <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-accent/[0.06] blur-[80px] rounded-full" />
           <p className="text-accent text-xs font-medium tracking-widest uppercase mb-4">
@@ -36,7 +36,7 @@ export function CTABand() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border border-white/15 text-foreground font-medium px-8 py-4 rounded-full hover:border-white/40 transition-colors duration-300 text-sm"
+              className="inline-flex items-center gap-2 border border-[rgb(var(--overlay)/15%)] text-foreground font-medium px-8 py-4 rounded-full hover:border-[rgb(var(--overlay)/40%)] transition-colors duration-300 text-sm"
             >
               Envoyer un message <ArrowRight size={14} />
             </Link>
