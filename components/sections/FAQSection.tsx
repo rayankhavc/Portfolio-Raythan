@@ -37,7 +37,10 @@ const FAQ_ITEMS = [
 
 export function FAQSection() {
   return (
-    <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
+    <section
+      id="faq"
+      className="scroll-mt-24 py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]"
+    >
       <div className="max-w-3xl mx-auto">
         <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
           Questions fréquentes

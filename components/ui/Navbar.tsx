@@ -8,7 +8,9 @@ import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 const NAV_LINKS = [
+  { href: '/', label: 'Accueil' },
   { href: '/services', label: 'Services' },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -30,7 +32,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-background/70 backdrop-blur-xl border-b border-[rgb(var(--overlay)/8%)]'
+            ? 'bg-background/90 md:bg-background/70 md:backdrop-blur-xl border-b border-[rgb(var(--overlay)/8%)]'
             : 'bg-transparent'
         }`}
       >
@@ -105,7 +107,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-40 bg-background/95 flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {NAV_LINKS.map(({ href, label }, i) => (
               <motion.div
@@ -116,6 +118,7 @@ export function Navbar() {
               >
                 <Link
                   href={href}
+                  onClick={() => setOpen(false)}
                   className="text-3xl font-semibold tracking-tight text-foreground hover:text-accent transition-colors"
                 >
                   {label}
