@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { cookies } from 'next/headers'
 import { IntroOverlay } from '@/components/IntroOverlay'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { FAQSection } from '@/components/sections/FAQSection'
@@ -16,18 +15,10 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app' },
 }
 
-export default async function HomePage() {
-  // Décidée côté serveur (cookie, pas sessionStorage) : l'overlay est présent
-  // ou absent dès le HTML envoyé, avant toute exécution JS côté client. Un
-  // script client qui pose un attribut après coup (ancienne approche) laisse
-  // une fenêtre où le HTML statique (Navbar, Hero...) est déjà peint mais où
-  // le script n'a pas encore tourné, surtout sur connexion lente : c'est
-  // exactement le flash rapporté.
-  const introSeen = (await cookies()).has('rwd-intro')
-
+export default function HomePage() {
   return (
     <>
-      <IntroOverlay shouldPlay={!introSeen} />
+      <IntroOverlay />
       <HeroSection />
       <MarqueeSection />
       <ServicesOverview />

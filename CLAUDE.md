@@ -69,10 +69,11 @@ Langue du projet et des échanges : français.
   (exemples + retours clients, seulement quand les projets seront finalisés).
   Le portfolio public a été retiré volontairement ; `/portfolio` et `/projets/*`
   redirigent vers la home (next.config.mjs).
-- Intro plein écran : `components/IntroOverlay.tsx`, monté uniquement par
-  `app/page.tsx` (Server Component). La décision de la jouer est tranchée
-  côté serveur via un cookie (`rwd-intro`), pas par un script client posé
-  après coup, pour que l'overlay soit déjà présent dans le HTML envoyé (zéro
-  fenêtre où le Navbar réel peut apparaître avant l'intro, y compris sur
-  connexion lente). Skippable, jamais avec reduced-motion.
+- Intro plein écran : `components/IntroOverlay.tsx` + script inline dans
+  `app/layout.tsx` (attribut `data-intro` posé avant le premier paint).
+  Une fois par session, home en entrée de session uniquement, skippable,
+  jamais avec reduced-motion.
 - Server Components par défaut, `'use client'` seulement où nécessaire.
+- `@vercel/speed-insights` (`<SpeedInsights />` dans `app/layout.tsx`) pour
+  mesurer les Core Web Vitals réels en production, données visibles dans
+  l'onglet Speed Insights du projet Vercel.
