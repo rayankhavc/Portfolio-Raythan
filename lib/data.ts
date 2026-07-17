@@ -97,110 +97,236 @@ export const SERVICES: Service[] = [
   },
 ]
 
-// ── PROJECTS ──────────────────────────────────────────────────────────────────
-// Portfolio retiré du site pour l'instant — ces données ne sont branchées sur
-// aucune route. Elles alimenteront la future section « Ils nous ont fait
-// confiance » (exemples + retours clients) une fois les projets finalisés.
-// Pour ajouter une image de couverture : screenshot 16/9 dans /public/projects/,
-// puis renseigner `image`. Les captures de la galerie vont dans `images`.
+// ── ÉTUDES DE CAS ─────────────────────────────────────────────────────────────
+// Portfolio public : /portfolio (index) + /projets/[slug] (études de cas).
+// Toutes les captures sont réelles, prises sur les projets servis en local
+// (voir public/projects/). Les stats sont factuelles et vérifiables dans le
+// code des projets, jamais des métriques inventées.
 
-export interface Project {
-  slug: string
-  name: string
-  tagline: string
-  description: string
-  valueAdded: string
-  type: 'Web App' | 'Site Vitrine' | 'No-Code'
-  status: 'Live' | 'En cours'
-  featured: boolean
-  tags: string[]
-  details: string[]
-  cta: string
-  image?: string
-  images?: string[]
-  link?: string
+export interface CaseStudyShot {
+  src: string
+  alt: string
+  caption?: string
 }
 
-export const PROJECTS: Project[] = [
+export interface CaseStudyStat {
+  value: string
+  label: string
+}
+
+export interface CaseStudy {
+  slug: string
+  name: string
+  /** Secteur + localisation, affiché en kicker. */
+  kicker: string
+  /** Une phrase d'accroche, affichée en grand sur l'étude de cas. */
+  tagline: string
+  /** Résumé court pour la carte de l'index. */
+  summary: string
+  /** « Le point de départ » : le besoin, le contexte. */
+  context: string[]
+  /** « Ce qu'on a construit » : la réponse apportée. */
+  approach: string[]
+  type: 'Site vitrine' | 'Web App'
+  year: string
+  featured: boolean
+  stack: string[]
+  missions: string[]
+  stats: CaseStudyStat[]
+  cover: CaseStudyShot
+  shots: CaseStudyShot[]
+  mobileShot?: CaseStudyShot
+  liveUrl?: string
+  liveLabel?: string
+  /** Démo interactive embarquée dans l'étude de cas. */
+  demo?: 'fundedcalc' | 'blackjack'
+  demoTitle?: string
+  demoNote?: string
+}
+
+export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'chikano',
     name: 'Chikano',
-    tagline: 'Site vitrine pour un snack du littoral vendéen.',
-    description:
-      "Site vitrine one-page pour Chikano, restauration rapide à La Barre-de-Monts (Vendée). Structure claire, chargement rapide, et un référencement local pensé pour capter la clientèle touristique de la zone : Fromentine, Saint-Jean-de-Monts, Noirmoutier.",
-    valueAdded:
-      "Premier projet client de l'agence livré en production. SEO local orienté tourisme, informations pratiques accessibles en un scroll, site pensé pour transformer les visiteurs saisonniers en clients sur place.",
-    type: 'Site Vitrine',
-    status: 'Live',
+    kicker: 'Restauration rapide · La Barre-de-Monts, Vendée',
+    tagline: 'Un site vitrine qui capte la clientèle touristique du littoral.',
+    summary:
+      "Kebab, burger, tacos : un one-page qui transforme les vacanciers de passage en clients sur place. SEO local orienté tourisme, appel en un tap, carte lisible en un scroll.",
+    context: [
+      "Chikano est un snack de La Barre-de-Monts, à deux pas de Fromentine et de l'embarcadère pour l'île d'Yeu. Sa clientèle change chaque semaine : des vacanciers qui cherchent où manger, maintenant, sur leur téléphone.",
+      "Le besoin était simple et exigeant à la fois : être trouvé sur Google avant les concurrents de la zone, montrer la carte sans friction, et déclencher l'appel ou la visite immédiatement.",
+    ],
+    approach: [
+      "Un one-page Next.js pensé mobile-first, où tout est accessible en un scroll : la carte complète, les avis Google (4,9/5 affiché en circuit court), les horaires et l'itinéraire. Le bouton d'appel reste visible en permanence.",
+      "Le référencement local cible les requêtes réelles de la zone : Fromentine, Saint-Jean-de-Monts, Noirmoutier. Chargement rapide, structure sémantique propre, données locales balisées pour Google.",
+    ],
+    type: 'Site vitrine',
+    year: '2025',
     featured: true,
-    tags: ['Next.js', 'Tailwind', 'SEO local'],
-    details: [
-      'One-page vitrine Next.js 14 + Tailwind',
-      'SEO optimisé tourisme (Fromentine, Saint-Jean-de-Monts, Noirmoutier)',
-      'Mobile-first, chargement rapide',
-      'Informations pratiques accessibles en un scroll',
+    stack: ['Next.js 14', 'Tailwind CSS', 'Framer Motion'],
+    missions: ['Direction artistique', 'Développement', 'SEO local', 'Mise en ligne'],
+    stats: [
+      { value: '4,9/5', label: 'avis Google intégrés au site' },
+      { value: '1 scroll', label: 'pour toute l’info pratique' },
+      { value: '7j/7', label: 'horaires et appel accessibles' },
     ],
-    cta: 'Voir le site',
-    link: 'https://chikano.vercel.app',
-  },
-  {
-    slug: 'zenhertz',
-    name: 'ZenHertz',
-    tagline: "Web App interactive d'analyse et de bien-être sonore.",
-    description:
-      "Outil d'analyse musicale basé sur l'IA. Le site traite les fréquences et le BPM des morceaux pour corréler les effets sur le bien-être et optimiser les activités quotidiennes (sommeil, sport, travail).",
-    valueAdded:
-      'Application déployée en production. Interface bilingue FR/EN, moteurs BPM & Hz intégrés, design system complet.',
-    type: 'Web App',
-    status: 'Live',
-    featured: false,
-    tags: ['Next.js', 'IA', 'Audio'],
-    details: [
-      'Analyse BPM & fréquences',
-      'Effets neurologiques et physiologiques de la musique',
-      'Support fichiers audio',
-      'Interface bilingue FR / EN',
+    cover: { src: '/projects/chikano-hero.jpg', alt: 'Page d’accueil du site Chikano : identité noire et or, note Google 4,9/5, appel en un clic' },
+    shots: [
+      { src: '/projects/chikano-carte.jpg', alt: 'La carte du snack Chikano présentée en ligne', caption: 'La carte complète, lisible sans zoomer.' },
+      { src: '/projects/chikano-horaires.jpg', alt: 'Section horaires du site Chikano', caption: 'Les horaires en évidence, zéro ambiguïté.' },
     ],
-    cta: "Tester l'outil",
-    image: '/projects/zenhertz.jpg',
-    images: [
-      '/assets/zenhertz logo.jpeg',
-      '/assets/image zenhertz (1).jpeg',
-      '/assets/image zenhertz (2).jpeg',
-      '/assets/image zenhertz 1.jpeg',
-      '/assets/image zenhertz 2 (1).jpeg',
-    ],
-    link: 'https://zen-hertz.vercel.app',
+    mobileShot: { src: '/projects/chikano-mobile.jpg', alt: 'Version mobile du site Chikano', caption: 'Mobile-first : la cible principale, des vacanciers sur leur téléphone.' },
+    liveUrl: 'https://chikano.vercel.app',
+    liveLabel: 'Voir le site en ligne',
   },
   {
     slug: 'fundedcalc',
     name: 'FundedCalc',
-    tagline: 'Calculateur de risque pour les Prop Firms.',
-    description:
-      "Outil de calcul stratégique pour les traders passant des challenges Prop Firm. L'outil analyse les paramètres utilisateur pour fournir des projections mathématiques précises de gestion du risque.",
-    valueAdded:
-      'Application déployée sur Vercel. Interface claire, calculs en temps réel, adoptée par des traders en phase de challenge.',
+    kicker: 'Trading · Outil en ligne, sans inscription',
+    tagline: 'Un moteur Monte Carlo dans le navigateur pour préparer un challenge Prop Firm.',
+    summary:
+      "5 000 simulations calculées en direct pour estimer une probabilité de réussite avant de payer un challenge. 10 prop firms préconfigurées, graphiques de courbes d'équité, recommandations générées.",
+    context: [
+      "Les challenges Prop Firm sont payants : le trader avance des frais pour tenter d'obtenir un compte financé, avec des règles strictes de drawdown et d'objectif de profit. Beaucoup les tentent sans jamais avoir chiffré leur probabilité réelle de réussite.",
+      "Il fallait un outil honnête et immédiat : pas d'inscription, pas de promesse, des mathématiques. L'utilisateur entre sa stratégie, l'outil répond en probabilités.",
+    ],
+    approach: [
+      "Le cœur de l'outil est un moteur Monte Carlo qui rejoue le challenge 5 000 fois, trade par trade, dans le navigateur. Le calcul complet prend moins de 100 millisecondes, sans serveur : rien ne quitte la machine de l'utilisateur.",
+      "Autour du moteur : 10 prop firms préconfigurées d'après leurs règles officielles, des phases entièrement éditables, un graphique SVG des courbes d'équité simulées, une analyse générée qui pointe les faiblesses de la stratégie, et une carte de résultats partageable générée en Canvas. Interface bilingue FR/EN, identité rétro-terminal assumée.",
+    ],
     type: 'Web App',
-    status: 'Live',
+    year: '2026',
     featured: false,
-    tags: ['React', 'Finance', 'Tool'],
-    details: [
-      'Gestion du drawdown',
-      'Chance de passer funded',
-      'Interface rapide et sans inscription',
+    stack: ['Astro', 'React', 'Canvas API'],
+    missions: ['Produit', 'Design d’interface', 'Développement', 'Moteur de calcul'],
+    stats: [
+      { value: '5 000', label: 'simulations par analyse' },
+      { value: '10', label: 'prop firms préconfigurées' },
+      { value: '<100 ms', label: 'de calcul, sans serveur' },
+      { value: 'FR/EN', label: 'interface bilingue' },
     ],
-    cta: 'Tester le calculateur',
-    image: '/projects/fundedcalc.jpg',
-    images: [
-      '/assets/fundedcalc logo.jpeg',
-      '/assets/image funded calc.jpeg',
-      '/assets/Image funded Calc (2).jpeg',
-      '/assets/Image funded Calc (3).jpeg',
-      '/assets/Image funded Calc 1.jpeg',
+    cover: { src: '/projects/fundedcalc-results.jpg', alt: 'FundedCalc affichant 98% de probabilité de succès après 5 000 simulations Monte Carlo' },
+    shots: [
+      { src: '/projects/fundedcalc-config.jpg', alt: 'Configuration d’un challenge dans FundedCalc : prop firm, phases, stratégie', caption: 'Chaque paramètre du challenge est éditable.' },
     ],
-    link: 'https://fundedcalc.vercel.app',
+    liveUrl: 'https://fundedcalc.vercel.app',
+    liveLabel: 'Tester l’outil complet',
+    demo: 'fundedcalc',
+    demoTitle: 'Lancez une vraie simulation, ici même',
+    demoNote:
+      'Cette démo embarque le même moteur Monte Carlo que l’outil en production : 5 000 simulations réelles calculées dans votre navigateur au clic.',
+  },
+  {
+    slug: 'bj-coach-pro',
+    name: 'BJ Coach Pro',
+    kicker: 'Pédagogie · Entraîneur de stratégie au blackjack',
+    tagline: 'Un coach qui note chaque décision contre la stratégie de base, et explique pourquoi.',
+    summary:
+      "Table d'entraînement, drill éclair, tableau interactif et comptage Hi-Lo : un outil pédagogique complet, sans argent réel, avec un moteur de règles testé unitairement.",
+    context: [
+      "La stratégie de base au blackjack est un tableau de décisions mathématiquement optimales. L'apprendre dans un livre est aride ; l'apprendre au casino coûte cher. BJ Coach Pro est un outil d'entraînement, pas un jeu d'argent : aucune mise réelle, aucun compte.",
+      "L'objectif : que chaque décision du joueur soit évaluée contre la décision optimale, immédiatement, avec une explication claire de la logique.",
+    ],
+    approach: [
+      "Le moteur de règles est un module pur, couvert par des tests unitaires : 6 jeux, croupier reste sur 17 souple, double après séparation, blackjack payé 3:2. Le tableau intégré et le coaching correspondent exactement à ces règles.",
+      "Quatre modes d'entraînement : une vraie table avec mise, assurance et débrief de main ; un drill éclair pondéré vers vos erreurs récurrentes ; le tableau complet avec quiz de cellules ; et un sabot multi-jeux honnête pour le comptage Hi-Lo, avec pénétration réglable et quiz de comptage caché. Bilingue FR/EN, reduced-motion respecté.",
+    ],
+    type: 'Web App',
+    year: '2026',
+    featured: false,
+    stack: ['React', 'TypeScript', 'Zustand', 'Vitest'],
+    missions: ['Produit', 'Développement', 'Moteur de jeu', 'Tests unitaires'],
+    stats: [
+      { value: '6 jeux', label: 'de règles simulées fidèlement' },
+      { value: '4 modes', label: 'd’entraînement complémentaires' },
+      { value: '100%', label: 'des décisions notées et expliquées' },
+      { value: '0 €', label: 'd’argent réel, outil pédagogique' },
+    ],
+    cover: { src: '/projects/bjcoach-play.jpg', alt: 'Table d’entraînement BJ Coach Pro : main de 20 contre un 5 du croupier, actions Tirer, Rester, Doubler, Séparer' },
+    shots: [
+      { src: '/projects/bjcoach-home.jpg', alt: 'Page d’accueil de BJ Coach Pro', caption: 'L’entrée vers les quatre modes d’entraînement.' },
+      { src: '/projects/bjcoach-strategy.jpg', alt: 'Tableau de stratégie de base interactif de BJ Coach Pro', caption: 'Le tableau complet, avec quiz de cellules intégré.' },
+    ],
+    demo: 'blackjack',
+    demoTitle: 'Testez votre stratégie de base, main par main',
+    demoNote:
+      'Cette démo utilise le vrai moteur de l’application : mêmes tableaux de stratégie, mêmes règles (6 jeux, S17, DAS). Chaque réponse est notée et expliquée.',
+  },
+  {
+    slug: 'zenhertz',
+    name: 'ZenHertz',
+    kicker: 'Bien-être · Analyse audio dans le navigateur',
+    tagline: 'Le tempo et les fréquences d’un morceau, traduits en effets sur votre état.',
+    summary:
+      "L'utilisateur dépose un morceau, ZenHertz détecte BPM et fréquences dominantes puis en déduit un profil neuro-acoustique : ondes cérébrales, tableau hormonal estimé, effets ressentis.",
+    context: [
+      "La musique module l'état physiologique : un tempo soutenu prépare à l'effort, certaines plages de fréquences favorisent la détente. ZenHertz rend cette lecture accessible : analyser n'importe quel morceau et comprendre ce qu'il déclenche.",
+      "Contrainte forte dès le départ : l'analyse devait rester entièrement locale. Aucun fichier envoyé sur un serveur, aucune inscription.",
+    ],
+    approach: [
+      "Toute l'analyse tourne dans le navigateur via la Web Audio API : détection du BPM par autocorrélation multi-bande (kick et snare), fréquences dominantes par détection de pics spectraux (FFT). Le morceau ne quitte jamais la machine de l'utilisateur.",
+      "Les résultats sont traduits en profil lisible : position sur les cinq bandes d'ondes cérébrales (Delta à Gamma), tableau hormonal estimé, effets ressentis et conseils d'usage (sommeil, sport, concentration). Le tout avec un cadrage honnête : des estimations à visée informative, pas un diagnostic. Interface bilingue FR/EN, thème clair et sombre.",
+    ],
+    type: 'Web App',
+    year: '2025',
+    featured: false,
+    stack: ['JavaScript', 'Web Audio API', 'FFT'],
+    missions: ['Produit', 'Design d’interface', 'Développement', 'Moteur d’analyse'],
+    stats: [
+      { value: '100%', label: 'de l’analyse en local, zéro upload' },
+      { value: '5', label: 'bandes d’ondes cérébrales profilées' },
+      { value: '6', label: 'hormones estimées par morceau' },
+      { value: 'FR/EN', label: 'interface bilingue' },
+    ],
+    cover: { src: '/projects/zenhertz-analyse.jpg', alt: 'Analyse ZenHertz d’un morceau : 120 BPM, fréquences dominantes, profil neuro-acoustique et tableau hormonal' },
+    shots: [
+      { src: '/projects/zenhertz-landing.jpg', alt: 'Page d’accueil de ZenHertz', caption: 'L’entrée de l’outil : analyser sa musique, gratuitement, sans inscription.' },
+      { src: '/projects/zenhertz-upload.jpg', alt: 'Écran d’analyse d’un fichier audio dans ZenHertz', caption: 'Dépôt du fichier : l’analyse démarre immédiatement, en local.' },
+    ],
+    liveUrl: 'https://zen-hertz.vercel.app',
+    liveLabel: 'Tester l’outil en ligne',
+  },
+  {
+    slug: 'au-fournil',
+    name: 'Au Fournil',
+    kicker: 'Boulangerie artisanale · Saint-Herblain, deux adresses',
+    tagline: 'Deux vitrines sœurs pour une même exigence artisanale.',
+    summary:
+      "Au Fournil du Sillon et Au Fournil du Sud : deux boulangeries, deux sites statiques déclinés d'une même base. Zéro JavaScript embarqué, chargement immédiat, SEO local par adresse.",
+    context: [
+      "Au Fournil, c'est deux adresses à Saint-Herblain : le Sillon, place des Thébaudières, et le Sud, boulevard Salvador Allende. Pâtisseries orientales maison, pains artisanaux, snacking du midi.",
+      "Chaque adresse avait besoin de sa propre vitrine : ses horaires, son itinéraire, ses spécialités. Deux sites, mais une seule identité et un seul budget de maintenance.",
+    ],
+    approach: [
+      "Une base Astro commune, déclinée par adresse : contenus, coordonnées et accents visuels propres à chaque boutique. Les deux sites sortent en HTML et CSS purs, sans un seul kilo-octet de JavaScript embarqué : le chargement est immédiat, même sur un téléphone en 4G devant la boutique.",
+      "L'identité visuelle assume le registre artisanal premium : typographie Playfair Display, fond profond, motifs discrets. Chaque site cible ses propres requêtes locales, avec itinéraire Google Maps et téléphone en un tap.",
+    ],
+    type: 'Site vitrine',
+    year: '2026',
+    featured: false,
+    stack: ['Astro', 'HTML', 'CSS'],
+    missions: ['Direction artistique', 'Développement', 'SEO local', 'Déclinaison deux adresses'],
+    stats: [
+      { value: '2', label: 'adresses, deux sites dédiés' },
+      { value: '0 kB', label: 'de JavaScript embarqué' },
+      { value: '7j/7', label: 'horaires détaillés par boutique' },
+    ],
+    cover: { src: '/projects/fournil-sillon-hero.jpg', alt: 'Page d’accueil du site Au Fournil du Sillon : typographie Playfair Display sur fond vert profond' },
+    shots: [
+      { src: '/projects/fournil-sillon-specialites.jpg', alt: 'Section spécialités du site Au Fournil du Sillon', caption: 'Pâtisseries orientales, pains artisanaux, snacking : le savoir-faire mis en avant.' },
+      { src: '/projects/fournil-sud-hero.jpg', alt: 'Page d’accueil du site Au Fournil du Sud', caption: 'La déclinaison Sud : même base, identité propre à l’adresse.' },
+    ],
+    mobileShot: { src: '/projects/fournil-sillon-mobile.jpg', alt: 'Version mobile du site Au Fournil du Sillon', caption: 'Pensé pour le client debout devant la vitrine, téléphone en main.' },
+    liveUrl: 'https://fournil-du-sud.vercel.app',
+    liveLabel: 'Voir Au Fournil du Sud en ligne',
   },
 ]
+
+export const FEATURED_CASE_STUDY = CASE_STUDIES.find((c) => c.featured) ?? CASE_STUDIES[0]
+
+export function getCaseStudy(slug: string): CaseStudy | undefined {
+  return CASE_STUDIES.find((c) => c.slug === slug)
+}
 
 // ── SECTORS MARQUEE ───────────────────────────────────────────────────────────
 

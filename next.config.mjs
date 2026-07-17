@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Portfolio retiré temporairement — évite les 404 sur les URLs déjà indexées
   async redirects() {
     return [
-      { source: '/portfolio', destination: '/', permanent: false },
-      { source: '/projets/:slug*', destination: '/', permanent: false },
+      // /projets sans slug n'est pas une page : on renvoie vers l'index du
+      // portfolio. Les anciennes redirections /portfolio et /projets/:slug
+      // vers la home sont retirées : ces routes existent de nouveau.
+      { source: '/projets', destination: '/portfolio', permanent: false },
     ]
   },
 }

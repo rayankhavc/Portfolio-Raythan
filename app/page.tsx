@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { ServicesOverview } from '@/components/sections/ServicesOverview'
 import { MarqueeSection } from '@/components/sections/MarqueeSection'
+import { WorkTeaser } from '@/components/sections/WorkTeaser'
 import { WhyRaythan } from '@/components/sections/WhyRaythan'
 import { ProcessSection } from '@/components/sections/ProcessSection'
 import { CTABand } from '@/components/sections/CTABand'
@@ -22,6 +23,7 @@ export default function HomePage() {
       <HeroSection />
       <MarqueeSection />
       <ServicesOverview />
+      <WorkTeaser />
       <WhyRaythan />
       <ProcessSection />
       <FAQSection />
