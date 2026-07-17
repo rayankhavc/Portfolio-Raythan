@@ -62,42 +62,44 @@ Langue du projet et des échanges : français.
   dans les deux thèmes avant d'être codée en dur — `red-400` par exemple
   passe en sombre mais échoue largement en clair.
 
-## Prochain chantier : portfolio avec études de cas (pas encore commencé)
+## Portfolio public (livré)
 
-- Remettre un portfolio public (voir plus bas : `/portfolio` et `/projets/*`
-  redirigent actuellement vers la home, `lib/data.ts` contient déjà `PROJECTS`
-  avec Chikano en featured/Live). Vrais projets, vraies captures d'écran,
-  pas de placeholder.
-- Chaque étude de cas doit pouvoir inclure un outil interactif testable en
-  direct par le visiteur quand le projet s'y prête (pas juste une capture
-  statique) — embarquer une démo live de l'outil, pas une image.
-- Prendre les captures d'écran nécessaires de façon autonome (Playwright est
-  installé, `/opt/pw-browsers/chromium`, `executablePath` à passer explicitement
-  sans lancer `playwright install`).
-- Inspiration animations, deux sites repérés par Rayan (à étudier avant de se
-  lancer, sans copier le vernis sans le fond) :
-  - `rayhan.website` (agence Rayhan, Londres). Motion « physics-based » mis en
-    avant. Rayan la trouve très propre visuellement mais « que du AI slop, pas
-    vraiment de concret » : viser le même niveau de finition d'animation sans
-    tomber dans le même travers (manque de substance réelle derrière).
-  - `ltweb.fr` (agence LTWeb, Nantes). Stack Next.js, bien fait, taux de
-    conversion réel inconnu.
-  - Ces deux domaines n'étaient pas atteignables depuis le sandbox de la
-    session qui a écrit cette note (proxy réseau restreint à une liste
-    blanche + protection anti-bot des deux sites, WebFetch et curl direct
-    ont échoué en 403). Vérifier l'accès réseau en premier ; si toujours
-    bloqué, demander à Rayan des captures/enregistrements des animations
-    précises qui l'ont marqué plutôt que d'insister.
+- `/portfolio` (index) + `/projets/[slug]` (études de cas), données dans
+  `lib/data.ts` (`CASE_STUDIES`). Cinq études de cas : Chikano (featured),
+  FundedCalc, BJ Coach Pro, ZenHertz, Au Fournil (deux adresses regroupées).
+  `/projets` sans slug redirige vers `/portfolio` (next.config.mjs) ; les
+  anciennes redirections vers la home sont retirées.
+- Captures d'écran réelles dans `public/projects/`, prises via Playwright sur
+  les projets buildés et servis en local (les repos sœurs sont clonés à côté
+  du portfolio dans les sessions Claude). Refaire pareil pour toute nouvelle
+  capture : `/opt/pw-browsers/chromium`, `executablePath` explicite, jamais
+  `playwright install`. Les stats affichées dans les études de cas sont
+  factuelles et vérifiables dans le code des projets, ne jamais inventer de
+  métriques (pas de score Lighthouse ou taux de conversion non mesurés).
+- Démos live embarquées (`components/demos/`) : FundedCalcDemo (moteur Monte
+  Carlo porté à l'identique depuis FundedCalc) et BlackjackDemo (tableaux de
+  stratégie et moteur portés depuis bj-coach-pro). Chargées en dynamic import
+  depuis `CaseStudyArticle`, uniquement sur les études concernées. Chaque démo
+  garde l'identité visuelle du produit client dans un cadre fenêtre neutre :
+  c'est assumé et voulu (on montre le vrai produit), l'identité du site ne
+  s'applique pas à l'intérieur du cadre. Aucun aléatoire au premier rendu
+  (pas de mismatch d'hydratation) : tout tirage se fait dans un handler.
+- Animations du portfolio : reveals classiques du site + inclinaison spring
+  au survol des cartes (`components/portfolio/TiltCard.tsx`, amplitude 3,5°,
+  souris uniquement) + parallax douce sur les couvertures. Tout passe par
+  transform/opacity, `MotionConfig reducedMotion="user"` couvre l'ensemble,
+  TiltCard et les parallax vérifient aussi `useReducedMotion` explicitement.
+- Home : section « Ils nous ont fait confiance » (`WorkTeaser`, trois projets)
+  entre ServicesOverview et WhyRaythan.
+- Sites d'inspiration (`rayhan.website`, `ltweb.fr`) toujours inaccessibles
+  depuis le sandbox (proxy liste blanche, 403 sur curl ET WebFetch, vérifié
+  juillet 2026). Le niveau de finition visé a été construit sans eux ; si
+  Rayan fournit des captures/enregistrements, itérer à partir de là.
 
 ## Points d'architecture
 
 - Tailwind v4 : les tokens vivent dans `app/globals.css` (`:root` + `@theme inline`).
   Il n'y a pas de `tailwind.config.ts` — ne pas en recréer un.
-- Données projets : `lib/data.ts` (`PROJECTS`), actuellement débranchées de toute
-  route — réservées à la future section « Ils nous ont fait confiance »
-  (exemples + retours clients, seulement quand les projets seront finalisés).
-  Le portfolio public a été retiré volontairement ; `/portfolio` et `/projets/*`
-  redirigent vers la home (next.config.mjs).
 - Intro plein écran : `components/IntroOverlay.tsx` + script inline dans
   `app/layout.tsx` (attribut `data-intro` posé avant le premier paint).
   Une fois par session, home en entrée de session uniquement, skippable,
