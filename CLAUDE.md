@@ -62,33 +62,6 @@ Langue du projet et des échanges : français.
   dans les deux thèmes avant d'être codée en dur — `red-400` par exemple
   passe en sombre mais échoue largement en clair.
 
-## Prochain chantier : portfolio avec études de cas (pas encore commencé)
-
-- Remettre un portfolio public (voir plus bas : `/portfolio` et `/projets/*`
-  redirigent actuellement vers la home, `lib/data.ts` contient déjà `PROJECTS`
-  avec Chikano en featured/Live). Vrais projets, vraies captures d'écran,
-  pas de placeholder.
-- Chaque étude de cas doit pouvoir inclure un outil interactif testable en
-  direct par le visiteur quand le projet s'y prête (pas juste une capture
-  statique) — embarquer une démo live de l'outil, pas une image.
-- Prendre les captures d'écran nécessaires de façon autonome (Playwright est
-  installé, `/opt/pw-browsers/chromium`, `executablePath` à passer explicitement
-  sans lancer `playwright install`).
-- Inspiration animations, deux sites repérés par Rayan (à étudier avant de se
-  lancer, sans copier le vernis sans le fond) :
-  - `rayhan.website` (agence Rayhan, Londres). Motion « physics-based » mis en
-    avant. Rayan la trouve très propre visuellement mais « que du AI slop, pas
-    vraiment de concret » : viser le même niveau de finition d'animation sans
-    tomber dans le même travers (manque de substance réelle derrière).
-  - `ltweb.fr` (agence LTWeb, Nantes). Stack Next.js, bien fait, taux de
-    conversion réel inconnu.
-  - Ces deux domaines n'étaient pas atteignables depuis le sandbox de la
-    session qui a écrit cette note (proxy réseau restreint à une liste
-    blanche + protection anti-bot des deux sites, WebFetch et curl direct
-    ont échoué en 403). Vérifier l'accès réseau en premier ; si toujours
-    bloqué, demander à Rayan des captures/enregistrements des animations
-    précises qui l'ont marqué plutôt que d'insister.
-
 ## Points d'architecture
 
 - Tailwind v4 : les tokens vivent dans `app/globals.css` (`:root` + `@theme inline`).
