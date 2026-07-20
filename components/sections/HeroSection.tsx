@@ -46,10 +46,10 @@ export function HeroSection() {
             transition={{ duration: 0.9, ease, delay: 0.2 }}
             className="font-semibold text-display-lg leading-[1.05] tracking-tight mb-6"
           >
-            Votre présence digitale,
+            Votre site livré rapidement
             <br />
             <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
-              réinventée.
+              et prêt à ramener des clients !
             </span>
           </motion.h1>
 
@@ -60,7 +60,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, ease, delay: 0.45 }}
             className="text-metallic-light text-lg md:text-xl max-w-xl leading-relaxed mb-10"
           >
-            Sites web, SEO, réseaux sociaux, publicité, automatisation et IA.
+            Sites web, automatisation et IA, publicité Google et Meta.
             Tout ce dont votre business a besoin pour dominer en ligne.
           </motion.p>
 

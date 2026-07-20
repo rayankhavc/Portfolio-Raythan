@@ -16,42 +16,29 @@ export const SERVICES: Service[] = [
     title: 'Création de site web',
     tagline: 'Vitrine, landing page, e-commerce.',
     description:
-      'Un site qui représente votre activité, attire vos clients et convertit. Design sur-mesure, mobile-first, performances optimisées dès le premier jour.',
+      'Un site qui représente votre activité, attire vos clients et convertit. Design sur-mesure, mobile-first, performances optimisées dès le premier jour. Le SEO technique (metadata, structure, indexation) est inclus par défaut sur chaque site livré.',
     benefits: [
       'Crédibilité immédiate auprès de vos prospects',
       'Vos clients peuvent vous trouver 24h/24, 7j/7',
       'Vous démarquer visuellement de vos concurrents locaux',
+      'Trouvable sur Google dès la mise en ligne, SEO technique inclus',
     ],
     sectors: ['PME', 'Commerce local', 'Artisan', 'Restaurant'],
     icon: 'Monitor',
   },
   {
-    id: 'seo',
-    title: 'SEO & Référencement',
-    tagline: 'Remonter sur Google, durablement.',
+    id: 'automation-ia',
+    title: 'Automatisation & IA',
+    tagline: 'Workflows Make.com et outils IA sur-mesure.',
     description:
-      "Audit technique complet, optimisation on-page, structured data, Core Web Vitals. Votre site visible par ceux qui cherchent exactement ce que vous proposez.",
+      'On connecte vos outils et on automatise vos processus avec Make.com : facturation, CRM, relances, synchronisations. Là-dessus, on branche des outils IA sur-mesure pour les tâches à forte valeur : tri, rédaction, réponses clients, analyse de données.',
     benefits: [
-      'Trafic organique qualifié sans payer par clic',
-      'Visibilité locale sur Google Maps & Search',
-      'Prospects déjà intéressés par votre offre',
+      'Des heures récupérées chaque semaine sur les tâches répétitives',
+      'Des outils IA sur-mesure connectés à vos automatisations',
+      'Zéro ressaisie et zéro erreur entre vos outils',
     ],
-    sectors: ['PME', 'Commerce local', 'E-commerce', 'Startup'],
-    icon: 'TrendingUp',
-  },
-  {
-    id: 'social',
-    title: 'Réseaux sociaux',
-    tagline: 'Stratégie de contenu & présence digitale.',
-    description:
-      'Création et gestion de votre présence sur Instagram, LinkedIn, TikTok. Contenu adapté à votre secteur, calendrier éditorial, visuels cohérents.',
-    benefits: [
-      'Notoriété et reconnaissance de votre marque',
-      'Engagement et communauté fidèle autour de votre activité',
-      'Génération de leads via les plateformes sociales',
-    ],
-    sectors: ['Restaurant', 'Salon', 'Artisan', 'E-commerce'],
-    icon: 'Share2',
+    sectors: ['PME', 'Startup', 'E-commerce', 'Tech & SaaS'],
+    icon: 'Zap',
   },
   {
     id: 'ads',
@@ -66,34 +53,6 @@ export const SERVICES: Service[] = [
     ],
     sectors: ['E-commerce', 'PME', 'Startup', 'Commerce local'],
     icon: 'BarChart3',
-  },
-  {
-    id: 'automation',
-    title: 'Automatisation',
-    tagline: 'Make.com, workflows, intégrations.',
-    description:
-      "Automatisation de vos processus métier : facturation, CRM, relances email. Moins de tâches répétitives, plus de temps pour ce qui compte.",
-    benefits: [
-      'Des heures récupérées chaque semaine',
-      'Zéro erreur humaine sur les processus critiques',
-      'Scalabilité sans embauche supplémentaire',
-    ],
-    sectors: ['PME', 'Startup', 'E-commerce', 'Artisan'],
-    icon: 'Zap',
-  },
-  {
-    id: 'ia',
-    title: 'IA Métier',
-    tagline: "Outils IA sur-mesure pour votre activité.",
-    description:
-      "Chatbots intelligents, assistants de contenu, analyse de données des solutions IA adaptées à vos besoins spécifiques.",
-    benefits: [
-      'Avantage concurrentiel durable',
-      'Productivité multipliée sans augmenter les coûts',
-      'Innovation perçue par vos clients et partenaires',
-    ],
-    sectors: ['Startup', 'PME', 'E-commerce', 'Tech & SaaS'],
-    icon: 'Brain',
   },
 ]
 

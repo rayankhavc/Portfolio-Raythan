@@ -2,13 +2,13 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  Monitor, TrendingUp, Share2, BarChart3, Zap, Brain, ArrowRight,
+  Monitor, BarChart3, Zap, ArrowRight,
 } from 'lucide-react'
 import { SERVICES } from '@/lib/data'
 import { staggerContainer, fadeUp } from '@/lib/motion-variants'
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Monitor, TrendingUp, Share2, BarChart3, Zap, Brain,
+  Monitor, BarChart3, Zap,
 }
 
 export function ServicesOverview() {
