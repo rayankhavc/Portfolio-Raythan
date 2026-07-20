@@ -1,14 +1,14 @@
 'use client'
 import { motion } from 'framer-motion'
 import {
-  Monitor, TrendingUp, Share2, BarChart3, Zap, Brain, Check,
+  Monitor, BarChart3, Zap, Check,
 } from 'lucide-react'
 import { SERVICES, type Service } from '@/lib/data'
 import { CTABand } from '@/components/sections/CTABand'
 import { ease, slideFromLeft, slideFromRight } from '@/lib/motion-variants'
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Monitor, TrendingUp, Share2, BarChart3, Zap, Brain,
+  Monitor, BarChart3, Zap,
 }
 
 export function ServicesPage() {

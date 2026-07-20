@@ -46,10 +46,10 @@ export function HeroSection() {
             transition={{ duration: 0.9, ease, delay: 0.2 }}
             className="font-semibold text-display-lg leading-[1.05] tracking-tight mb-6"
           >
-            Votre présence digitale,
+            Votre site livré rapidement
             <br />
             <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
-              réinventée.
+              et prêt à ramener des clients !
             </span>
           </motion.h1>
 
