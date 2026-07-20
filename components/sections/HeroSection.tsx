@@ -60,7 +60,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, ease, delay: 0.45 }}
             className="text-metallic-light text-lg md:text-xl max-w-xl leading-relaxed mb-10"
           >
-            Sites web, SEO, réseaux sociaux, publicité, automatisation et IA.
+            Sites web, automatisation et IA, publicité Google et Meta.
             Tout ce dont votre business a besoin pour dominer en ligne.
           </motion.p>
 

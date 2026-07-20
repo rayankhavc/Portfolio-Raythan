@@ -3,17 +3,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CalendarDays, Mail, Phone, Clock } from 'lucide-react'
 import { ease, fadeUp } from '@/lib/motion-variants'
+import { SERVICES } from '@/lib/data'
 import { CopyableLink } from '@/components/CopyableLink'
 
-const SERVICES_OPTIONS = [
-  'Création de site web',
-  'SEO & Référencement',
-  'Réseaux sociaux',
-  'Publicité Google & Meta',
-  'Automatisation',
-  'IA Métier',
-  'Autre',
-]
+// Dérivé de la source unique (lib/data.ts) plus « Autre » : le menu suit
+// automatiquement l'offre affichée, pas de liste en dur à maintenir en double.
+const SERVICES_OPTIONS = [...SERVICES.map((s) => s.title), 'Autre']
 
 const INPUT_CLASSES =
   'w-full bg-[rgb(var(--overlay)/5%)] border border-[rgb(var(--overlay)/10%)] rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-metallic focus:outline-none focus:border-accent/60 transition-colors'

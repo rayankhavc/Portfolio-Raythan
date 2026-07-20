@@ -12,7 +12,7 @@ import { CTABand } from '@/components/sections/CTABand'
 export const metadata: Metadata = {
   title: 'Agence digitale en Loire-Atlantique : sites, SEO, pub, IA',
   description:
-    'Raythan Web Design, agence digitale indépendante en Loire-Atlantique. Création de sites web, SEO, réseaux sociaux, publicité Google & Meta, automatisation et IA métier.',
+    'Raythan Web Design, agence digitale indépendante en Loire-Atlantique. Sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
   alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app' },
 }
 
