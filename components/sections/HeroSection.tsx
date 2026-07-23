@@ -28,22 +28,11 @@ export function HeroSection() {
 
       <div className="relative max-w-6xl mx-auto w-full lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12">
         <div>
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease, delay: 0.1 }}
-            className="inline-flex items-center gap-2 border border-[rgb(var(--overlay)/10%)] rounded-full px-4 py-1.5 text-xs text-metallic-light mb-8"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            Disponible pour nouveaux projets
-          </motion.div>
-
           {/* Titre */}
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.2 }}
+            transition={{ duration: 0.9, ease, delay: 0.1 }}
             className="font-semibold text-display-md leading-[1.1] tracking-tight mb-6"
           >
             Votre site livré rapidement
