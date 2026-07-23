@@ -44,7 +44,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.2 }}
-            className="font-semibold text-display-lg leading-[1.05] tracking-tight mb-6"
+            className="font-semibold text-display-md leading-[1.1] tracking-tight mb-6"
           >
             Votre site livré rapidement
             <br />
