@@ -5,6 +5,8 @@ import { Logo } from '@/components/ui/Logo'
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Réalisations' },
+  { href: '/creation-site-internet', label: 'Site internet par ville' },
+  { href: '/site-internet', label: 'Site internet par métier' },
   { href: '/contact', label: 'Contact' },
 ]
 
