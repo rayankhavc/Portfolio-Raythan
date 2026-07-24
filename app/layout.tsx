@@ -87,6 +87,8 @@ const AGENCY_JSON_LD = {
   description:
     'Agence web indépendante à Nantes : création de sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
   url: 'https://raythan.fr',
+  logo: 'https://raythan.fr/icon-192.png',
+  image: 'https://raythan.fr/icon-192.png',
   email: 'raythanwebdesign@gmail.com',
   telephone: '+33651598293',
   sameAs: ['https://share.google/e86IszYPw8BTyuAdW'],
