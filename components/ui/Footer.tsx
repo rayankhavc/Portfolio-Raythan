@@ -13,6 +13,11 @@ const LEGAL_LINKS = [
   { href: '/politique-confidentialite', label: 'Politique de confidentialité' },
 ]
 
+// Date de dernière mise à jour du contenu, affichée en bas de page. Constante
+// volontaire (pas new Date()) : elle doit refléter la dernière révision réelle
+// du contenu, pas la date de rendu. À bumper quand le contenu évolue.
+const LAST_UPDATED = '24 juillet 2026'
+
 export function Footer() {
   return (
     <footer className="border-t border-[rgb(var(--overlay)/8%)] bg-background">
@@ -81,6 +86,7 @@ export function Footer() {
         <div className="border-t border-[rgb(var(--overlay)/5%)] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-metallic">
             © {new Date().getFullYear()} Raythan Web Design. Tous droits réservés.
+            <span className="text-metallic">{` · Mis à jour le ${LAST_UPDATED}`}</span>
           </p>
           <div className="flex items-center gap-6">
             {LEGAL_LINKS.map(({ href, label }) => (
