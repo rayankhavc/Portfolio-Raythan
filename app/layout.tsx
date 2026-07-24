@@ -26,6 +26,20 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     siteName: 'Raythan Web Design',
   },
+  // Favicon déclaré explicitement : les fichiers vivent dans public/ mais
+  // Next ne génère de <link rel="icon"> que pour app/icon.* ou via ce champ.
+  // Sans lui, aucun favicon dans le <head> et Google affiche le globe par
+  // défaut. SVG (net) + PNG 96/192 (Google privilégie un raster carré) +
+  // apple-touch-icon. Badge volontairement statique sombre : lisible sur le
+  // fond blanc des résultats Google, là où une tuile claire disparaîtrait.
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-96.png', type: 'image/png', sizes: '96x96' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180' }],
+  },
 }
 
 // Exécutés dans <head>, avant tout <link> vers globals.css : posent les
