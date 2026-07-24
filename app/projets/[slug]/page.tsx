@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: `${study.name}, étude de cas`,
     description: study.summary,
-    alternates: { canonical: `https://portfolioraythanwebdesign.vercel.app/projets/${study.slug}` },
+    alternates: { canonical: `https://raythan.fr/projets/${study.slug}` },
     openGraph: {
       title: `${study.name} · Raythan Web Design`,
       description: study.summary,

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { CASE_STUDIES } from '@/lib/data'
 
-const BASE_URL = 'https://portfolioraythanwebdesign.vercel.app'
+const BASE_URL = 'https://raythan.fr'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ['', '/services', '/portfolio', '/contact', '/mentions-legales', '/politique-confidentialite']

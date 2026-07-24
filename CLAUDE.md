@@ -8,7 +8,8 @@ Langue du projet et des échanges : français.
 1. Développer sur la branche de travail, commit, `git push -u origin <branche>`.
 2. Créer une PR vers `main` et la merger.
 3. Le merge déclenche automatiquement le déploiement production Vercel
-   (projet `v0-portfolio-homepage-design` → portfolioraythanwebdesign.vercel.app).
+   (projet `v0-portfolio-homepage-design` → raythan.fr, alias historique
+   portfolioraythanwebdesign.vercel.app toujours actif).
 4. Vérifier que le déploiement production est READY et que le contenu servi est le bon.
 
 ## Identité visuelle (validée, ne pas dévier)
