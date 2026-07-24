@@ -77,9 +77,8 @@ const CRITICAL_INTRO_CSS = `#intro-overlay{display:none}html[data-intro] #intro-
 // Pas d'aggregateRating ni de Review auto-déclarés : non éligibles côté Google
 // depuis 2019, risque de pénalité. Le catalogue d'offres est dérivé de la
 // source unique lib/data.ts pour ne jamais diverger de ce qui est affiché.
-// sameAs volontairement absent : aucun profil (réseaux, Google Business) n'est
-// référencé dans le repo, on ne l'invente pas. À compléter quand les URLs
-// seront fournies.
+// sameAs : profil Google Business (fiche de l'entreprise), fourni par Rayan.
+// À enrichir avec Instagram / LinkedIn quand les URLs seront disponibles.
 const AGENCY_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -90,6 +89,7 @@ const AGENCY_JSON_LD = {
   url: 'https://raythan.fr',
   email: 'raythanwebdesign@gmail.com',
   telephone: '+33651598293',
+  sameAs: ['https://share.google/e86IszYPw8BTyuAdW'],
   founder: { '@type': 'Person', name: 'Rayan Khalifa' },
   knowsLanguage: 'fr-FR',
   address: {
