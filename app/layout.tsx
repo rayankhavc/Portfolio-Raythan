@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: 'Raythan Web Design Agence digitale',
   },
   description:
-    'Agence web indépendante. Création de sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
+    'Agence web indépendante à Nantes. Création de sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -62,8 +62,14 @@ const LOCAL_BUSINESS_JSON_LD = {
   '@type': 'ProfessionalService',
   name: 'Raythan Web Design',
   description:
-    'Agence digitale indépendante : création de sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
-  areaServed: 'Loire-Atlantique',
+    'Agence web indépendante à Nantes : création de sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Nantes',
+    addressRegion: 'Loire-Atlantique',
+    addressCountry: 'FR',
+  },
+  areaServed: ['Nantes', 'Loire-Atlantique', 'France'],
   email: 'raythanwebdesign@gmail.com',
   telephone: '+33651598293',
   url: 'https://raythan.fr',

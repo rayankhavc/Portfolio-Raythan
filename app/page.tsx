@@ -10,9 +10,9 @@ import { ProcessSection } from '@/components/sections/ProcessSection'
 import { CTABand } from '@/components/sections/CTABand'
 
 export const metadata: Metadata = {
-  title: 'Agence digitale en Loire-Atlantique : sites, SEO, pub, IA',
+  title: 'Agence web à Nantes : sites, SEO, publicité et IA',
   description:
-    'Raythan Web Design, agence digitale indépendante en Loire-Atlantique. Sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
+    'Agence web indépendante à Nantes (Loire-Atlantique). Création de sites avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
   alternates: { canonical: 'https://raythan.fr' },
 }
 
