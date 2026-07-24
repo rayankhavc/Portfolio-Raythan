@@ -28,7 +28,7 @@ export function Footer() {
             </span>
           </Link>
             <p className="text-metallic text-sm leading-relaxed max-w-xs">
-              Agence digitale indépendante : sites web, automatisation et IA, publicité Google et Meta.
+              Agence digitale indépendante à Nantes : sites web, automatisation et IA, publicité Google et Meta.
             </p>
             <CopyableLink
               href="mailto:raythanwebdesign@gmail.com"

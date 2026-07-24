@@ -21,7 +21,7 @@ const FAQ_ITEMS = [
   {
     question: 'Dans quelle zone intervenez-vous ?',
     answer:
-      "Basé en Loire-Atlantique, à distance pour toute la France. Un appel vidéo suffit.",
+      "Basé à Nantes (Loire-Atlantique), à distance pour toute la France. Un appel vidéo suffit.",
   },
   {
     question: 'Que se passe-t-il après la mise en ligne ?',
