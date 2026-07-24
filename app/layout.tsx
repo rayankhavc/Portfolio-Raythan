@@ -5,6 +5,7 @@ import './globals.css'
 import { Navbar } from '@/components/ui/Navbar'
 import { Footer } from '@/components/ui/Footer'
 import { MotionProvider } from '@/components/motion-provider'
+import { SERVICES } from '@/lib/data'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -57,22 +58,48 @@ const INTRO_ENTRY_SCRIPT = `(function(){try{var s=sessionStorage,p=location.path
 // manuellement si --background change un jour.
 const CRITICAL_INTRO_CSS = `#intro-overlay{display:none}html[data-intro] #intro-overlay{display:flex;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;background-color:#1d1d1f}html[data-theme="light"][data-intro] #intro-overlay{background-color:#f5f4f2}html[data-intro]{overflow:hidden}`
 
-const LOCAL_BUSINESS_JSON_LD = {
+// JSON-LD de l'agence, rendu côté serveur (jamais via useEffect) pour être
+// présent dès le HTML initial, la seule chose que lisent les crawlers IA.
+// Pas d'aggregateRating ni de Review auto-déclarés : non éligibles côté Google
+// depuis 2019, risque de pénalité. Le catalogue d'offres est dérivé de la
+// source unique lib/data.ts pour ne jamais diverger de ce qui est affiché.
+// sameAs volontairement absent : aucun profil (réseaux, Google Business) n'est
+// référencé dans le repo, on ne l'invente pas. À compléter quand les URLs
+// seront fournies.
+const AGENCY_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': 'https://raythan.fr/#agence',
   name: 'Raythan Web Design',
   description:
     'Agence web indépendante à Nantes : création de sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
+  url: 'https://raythan.fr',
+  email: 'raythanwebdesign@gmail.com',
+  telephone: '+33651598293',
+  founder: { '@type': 'Person', name: 'Rayan Khalifa' },
+  knowsLanguage: 'fr-FR',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Nantes',
     addressRegion: 'Loire-Atlantique',
     addressCountry: 'FR',
   },
-  areaServed: ['Nantes', 'Loire-Atlantique', 'France'],
-  email: 'raythanwebdesign@gmail.com',
-  telephone: '+33651598293',
-  url: 'https://raythan.fr',
+  areaServed: [
+    { '@type': 'City', name: 'Nantes' },
+    { '@type': 'AdministrativeArea', name: 'Loire-Atlantique' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Services Raythan Web Design',
+    itemListElement: SERVICES.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -86,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(AGENCY_JSON_LD) }}
         />
         {/* mix-blend-overlay force un recalcul de compositing à chaque frame
             de scroll (élément fixed superposé à tout le contenu) : coût

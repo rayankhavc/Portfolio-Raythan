@@ -7,6 +7,7 @@ import { MarqueeSection } from '@/components/sections/MarqueeSection'
 import { WorkTeaser } from '@/components/sections/WorkTeaser'
 import { WhyRaythan } from '@/components/sections/WhyRaythan'
 import { ProcessSection } from '@/components/sections/ProcessSection'
+import { AImodeSection } from '@/components/sections/AImodeSection'
 import { CTABand } from '@/components/sections/CTABand'
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function HomePage() {
       <WorkTeaser />
       <WhyRaythan />
       <ProcessSection />
+      <AImodeSection />
       <FAQSection />
       <CTABand />
     </>

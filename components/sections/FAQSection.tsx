@@ -33,6 +33,21 @@ const FAQ_ITEMS = [
     answer:
       "PME, commerces locaux, artisans, restaurants, startups. Le site colle à votre clientèle, pas à un modèle générique.",
   },
+  {
+    question: "Mon site apparaîtra-t-il dans les réponses de ChatGPT ou de Google ?",
+    answer:
+      "Personne ne peut le garantir, et aucune agence sérieuse ne le promet. Ce qu'on maîtrise : rendre votre site lisible par ces systèmes (rendu serveur, données structurées, contenu clair). C'est la condition de base pour être éligible à une citation.",
+  },
+  {
+    question: "C'est quoi le référencement pour les IA (GEO) ?",
+    answer:
+      "Structurer un site pour qu'il soit compris par les assistants IA et les réponses générées de Google, en plus des moteurs classiques. Concrètement : rendu côté serveur, données structurées Schema.org, contenu organisé en questions-réponses.",
+  },
+  {
+    question: "Faut-il refaire mon site pour qu'il soit lisible par les IA ?",
+    answer:
+      "Pas toujours. On audite d'abord l'existant : rendu serveur, données structurées, cohérence avec votre fiche Google Business. Selon l'état, on ajuste les parties qui bloquent ou on reconstruit.",
+  },
 ]
 
 export function FAQSection() {
