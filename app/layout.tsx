@@ -13,7 +13,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portfolioraythanwebdesign.vercel.app'),
+  metadataBase: new URL('https://raythan.fr'),
   title: {
     template: '%s | Raythan Web Design',
     default: 'Raythan Web Design Agence digitale',
@@ -66,7 +66,7 @@ const LOCAL_BUSINESS_JSON_LD = {
   areaServed: 'Loire-Atlantique',
   email: 'raythanwebdesign@gmail.com',
   telephone: '+33651598293',
-  url: 'https://portfolioraythanwebdesign.vercel.app',
+  url: 'https://raythan.fr',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

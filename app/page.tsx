@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Agence digitale en Loire-Atlantique : sites, SEO, pub, IA',
   description:
     'Raythan Web Design, agence digitale indépendante en Loire-Atlantique. Sites web avec SEO inclus, automatisation et IA sur-mesure, publicité Google et Meta.',
-  alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app' },
+  alternates: { canonical: 'https://raythan.fr' },
 }
 
 export default function HomePage() {

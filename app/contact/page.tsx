@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Discutons de votre projet digital. Formulaire de contact ou prise de RDV via Cal.com.',
-  alternates: { canonical: 'https://portfolioraythanwebdesign.vercel.app/contact' },
+  alternates: { canonical: 'https://raythan.fr/contact' },
 }
 
 export default function Contact() {
