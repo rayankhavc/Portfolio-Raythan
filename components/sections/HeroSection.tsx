@@ -33,7 +33,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
-            className="font-semibold text-display-md leading-[1.1] tracking-tight mb-6"
+            className="reveal font-semibold text-display-md leading-[1.1] tracking-tight mb-6"
           >
             Votre site livré rapidement
             <br />
@@ -47,7 +47,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.45 }}
-            className="text-metallic-light text-lg md:text-xl max-w-xl leading-relaxed mb-10"
+            className="reveal text-metallic-light text-lg md:text-xl max-w-xl leading-relaxed mb-10"
           >
             Sites web, automatisation et IA, publicité Google et Meta.
             Tout ce dont votre business a besoin pour dominer en ligne.
@@ -58,7 +58,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.6 }}
-            className="flex flex-wrap items-center gap-4"
+            className="reveal flex flex-wrap items-center gap-4"
           >
             <a
               href="https://cal.com/rayankhavc"
@@ -83,7 +83,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease, delay: 0.75 }}
-            className="text-xs text-metallic mt-4"
+            className="reveal text-xs text-metallic mt-4"
           >
             Devis gratuit · Réponse sous 48h
           </motion.p>
@@ -93,7 +93,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8, ease }}
-            className="flex flex-wrap items-center gap-8 mt-16 pt-8 border-t border-[rgb(var(--overlay)/8%)]"
+            className="reveal flex flex-wrap items-center gap-8 mt-16 pt-8 border-t border-[rgb(var(--overlay)/8%)]"
           >
             {[
               { value: '10', label: 'Projets développés' },

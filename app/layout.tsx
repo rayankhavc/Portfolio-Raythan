@@ -56,10 +56,27 @@ const THEME_INIT_SCRIPT = `(function(){try{if(localStorage.getItem('rwd-theme')=
 
 // Mémorise la page d'entrée de la session, et pose data-intro sur <html>
 // uniquement si la session commence par la home, que l'intro n'a pas encore
-// été jouée et que prefers-reduced-motion est inactif. L'overlay
-// (components/IntroOverlay.tsx) n'est visible que via cet attribut — les
-// visiteurs récurrents et les navigations internes ne voient jamais l'intro.
-const INTRO_ENTRY_SCRIPT = `(function(){try{var s=sessionStorage,p=location.pathname;if(!s.getItem('rwd-entry'))s.setItem('rwd-entry',p==='/'?'home':'other');if(p==='/'&&s.getItem('rwd-entry')==='home'&&!s.getItem('rwd-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.setAttribute('data-intro','')}catch(e){}})()`
+// été jouée, que prefers-reduced-motion est inactif ET que le viewport fait
+// au moins 768px (breakpoint md, déjà utilisé ailleurs sur le site).
+// L'overlay (components/IntroOverlay.tsx) n'est visible que via cet
+// attribut — les visiteurs récurrents et les navigations internes ne
+// voient jamais l'intro. innerWidth est fiable ici : disponible de façon
+// synchrone dès l'exécution du script, avant tout layout/CSS.
+//
+// Coupure mobile : sur connexion faible ou CPU limité, le temps que le
+// bundle JS + Framer Motion se charge et s'hydrate peut dépasser largement
+// la durée prévue de l'animation (~2,3s). Comme html[data-intro] bloque le
+// scroll (CRITICAL_INTRO_CSS ci-dessous) et que seul le JS hydraté peut
+// retirer cet attribut, un mobile lent pouvait rester bloqué plusieurs
+// secondes sur un écran figé, scroll compris (mesuré : jusqu'à 4,5s sur un
+// profil 4G chargée + CPU 4x). Le desktop garde l'intro à l'identique.
+//
+// Filet de sécurité : même sur desktop, un setTimeout indépendant de React
+// force le retrait de l'attribut après 4s si jamais l'hydratation traîne,
+// sans dépendre du bundle ni de Framer Motion (le timer tourne déjà avant
+// que l'un ou l'autre ne soit chargés). Sans effet sur le déroulé normal :
+// l'overlay se retire lui-même via son animation bien avant 4s.
+const INTRO_ENTRY_SCRIPT = `(function(){try{var s=sessionStorage,p=location.pathname;if(!s.getItem('rwd-entry'))s.setItem('rwd-entry',p==='/'?'home':'other');if(p==='/'&&s.getItem('rwd-entry')==='home'&&!s.getItem('rwd-intro')&&innerWidth>=768&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.setAttribute('data-intro','');setTimeout(function(){document.documentElement.removeAttribute('data-intro')},4000)}}catch(e){}})()`
 
 // Duplique en dur (donc indépendamment de globals.css) les règles qui
 // déterminent si l'overlay d'intro couvre correctement l'écran : display,

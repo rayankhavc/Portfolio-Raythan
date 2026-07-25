@@ -79,6 +79,7 @@ export function CaseStudyArticle({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, ease }}
+          className="reveal"
         >
           <Link
             href="/portfolio"
@@ -96,7 +97,7 @@ export function CaseStudyArticle({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.05 }}
-              className="mb-4 text-xs font-medium tracking-widest text-accent uppercase"
+              className="reveal mb-4 text-xs font-medium tracking-widest text-accent uppercase"
             >
               {study.kicker}
             </motion.p>
@@ -104,7 +105,7 @@ export function CaseStudyArticle({
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease, delay: 0.15 }}
-              className="mb-5 font-semibold tracking-tight text-display-md leading-[1.05]"
+              className="reveal mb-5 font-semibold tracking-tight text-display-md leading-[1.05]"
             >
               {study.name}
             </motion.h1>
@@ -112,7 +113,7 @@ export function CaseStudyArticle({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.3 }}
-              className="max-w-2xl text-xl leading-snug font-medium md:text-2xl"
+              className="reveal max-w-2xl text-xl leading-snug font-medium md:text-2xl"
             >
               <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
                 {study.tagline}
@@ -122,7 +123,7 @@ export function CaseStudyArticle({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.45 }}
-              className="mt-8 flex flex-wrap items-center gap-4"
+              className="reveal mt-8 flex flex-wrap items-center gap-4"
             >
               {study.liveUrl && (
                 <a
@@ -152,7 +153,7 @@ export function CaseStudyArticle({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.4 }}
-            className="card-surface h-fit space-y-5 rounded-2xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/3%)] p-6"
+            className="reveal card-surface h-fit space-y-5 rounded-2xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/3%)] p-6"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -198,6 +199,7 @@ export function CaseStudyArticle({
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease, delay: 0.5 }}
+          className="reveal"
         >
           <div
             ref={coverRef}

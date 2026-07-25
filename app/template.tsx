@@ -11,6 +11,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease }}
+      className="reveal"
     >
       {children}
     </motion.div>

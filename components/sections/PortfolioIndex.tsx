@@ -127,7 +127,7 @@ export function PortfolioIndex() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.05 }}
-            className="mb-4 text-xs font-medium tracking-widest text-accent uppercase"
+            className="reveal mb-4 text-xs font-medium tracking-widest text-accent uppercase"
           >
             Réalisations
           </motion.p>
@@ -135,7 +135,7 @@ export function PortfolioIndex() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.15 }}
-            className="mb-6 font-semibold tracking-tight text-display-md leading-[1.05]"
+            className="reveal mb-6 font-semibold tracking-tight text-display-md leading-[1.05]"
           >
             Des projets livrés,
             <br />
@@ -147,7 +147,7 @@ export function PortfolioIndex() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.35 }}
-            className="max-w-xl text-lg leading-relaxed text-metallic-light"
+            className="reveal max-w-xl text-lg leading-relaxed text-metallic-light"
           >
             Chaque étude de cas montre le vrai produit : de vraies captures d'écran, les décisions qui ont
             été prises, et quand le projet s'y prête, une démo à tester directement dans la page.
@@ -157,7 +157,7 @@ export function PortfolioIndex() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease, delay: 0.55 }}
-            className="mt-10 flex flex-wrap items-center gap-8 border-t border-[rgb(var(--overlay)/8%)] pt-6"
+            className="reveal mt-10 flex flex-wrap items-center gap-8 border-t border-[rgb(var(--overlay)/8%)] pt-6"
           >
             {[
               { value: String(CASE_STUDIES.length), label: 'études de cas détaillées' },

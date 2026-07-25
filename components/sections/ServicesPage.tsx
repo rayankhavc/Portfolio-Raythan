@@ -22,7 +22,7 @@ export function ServicesPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
-            className="text-accent text-xs font-medium tracking-widest uppercase mb-4"
+            className="reveal text-accent text-xs font-medium tracking-widest uppercase mb-4"
           >
             Ce qu'on fait
           </motion.p>
@@ -30,7 +30,7 @@ export function ServicesPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
-            className="font-semibold tracking-tight text-display-md text-foreground leading-tight mb-6"
+            className="reveal font-semibold tracking-tight text-display-md text-foreground leading-tight mb-6"
           >
             Nos Services
           </motion.h1>
@@ -38,7 +38,7 @@ export function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.3 }}
-            className="text-metallic-light text-xl max-w-xl leading-relaxed"
+            className="reveal text-metallic-light text-xl max-w-xl leading-relaxed"
           >
             Tout ce dont votre business a besoin pour exister, grandir et convertir en ligne sous un même toit.
           </motion.p>
