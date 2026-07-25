@@ -32,6 +32,8 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Ferme le menu mobile à chaque navigation interne.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setOpen(false) }, [pathname])
 
   const spring = prefersReducedMotion ? { duration: 0 } : barSpring

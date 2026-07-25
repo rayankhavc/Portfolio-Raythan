@@ -38,6 +38,10 @@ export function IntroOverlay() {
   useEffect(() => {
     const root = document.documentElement
     if (!root.hasAttribute('data-intro')) {
+      // Synchronise sur l'attribut posé par le script inline anti-flash
+      // (app/layout.tsx) avant hydratation : logique fragile déjà cassée en
+      // prod par le passé, on ne la retouche pas pour satisfaire le lint.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPhase('off')
       return
     }
