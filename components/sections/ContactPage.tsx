@@ -53,7 +53,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
-            className="text-accent text-xs font-medium tracking-widest uppercase mb-4"
+            className="reveal text-accent text-xs font-medium tracking-widest uppercase mb-4"
           >
             Parlons de votre projet
           </motion.p>
@@ -61,7 +61,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.1 }}
-            className="font-semibold tracking-tight text-display-md text-foreground leading-tight mb-6"
+            className="reveal font-semibold tracking-tight text-display-md text-foreground leading-tight mb-6"
           >
             Démarrons{' '}
             <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
@@ -72,7 +72,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.3 }}
-            className="text-metallic-light text-xl max-w-md mx-auto"
+            className="reveal text-metallic-light text-xl max-w-md mx-auto"
           >
             Un message ou un appel, on s'adapte à vous.
           </motion.p>
@@ -89,7 +89,7 @@ export function ContactPage() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="card-surface rounded-3xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/2%)] p-8"
+              className="reveal card-surface rounded-3xl border border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/2%)] p-8"
             >
               <h2 className="font-semibold tracking-tight text-2xl text-foreground mb-6">
                 Envoyez-nous un message

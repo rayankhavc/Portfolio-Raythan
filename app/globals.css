@@ -240,3 +240,22 @@ html[data-theme='light'] .theme-icon-moon {
     animation: none;
   }
 }
+
+/* Le contenu ne doit jamais dépendre de l'hydratation JS pour devenir
+   visible sur mobile. app/template.tsx enveloppe TOUTE page dans un fondu
+   d'entrée (initial={opacity:0,...}), et le Hero anime chacun de ses
+   éléments de la même façon : le rendu serveur pose opacity:0, qui ne
+   repasse à 1 qu'une fois l'animation jouée côté client, une fois hydraté.
+   Sur un mobile lent (JS long à charger/exécuter), ça retarde d'autant le
+   LCP et donne une impression d'écran figé au chargement, tout le contenu
+   de la page compris (pas seulement le Hero, template.tsx étant le
+   wrapper le plus englobant). Règle CSS pure, donc jamais dépendante du JS
+   ni de l'hydratation : force les éléments marqués .reveal à leur état
+   final dès le premier paint sous 768px (breakpoint md, cohérent avec le
+   reste du site). Le fondu d'entrée reste identique sur desktop. */
+@media (max-width: 767px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
