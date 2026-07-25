@@ -98,7 +98,6 @@ const ACTION_NAMES: Record<Action, string> = { H: 'Tirer', S: 'Rester', D: 'Doub
 
 function explain(cards: PlayingCard[], dv: number, best: Action): string {
   const { total, soft } = handValue(cards)
-  const isPair = cards.length === 2 && cardValue(cards[0]) === cardValue(cards[1])
   const weak = dv >= 2 && dv <= 6
   const dealer = dv === 11 ? 'un As' : `un ${dv}`
   if (best === 'P') {

@@ -148,7 +148,6 @@ interface Results {
   curves: { pts: number[]; pass: boolean }[]
 }
 
-const AMBER = '#ffaa00'
 const probColor = (p: number) =>
   p > 0.65 ? '#99ff00' : p > 0.4 ? '#ffdd00' : p > 0.25 ? '#ffaa00' : p > 0.1 ? '#ff8833' : '#ff5533'
 const probLabel = (p: number) =>
