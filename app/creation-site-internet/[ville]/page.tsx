@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { CITIES, getCity } from '@/lib/local-seo'
+import { CITIES, TRADES, getCity } from '@/lib/local-seo'
 import { LocalLanding } from '@/components/sections/LocalLanding'
 
 export const dynamicParams = false
@@ -38,13 +38,33 @@ export default async function CityPage({
   const { ville } = await params
   const city = getCity(ville)
   if (!city) notFound()
+
+  // Maillage interne : communes voisines + quelques pages métier. Sans ces
+  // liens latéraux, chaque page ville n'était atteignable que depuis son hub
+  // (graphe plat), ce qui limite la priorité de crawl accordée par Google.
+  const related = [
+    ...city.nearby
+      .map((slug) => CITIES.find((c) => c.slug === slug))
+      .filter((c): c is NonNullable<typeof c> => Boolean(c))
+      .map((c) => ({ href: `/creation-site-internet/${c.slug}`, label: c.name })),
+    ...TRADES.slice(0, 3).map((t) => ({
+      href: `/site-internet/${t.slug}`,
+      label: `Site pour ${t.name}`,
+    })),
+  ]
+
   return (
     <LocalLanding
       kicker={`Agence web · ${city.name}`}
       h1={city.h1}
       intro={city.intro}
       angle={city.angle}
+      context={city.context}
+      focusTitle={`Les activités qu'on accompagne à ${city.name}.`}
+      focus={city.focus}
       faq={city.faq}
+      related={related}
+      relatedTitle="Autres communes et activités couvertes"
       breadcrumbName={city.h1}
       canonicalPath={`/creation-site-internet/${city.slug}`}
       serviceType="Création de site internet"

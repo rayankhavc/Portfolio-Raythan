@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CopyableLink } from '@/components/CopyableLink'
 import { Logo } from '@/components/ui/Logo'
+import { CITIES } from '@/lib/local-seo'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -18,7 +19,7 @@ const LEGAL_LINKS = [
 // Date de dernière mise à jour du contenu, affichée en bas de page. Constante
 // volontaire (pas new Date()) : elle doit refléter la dernière révision réelle
 // du contenu, pas la date de rendu. À bumper quand le contenu évolue.
-const LAST_UPDATED = '24 juillet 2026'
+const LAST_UPDATED = '25 juillet 2026'
 
 export function Footer() {
   return (
@@ -82,6 +83,27 @@ export function Footer() {
               Prendre RDV →
             </a>
           </div>
+        </div>
+
+        {/* Zones d'intervention : présent sur toutes les pages, donc chaque
+            page ville est atteignable en un clic depuis n'importe où. Sans
+            ce bloc, elles n'étaient accessibles que via leur hub (deux clics
+            minimum depuis la home), ce qui pèse sur la priorité de crawl. */}
+        <div className="border-t border-[rgb(var(--overlay)/5%)] pt-6 mb-6">
+          <p className="text-xs text-metallic uppercase tracking-widest mb-3">
+            Zones d'intervention
+          </p>
+          <nav className="flex flex-wrap gap-x-4 gap-y-2">
+            {CITIES.map(({ slug, name }) => (
+              <Link
+                key={slug}
+                href={`/creation-site-internet/${slug}`}
+                className="text-xs text-metallic hover:text-metallic-light transition-colors"
+              >
+                {name}
+              </Link>
+            ))}
+          </nav>
         </div>
 
         {/* Bottom bar */}
