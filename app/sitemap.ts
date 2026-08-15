@@ -4,40 +4,73 @@ import { CITIES, TRADES } from '@/lib/local-seo'
 
 const BASE_URL = 'https://raythan.fr'
 
+// Dates de dernière modification réelles, en dur. Surtout PAS new Date() :
+// le sitemap étant régénéré à chaque build, toutes les URLs déclaraient
+// « modifiée à l'instant » à chaque déploiement, y compris les pages
+// inchangées depuis des semaines. Google détecte ce genre de lastmod
+// systématiquement faux et finit par ignorer le signal pour tout le site,
+// ce qui dégrade la priorité de crawl. À bumper manuellement quand le
+// contenu d'une section change vraiment.
+const LAST_CONTENT_UPDATE = {
+  /** Home, services, portfolio, contact : socle du site. */
+  core: '2026-07-24',
+  /** Pages locales (villes + métiers) et leurs hubs. */
+  local: '2026-07-25',
+  /** Études de cas. */
+  caseStudies: '2026-07-24',
+  /** Pages légales, très stables. */
+  legal: '2026-07-20',
+} as const
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    '',
-    '/services',
-    '/portfolio',
-    '/contact',
-    '/creation-site-internet',
-    '/site-internet',
-    '/mentions-legales',
-    '/politique-confidentialite',
-  ]
-  const pages = routes.map((route) => ({
-    url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
+  const corePages = [
+    { path: '', priority: 1 },
+    { path: '/services', priority: 0.8 },
+    { path: '/portfolio', priority: 0.8 },
+    { path: '/contact', priority: 0.7 },
+  ].map(({ path, priority }) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: LAST_CONTENT_UPDATE.core,
     changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1 : route === '/portfolio' ? 0.8 : 0.6,
+    priority,
   }))
+
+  const legalPages = ['/mentions-legales', '/politique-confidentialite'].map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: LAST_CONTENT_UPDATE.legal,
+    changeFrequency: 'yearly' as const,
+    priority: 0.2,
+  }))
+
+  // Hubs listant les pages locales : point d'entrée du crawl vers elles,
+  // donc priorité élevée.
+  const hubs = ['/creation-site-internet', '/site-internet'].map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: LAST_CONTENT_UPDATE.local,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
   const caseStudies = CASE_STUDIES.map(({ slug }) => ({
     url: `${BASE_URL}/projets/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
-  const cityPages = CITIES.map(({ slug }) => ({
-    url: `${BASE_URL}/creation-site-internet/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
-  const tradePages = TRADES.map(({ slug }) => ({
-    url: `${BASE_URL}/site-internet/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
+    lastModified: LAST_CONTENT_UPDATE.caseStudies,
+    changeFrequency: 'yearly' as const,
     priority: 0.6,
   }))
-  return [...pages, ...caseStudies, ...cityPages, ...tradePages]
+
+  const cityPages = CITIES.map(({ slug }) => ({
+    url: `${BASE_URL}/creation-site-internet/${slug}`,
+    lastModified: LAST_CONTENT_UPDATE.local,
+    changeFrequency: 'monthly' as const,
+    priority: slug === 'nantes' ? 0.9 : 0.7,
+  }))
+
+  const tradePages = TRADES.map(({ slug }) => ({
+    url: `${BASE_URL}/site-internet/${slug}`,
+    lastModified: LAST_CONTENT_UPDATE.local,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...corePages, ...hubs, ...cityPages, ...tradePages, ...caseStudies, ...legalPages]
 }

@@ -1,13 +1,21 @@
 import Link from 'next/link'
-import { Monitor, BarChart3, Zap, Check, ChevronDown, CalendarDays, ArrowRight, Rocket, Code2, Target } from 'lucide-react'
+import {
+  Monitor, BarChart3, Zap, Check, ChevronDown, CalendarDays, ArrowRight,
+  Rocket, Code2, Target, MapPin,
+} from 'lucide-react'
 import { SERVICES } from '@/lib/data'
-import type { LocalFAQ } from '@/lib/local-seo'
+import type { LocalFAQ, LocalFocus } from '@/lib/local-seo'
 
-// Server Component : aucun 'use client', aucune animation. Tout le contenu
-// (unique par page) est dans le HTML initial, lisible par Google et les IA.
-// Le socle d'offre (services, raisons, CTA) est partagé ; l'intro, l'angle
-// et la FAQ sont propres à chaque ville / métier pour éviter le contenu
-// dupliqué.
+// Server Component volontaire : aucun 'use client', aucune animation
+// framer-motion. Tout le texte est dans le HTML initial à pleine opacité,
+// lisible par les robots des assistants IA qui n'exécutent pas le
+// JavaScript, et affiché immédiatement sur mobile lent.
+//
+// Le socle d'offre (services, raisons, CTA) est partagé entre toutes les
+// pages ; l'intro, l'angle, le contexte, les points sectoriels et la FAQ
+// sont propres à chaque ville / métier. Cette proportion compte : une
+// première version à 56% de phrases communes s'est fait déprioritiser au
+// crawl par Google (« Détectée, actuellement non indexée »).
 
 const SERVICE_ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Monitor, BarChart3, Zap,
@@ -29,7 +37,17 @@ export interface LocalLandingProps {
   h1: string
   intro: string
   angle: string
+  /** Paragraphe de contexte propre à la ville / au métier. */
+  context: string
+  /** Titre de la section des points spécifiques. */
+  focusTitle: string
+  /** Points spécifiques (secteurs locaux ou fonctionnalités métier). */
+  focus: LocalFocus[]
   faq: LocalFAQ[]
+  /** Autres pages liées, pour le maillage interne. */
+  related?: { href: string; label: string }[]
+  /** Titre de la section de maillage. */
+  relatedTitle?: string
   /** Fil d'ariane : libellé de la page courante. */
   breadcrumbName: string
   /** Chemin canonique, ex. « /creation-site-internet/nantes ». */
@@ -49,7 +67,12 @@ export function LocalLanding({
   h1,
   intro,
   angle,
+  context,
+  focusTitle,
+  focus,
   faq,
+  related,
+  relatedTitle,
   breadcrumbName,
   canonicalPath,
   serviceType,
@@ -140,15 +163,39 @@ export function LocalLanding({
         </div>
       </section>
 
-      {/* Angle local / métier */}
+      {/* Angle + contexte, contenu propre à la page */}
       <section className="py-16 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-5">
           <p className="text-metallic-light text-lg leading-relaxed">{angle}</p>
+          <p className="text-metallic leading-relaxed">{context}</p>
+        </div>
+      </section>
+
+      {/* Points spécifiques à la ville / au métier */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-14 max-w-2xl">
+            <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
+              Concrètement
+            </p>
+            <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight">
+              {focusTitle}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {focus.map((item) => (
+              <div key={item.title} className="flex flex-col gap-3">
+                <h3 className="font-semibold text-foreground text-xl">{item.title}</h3>
+                <p className="text-metallic text-sm leading-relaxed">{item.description}</p>
+                <div className="h-px bg-gradient-to-r from-[rgb(var(--overlay)/15%)] to-transparent" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Offre */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
         <div className="max-w-6xl mx-auto">
           <div className="mb-14 max-w-2xl">
             <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
@@ -187,7 +234,7 @@ export function LocalLanding({
       </section>
 
       {/* Pourquoi Raythan */}
-      <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
+      <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-14">
             <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
@@ -219,7 +266,7 @@ export function LocalLanding({
 
       {/* FAQ unique */}
       {faq.length > 0 && (
-        <section className="py-24 px-6">
+        <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">
           <div className="max-w-3xl mx-auto">
             <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
               Questions fréquentes
@@ -227,7 +274,7 @@ export function LocalLanding({
             <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight mb-10">
               Ce qu'on nous demande souvent.
             </h2>
-            <div className="card-surface rounded-2xl border border-[rgb(var(--overlay)/8%)] divide-y divide-[rgb(var(--overlay)/8%)] overflow-hidden">
+            <div className="card-surface rounded-2xl border border-[rgb(var(--overlay)/8%)] divide-y divide-[rgb(var(--overlay)/8%)] overflow-hidden bg-background">
               {faq.map((item) => (
                 <details key={item.question} className="group">
                   <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-semibold text-foreground text-base hover:bg-[rgb(var(--overlay)/3%)] transition-colors duration-300">
@@ -247,8 +294,31 @@ export function LocalLanding({
         </section>
       )}
 
+      {/* Maillage interne : autres pages liées */}
+      {related && related.length > 0 && (
+        <section className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
+              {relatedTitle ?? 'Voir aussi'}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {related.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group inline-flex items-center gap-2 rounded-full border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] px-5 py-2.5 text-sm text-metallic-light transition-colors duration-300 hover:border-[rgb(var(--overlay)/20%)] hover:text-foreground"
+                >
+                  <MapPin size={14} className="text-metallic" />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
-      <section className="py-24 px-6">
+      <section className="pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="card-surface relative rounded-3xl border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] px-8 py-16 md:px-16 text-center overflow-hidden">
             <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-accent/[0.06] blur-[80px] rounded-full" />
