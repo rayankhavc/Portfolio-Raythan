@@ -19,7 +19,7 @@ const LEGAL_LINKS = [
 // Date de dernière mise à jour du contenu, affichée en bas de page. Constante
 // volontaire (pas new Date()) : elle doit refléter la dernière révision réelle
 // du contenu, pas la date de rendu. À bumper quand le contenu évolue.
-const LAST_UPDATED = '25 juillet 2026'
+const LAST_UPDATED = '15 août 2026'
 
 export function Footer() {
   return (

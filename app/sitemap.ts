@@ -11,11 +11,19 @@ const BASE_URL = 'https://raythan.fr'
 // systématiquement faux et finit par ignorer le signal pour tout le site,
 // ce qui dégrade la priorité de crawl. À bumper manuellement quand le
 // contenu d'une section change vraiment.
+//
+// Chaque date doit correspondre à la dernière modification RÉELLE du contenu
+// de la section. Une date antérieure au dernier crawl dit à Google « rien de
+// neuf depuis ton passage », donc pas de raison de revenir : mettre une date
+// trop ancienne sur du contenu qu'on vient de réécrire annule tout l'intérêt
+// de la réécriture.
 const LAST_CONTENT_UPDATE = {
   /** Home, services, portfolio, contact : socle du site. */
   core: '2026-07-24',
-  /** Pages locales (villes + métiers) et leurs hubs. */
-  local: '2026-07-25',
+  /** Hubs listant les pages locales, contenu propre inchangé depuis leur création. */
+  localHubs: '2026-07-25',
+  /** Pages villes et métiers : contenu entièrement réécrit et enrichi. */
+  localPages: '2026-08-15',
   /** Études de cas. */
   caseStudies: '2026-07-24',
   /** Pages légales, très stables. */
@@ -46,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // donc priorité élevée.
   const hubs = ['/creation-site-internet', '/site-internet'].map((path) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: LAST_CONTENT_UPDATE.local,
+    lastModified: LAST_CONTENT_UPDATE.localHubs,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
@@ -60,14 +68,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const cityPages = CITIES.map(({ slug }) => ({
     url: `${BASE_URL}/creation-site-internet/${slug}`,
-    lastModified: LAST_CONTENT_UPDATE.local,
+    lastModified: LAST_CONTENT_UPDATE.localPages,
     changeFrequency: 'monthly' as const,
     priority: slug === 'nantes' ? 0.9 : 0.7,
   }))
 
   const tradePages = TRADES.map(({ slug }) => ({
     url: `${BASE_URL}/site-internet/${slug}`,
-    lastModified: LAST_CONTENT_UPDATE.local,
+    lastModified: LAST_CONTENT_UPDATE.localPages,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
