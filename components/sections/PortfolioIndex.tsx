@@ -140,7 +140,7 @@ export function PortfolioIndex() {
             Des projets livrés,
             <br />
             <span className="bg-gradient-to-r from-foreground to-metallic-light bg-clip-text text-transparent">
-              pas des maquettes.
+              en production.
             </span>
           </motion.h1>
           <motion.p
@@ -150,7 +150,8 @@ export function PortfolioIndex() {
             className="reveal max-w-xl text-lg leading-relaxed text-metallic-light"
           >
             Chaque étude de cas montre le vrai produit : de vraies captures d'écran, les décisions qui ont
-            été prises, et quand le projet s'y prête, une démo à tester directement dans la page.
+            été prises, et quand le projet s'y prête, une démo à tester directement dans la page. Une seule
+            page fait exception, la maquette Alex Moret, signalée comme telle.
           </motion.p>
 
           <motion.div

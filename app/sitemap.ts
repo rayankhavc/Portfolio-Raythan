@@ -19,13 +19,13 @@ const BASE_URL = 'https://raythan.fr'
 // de la réécriture.
 const LAST_CONTENT_UPDATE = {
   /** Home, services, portfolio, contact : socle du site. */
-  core: '2026-07-24',
+  core: '2026-08-28',
   /** Hubs listant les pages locales, contenu propre inchangé depuis leur création. */
   localHubs: '2026-07-25',
   /** Pages villes et métiers : contenu entièrement réécrit et enrichi. */
   localPages: '2026-08-15',
   /** Études de cas. */
-  caseStudies: '2026-07-24',
+  caseStudies: '2026-08-28',
   /** Pages légales, très stables. */
   legal: '2026-07-20',
 } as const

@@ -86,7 +86,7 @@ export interface CaseStudy {
   context: string[]
   /** « Ce qu'on a construit » : la réponse apportée. */
   approach: string[]
-  type: 'Site vitrine' | 'Web App'
+  type: 'Site vitrine' | 'Web App' | 'Maquette'
   year: string
   featured: boolean
   stack: string[]
@@ -135,7 +135,114 @@ export const CASE_STUDIES: CaseStudy[] = [
       { src: '/projects/chikano-horaires.jpg', alt: 'Section horaires du site Chikano', caption: 'Les horaires en évidence, zéro ambiguïté.' },
     ],
     mobileShot: { src: '/projects/chikano-mobile.jpg', alt: 'Version mobile du site Chikano', caption: 'Mobile-first : la cible principale, des vacanciers sur leur téléphone.' },
-    liveUrl: 'https://chikano.vercel.app',
+    liveUrl: 'https://chikano.fr',
+    liveLabel: 'Voir le site en ligne',
+  },
+  {
+    slug: 'anas-pizza',
+    name: 'Anas Pizza Original',
+    kicker: 'Pizzeria · Nantes centre',
+    tagline: "Une vitrine qui prend la commande, encaisse, et envoie le ticket en cuisine.",
+    summary:
+      "58 plats tenus par une seule source, un paiement qui tombe sur le compte SumUp déjà utilisé au comptoir, un écran cuisine, et un espace de gestion où le gérant change ses prix sans nous appeler.",
+    context: [
+      "Anas Pizza Original est une pizzeria du centre de Nantes, 10 allée Duguay Trouin, ouverte 7j/7 de 11h30 à 2h du matin. Sur place, à emporter, en livraison.",
+      "Les commandes se prenaient au téléphone, service après service. Il fallait une carte à jour consultable en ligne, une commande payée d'avance, et surtout un site que le restaurant pilote lui-même : retirer un plat épuisé un vendredi soir ne doit pas passer par un développeur.",
+    ],
+    approach: [
+      "Le site est en HTML, CSS et JavaScript natifs. Pas de framework, pas de CDN, pas de tracker : polices auto-hébergées, photos converties en WebP à la construction, illustration vectorielle de repli pour tout plat sans photo. La carte de l'accueil est la seule source de vérité, elle alimente la page de commande, le calcul serveur et le tableau des allergènes.",
+      "La commande tient en quatre étapes, et le navigateur n'envoie jamais un prix : il envoie des identifiants de plats, de tailles et de suppléments. Le serveur relit chaque tarif et recalcule le total avant d'ouvrir le paiement, ce que vérifient les tests. Le paiement passe par le compte SumUp du restaurant, celui de la caisse : une seule réconciliation bancaire en fin de mois.",
+      "Deux écrans complètent le dispositif. La cuisine relit les commandes payées, se rafraîchit toutes les quinze secondes et sonne à chaque nouvelle commande, sans aucune base de données à sauvegarder. L'espace de gestion permet de suspendre le service, de retirer un plat, de changer un prix par famille ou de remplacer une photo, avec retour à la carte d'origine en un clic.",
+    ],
+    type: 'Site vitrine',
+    year: '2026',
+    featured: false,
+    stack: ['HTML', 'CSS', 'JavaScript', 'Fonctions serveur'],
+    missions: ['Direction artistique', 'Développement', 'Commande en ligne', 'SEO local', 'Mise en ligne'],
+    stats: [
+      { value: '58', label: 'plats tenus par une seule source' },
+      { value: '0', label: 'framework, 0 dépendance au chargement' },
+      { value: '4 étapes', label: 'de la carte au paiement' },
+      { value: '15 s', label: 'de rafraîchissement en cuisine' },
+    ],
+    cover: {
+      src: '/projects/anas-hero.jpg',
+      alt: "Page d'accueil du site Anas Pizza Original : identité noire et orange, téléphone et bouton Commander en évidence",
+    },
+    shots: [
+      {
+        src: '/projects/anas-carte.jpg',
+        alt: 'La carte en ligne d\'Anas Pizza Original, filtrable par base et par ingrédient',
+        caption: 'La carte complète, filtrable par base, avec recherche par ingrédient.',
+      },
+      {
+        src: '/projects/anas-commander.jpg',
+        alt: 'Page de commande en ligne : rubriques, prix par taille, plats illustrés',
+        caption: "La commande en ligne : le catalogue vient de la carte, les prix sont recalculés côté serveur.",
+      },
+    ],
+    mobileShot: {
+      src: '/projects/anas-mobile.jpg',
+      alt: 'Version mobile du site Anas Pizza Original',
+      caption: 'Barre d\'action fixe sur mobile : appeler, commander, itinéraire.',
+    },
+    liveUrl: 'https://anaspizzaoriginal.fr',
+    liveLabel: 'Voir le site en ligne',
+  },
+  {
+    slug: 'mk-boulangeries',
+    name: 'MK Boulangeries',
+    kicker: 'Boulangerie artisanale · Nantes et Saint-Herblain',
+    tagline: 'Trois boulangeries sur un seul domaine, sans se voler la vedette sur Google.',
+    summary:
+      "MK Boulangerie & Pâtisserie, Au Fournil du Sillon et Au Fournil du Sud : un site unique, une page autonome par boutique, badge ouvert ou fermé calculé en direct et commande écrite en un tap.",
+    context: [
+      "Les trois boulangeries avaient chacune leur page isolée, sur deux technologies différentes et sans lien entre elles. Chaque site repartait de zéro côté référencement, et corriger un horaire demandait de toucher trois dépôts.",
+      "Le regroupement devait tenir une contrainte : une adresse ne doit pas prendre la visibilité des deux autres. Un client qui cherche une boulangerie aux Dervallières et un client qui en cherche une à Saint-Herblain ne doivent pas tomber sur la même page.",
+    ],
+    approach: [
+      "Un seul site Astro, généré en statique : une page d'accueil qui oriente vers la bonne boutique, puis une page complète par boulangerie, avec son adresse, ses horaires, son téléphone, son quartier et ses données structurées Bakery. Les trois pages ressortent séparément sur Google tout en partageant l'autorité d'un seul domaine.",
+      "Tout descend d'un fichier de données unique : pages, plans, données structurées, pied de page et badge d'ouverture. Le badge se calcule à l'heure de Paris quelle que soit la zone du visiteur, et reste masqué tant que le JavaScript n'a pas répondu, pour ne jamais annoncer « ouvert » à tort.",
+      "Sur mobile, la barre d'appel reste à portée de pouce : sur un site de boulangerie, l'action utile est un appel ou un itinéraire, jamais un formulaire. Les commandes écrites partent en WhatsApp ou en SMS avec un message pré-rempli, et les clics appel, itinéraire et message sont comptés pour mesurer ce que le site rapporte vraiment.",
+    ],
+    type: 'Site vitrine',
+    year: '2026',
+    featured: false,
+    stack: ['Astro', 'TypeScript', 'CSS'],
+    missions: ['Direction artistique', 'Développement', 'SEO local', 'Regroupement de trois sites'],
+    stats: [
+      { value: '3', label: 'boutiques, une page autonome chacune' },
+      { value: '1', label: 'fichier de données pour tout le site' },
+      { value: '7', label: 'pages générées en statique' },
+      { value: '3', label: 'actions mesurées : appel, itinéraire, message' },
+    ],
+    cover: {
+      src: '/projects/mk-accueil.jpg',
+      alt: "Page d'accueil MK Boulangeries : « Trois boulangeries, un même savoir-faire », photo de pétrissage en fond",
+    },
+    shots: [
+      {
+        src: '/projects/mk-boutique.jpg',
+        alt: 'Page de la boulangerie MK à Nantes : adresse, badge fermé aujourd\'hui, appel et itinéraire',
+        caption: 'Une page complète par boutique : adresse, horaires, quartier, appel en un tap.',
+      },
+      {
+        src: '/projects/mk-produits.jpg',
+        alt: 'Catalogue produits du site MK Boulangeries',
+        caption: 'Le catalogue produits, commun aux trois maisons.',
+      },
+      {
+        src: '/projects/mk-avant-fournil-sillon.jpg',
+        alt: 'Ancien site isolé du Fournil du Sillon, avant le regroupement',
+        caption: 'Avant : chaque boutique avait sa vitrine isolée, sur son propre domaine.',
+      },
+    ],
+    mobileShot: {
+      src: '/projects/mk-mobile.jpg',
+      alt: 'Version mobile de la page Au Fournil du Sud, avec barre d\'appel collante',
+      caption: "La barre d'appel suit le pouce, du haut au bas de la page.",
+    },
+    liveUrl: 'https://maisonkhalifa.vercel.app',
     liveLabel: 'Voir le site en ligne',
   },
   {
@@ -212,6 +319,62 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Cette démo utilise le vrai moteur de l’application : mêmes tableaux de stratégie, mêmes règles (6 jeux, S17, DAS). Chaque réponse est notée et expliquée.',
   },
   {
+    slug: 'science-based-quiz',
+    name: 'Science Based Quiz',
+    kicker: 'Sport et nutrition · Quiz multijoueur',
+    tagline: 'Chaque réponse renvoie à la publication qui la fonde.',
+    summary:
+      "85 questions de culture scientifique sur l'entraînement, chacune sourcée sur PubMed. Quatre modes de jeu, dont un 1v1 en ligne classé au ELO et un mode party jusqu'à quatre joueurs.",
+    context: [
+      "La musculation est un terrain à mythes : chacun répète ce qu'il a entendu, rarement ce qui a été mesuré. Le principe du quiz tient en une phrase, tester ce qu'on croit savoir et donner la source à chaque réponse.",
+      "Le produit devait rester sans inscription ni compte à créer, tout en gardant un vrai enjeu : jouer contre quelqu'un, et voir son niveau bouger.",
+    ],
+    approach: [
+      "85 questions réparties en trois niveaux, facile, moyen et hardcore, et en quatre thèmes : biomécanique, hypertrophie, nutrition, physiologie. Chaque question porte son explication et le lien direct vers l'étude PubMed correspondante.",
+      "Quatre façons de jouer : solo, 1v1 contre un bot, 1v1 en ligne contre un vrai joueur, et un mode party de deux à quatre joueurs par code de salon. Les trois bots sont calibrés et annoncés comme tels, de 50 % à 95 % de bonnes réponses et de 1 à 8 secondes de réflexion. Longueur de partie et minuteur se règlent avant de lancer.",
+      "Le temps réel passe par Supabase Realtime : présence des joueurs, diffusion des réponses, salons à quatre lettres. Les matchs classés alimentent un classement ELO mis à jour en direct, sur authentification anonyme, avec des règles d'accès qui empêchent d'écrire le score d'un autre joueur. Interface bilingue français et anglais.",
+    ],
+    type: 'Web App',
+    year: '2026',
+    featured: false,
+    stack: ['React', 'TanStack Start', 'Supabase Realtime', 'TypeScript'],
+    missions: ['Produit', 'Développement', 'Temps réel', 'Classement ELO'],
+    stats: [
+      { value: '85', label: 'questions, chacune sourcée PubMed' },
+      { value: '4', label: 'modes de jeu, dont deux en ligne' },
+      { value: 'ELO', label: 'classement live sur les matchs classés' },
+      { value: 'FR/EN', label: 'interface bilingue' },
+    ],
+    cover: {
+      src: '/projects/quiz-arene.jpg',
+      alt: 'Arène 1v1 de Science Based Quiz : question de physiologie, bonne et mauvaise réponse mises en évidence',
+    },
+    shots: [
+      {
+        src: '/projects/quiz-accueil.jpg',
+        alt: "Page d'accueil de Science Based Quiz : les quatre modes de jeu",
+        caption: "Les quatre modes, à l'entrée du jeu.",
+      },
+      {
+        src: '/projects/quiz-adversaires.jpg',
+        alt: 'Choix du bot adverse : Novice, Researcher et Dr. Hypertrophy, avec précision et temps de réponse',
+        caption: 'Trois bots calibrés, précision et temps de réponse annoncés.',
+      },
+      {
+        src: '/projects/quiz-categories.jpg',
+        alt: 'Écran de configuration : catégorie, nombre de questions, temps par question',
+        caption: 'Catégorie, longueur et minuteur se règlent avant la partie.',
+      },
+    ],
+    mobileShot: {
+      src: '/projects/quiz-mobile.jpg',
+      alt: 'Version mobile de Science Based Quiz',
+      caption: 'La partie se joue aussi bien au téléphone, entre deux séries.',
+    },
+    liveUrl: 'https://sciencebasedquiz.vercel.app',
+    liveLabel: 'Jouer en ligne',
+  },
+  {
     slug: 'zenhertz',
     name: 'ZenHertz',
     kicker: 'Bien-être · Analyse audio dans le navigateur',
@@ -246,40 +409,49 @@ export const CASE_STUDIES: CaseStudy[] = [
     liveLabel: 'Tester l’outil en ligne',
   },
   {
-    slug: 'au-fournil',
-    name: 'Au Fournil',
-    kicker: 'Boulangerie artisanale · Saint-Herblain, deux adresses',
-    tagline: 'Deux vitrines sœurs pour une même exigence artisanale.',
+    slug: 'alex-moret',
+    name: 'Alex Moret',
+    kicker: 'Menuisier ébéniste · Saint-Sébastien-sur-Loire',
+    tagline: "Une maquette envoyée sans avoir été demandée, pour montrer plutôt que promettre.",
     summary:
-      "Au Fournil du Sillon et Au Fournil du Sud : deux boulangeries, deux sites statiques déclinés d'une même base. Zéro JavaScript embarqué, chargement immédiat, SEO local par adresse.",
+      "Landing page de démonstration pour un atelier d'ébénisterie nantais. Une seule page, aucune dépendance, volontairement en noindex : ce n'est pas un site livré, c'est une proposition.",
     context: [
-      "Au Fournil, c'est deux adresses à Saint-Herblain : le Sillon, place des Thébaudières, et le Sud, boulevard Salvador Allende. Pâtisseries orientales maison, pains artisanaux, snacking du midi.",
-      "Chaque adresse avait besoin de sa propre vitrine : ses horaires, son itinéraire, ses spécialités. Deux sites, mais une seule identité et un seul budget de maintenance.",
+      "L'atelier Alex Moret montre son travail sur Instagram, pas sur un site. Plutôt qu'un mail de prospection de plus, la page a été construite puis envoyée telle quelle.",
+      "Le statut est assumé et écrit partout : le formulaire n'envoie rien et le dit à l'écran, la page est en noindex par balise et par en-tête HTTP pour ne jamais concurrencer son futur site, et les visuels viennent de son compte Instagram public, donc limités à 640 pixels, à remplacer par les originaux avant toute mise en ligne réelle.",
     ],
     approach: [
-      "Une base Astro commune, déclinée par adresse : contenus, coordonnées et accents visuels propres à chaque boutique. Les deux sites sortent en HTML et CSS purs, sans un seul kilo-octet de JavaScript embarqué : le chargement est immédiat, même sur un téléphone en 4G devant la boutique.",
-      "L'identité visuelle assume le registre artisanal premium : typographie Playfair Display, fond profond, motifs discrets. Chaque site cible ses propres requêtes locales, avec itinéraire Google Maps et téléphone en un tap.",
+      "Une page unique, un seul fichier HTML, styles inline, aucune dépendance en dehors des polices. Registre haut de gamme : Cormorant Garamond en titres, fond bleu nuit, or discret, photos plein cadre pour laisser parler le bois.",
+      "Le parcours va droit au but : les réalisations, ce qui sépare une pièce sur mesure d'un meuble de série, puis la prise de contact. C'est la démonstration d'un positionnement, pas un catalogue.",
     ],
-    type: 'Site vitrine',
+    type: 'Maquette',
     year: '2026',
     featured: false,
-    stack: ['Astro', 'HTML', 'CSS'],
-    missions: ['Direction artistique', 'Développement', 'SEO local', 'Déclinaison deux adresses'],
+    stack: ['HTML', 'CSS'],
+    missions: ['Direction artistique', 'Développement', 'Proposition'],
     stats: [
-      { value: '2', label: 'adresses, deux sites dédiés' },
-      { value: '0 kB', label: 'de JavaScript embarqué' },
-      { value: '7j/7', label: 'horaires détaillés par boutique' },
+      { value: '1', label: 'page, un seul fichier' },
+      { value: '0', label: 'dépendance, hors polices' },
+      { value: 'noindex', label: 'assumé, pour ne pas gêner son futur site' },
     ],
-    cover: { src: '/projects/fournil-sillon-hero.jpg', alt: 'Page d’accueil du site Au Fournil du Sillon : typographie Playfair Display sur fond vert profond' },
+    cover: {
+      src: '/projects/alexmoret-hero.jpg',
+      alt: "Maquette Alex Moret : titre « L'unique, façonné à la main » sur fond bleu nuit, photo de mobilier en résine",
+    },
     shots: [
-      { src: '/projects/fournil-sillon-specialites.jpg', alt: 'Section spécialités du site Au Fournil du Sillon', caption: 'Pâtisseries orientales, pains artisanaux, snacking : le savoir-faire mis en avant.' },
-      { src: '/projects/fournil-sud-hero.jpg', alt: 'Page d’accueil du site Au Fournil du Sud', caption: 'La déclinaison Sud : même base, identité propre à l’adresse.' },
+      {
+        src: '/projects/alexmoret-realisations.jpg',
+        alt: 'Section réalisations de la maquette Alex Moret',
+        caption: 'Les réalisations, en pleine largeur : le travail parle avant le texte.',
+      },
     ],
-    mobileShot: { src: '/projects/fournil-sillon-mobile.jpg', alt: 'Version mobile du site Au Fournil du Sillon', caption: 'Pensé pour le client debout devant la vitrine, téléphone en main.' },
-    liveUrl: 'https://fournil-du-sud.vercel.app',
-    liveLabel: 'Voir Au Fournil du Sud en ligne',
-  },
-]
+    mobileShot: {
+      src: '/projects/alexmoret-mobile.jpg',
+      alt: 'Version mobile de la maquette Alex Moret',
+      caption: 'Mobile : la cible réelle, un prospect qui vient depuis Instagram.',
+    },
+    liveUrl: 'https://maquette-alex-moret.vercel.app',
+    liveLabel: 'Voir la maquette',
+  },]
 
 export const FEATURED_CASE_STUDY = CASE_STUDIES.find((c) => c.featured) ?? CASE_STUDIES[0]
 

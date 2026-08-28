@@ -7,8 +7,10 @@ import { CASE_STUDIES } from '@/lib/data'
 import { fadeUp, staggerContainer } from '@/lib/motion-variants'
 
 /* Section « Ils nous ont fait confiance » de la home : trois projets en
-   vitrine, le portfolio complet est sur /portfolio. */
-const TEASED_SLUGS = ['chikano', 'fundedcalc', 'bj-coach-pro']
+   vitrine, le portfolio complet est sur /portfolio. Trois sites clients en
+   production, pas les produits maison : la section parle de confiance
+   accordée, les outils internes n'en témoignent pas. */
+const TEASED_SLUGS = ['chikano', 'anas-pizza', 'mk-boulangeries']
 
 export function WorkTeaser() {
   const studies = TEASED_SLUGS.map((slug) => CASE_STUDIES.find((c) => c.slug === slug)).filter(
