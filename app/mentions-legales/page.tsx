@@ -5,6 +5,7 @@ import { CopyableLink } from '@/components/CopyableLink'
 export const metadata: Metadata = {
   title: 'Mentions légales',
   description: 'Mentions légales de Raythan Web Design.',
+  alternates: { canonical: 'https://raythan.fr/mentions-legales' },
 }
 
 export default function MentionsLegales() {
