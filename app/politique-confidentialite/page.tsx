@@ -5,6 +5,7 @@ import { CopyableLink } from '@/components/CopyableLink'
 export const metadata: Metadata = {
   title: 'Politique de confidentialité',
   description: 'Politique de confidentialité et protection des données de Raythan Web Design.',
+  alternates: { canonical: 'https://raythan.fr/politique-confidentialite' },
 }
 
 export default function PolitiqueConfidentialite() {
