@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Monitor, BarChart3, Zap, Check, ChevronDown, CalendarDays, ArrowRight,
   Rocket, Code2, Target, MapPin,
 } from 'lucide-react'
-import { SERVICES } from '@/lib/data'
+import { SERVICES, getCaseStudy } from '@/lib/data'
 import type { LocalFAQ, LocalFocus } from '@/lib/local-seo'
 
 // Server Component volontaire : aucun 'use client', aucune animation
@@ -58,6 +59,15 @@ export interface LocalLandingProps {
   areaServed: string[]
   /** Lien retour vers la page hub (index villes ou métiers). */
   hub: { href: string; label: string }
+  /**
+   * Slug d'une étude de cas à montrer comme preuve. Uniquement quand le
+   * projet correspond vraiment à la page : un commerce de cette commune, ou
+   * un site de ce métier. Un exemple à peu près adapté ne prouve rien et
+   * dilue le maillage interne, donc pas de valeur par défaut.
+   */
+  caseStudySlug?: string
+  /** Phrase qui introduit l'exemple, ex. « Un projet livré à Nantes ». */
+  caseStudyLead?: string
 }
 
 const BASE_URL = 'https://raythan.fr'
@@ -78,7 +88,10 @@ export function LocalLanding({
   serviceType,
   areaServed,
   hub,
+  caseStudySlug,
+  caseStudyLead,
 }: LocalLandingProps) {
+  const proof = caseStudySlug ? getCaseStudy(caseStudySlug) : undefined
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -193,6 +206,47 @@ export function LocalLanding({
           </div>
         </div>
       </section>
+
+      {/* Preuve : une étude de cas du métier ou de la commune */}
+      {proof && (
+        <section className="pb-24 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-10 max-w-2xl">
+              <p className="text-accent text-xs font-medium tracking-widest uppercase mb-3">
+                Un exemple
+              </p>
+              <h2 className="font-semibold tracking-tight text-display-sm text-foreground leading-tight">
+                {caseStudyLead ?? 'Un projet du même genre, déjà en ligne.'}
+              </h2>
+            </div>
+            <Link
+              href={`/projets/${proof.slug}`}
+              className="card-surface group grid overflow-hidden rounded-3xl border border-[rgb(var(--overlay)/10%)] bg-[rgb(var(--overlay)/3%)] transition-colors duration-500 hover:border-[rgb(var(--overlay)/20%)] md:grid-cols-2"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={proof.cover.src}
+                  alt={proof.cover.alt}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="flex flex-col justify-center gap-6 p-7 md:p-9">
+                <div>
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">{proof.name}</h3>
+                  <p className="mt-1 text-sm text-metallic">{proof.kicker}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-metallic-light">{proof.summary}</p>
+                </div>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                  Lire l'étude de cas
+                  <ArrowRight size={14} className="transition-transform duration-500 group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* Offre */}
       <section className="py-24 px-6 border-t border-[rgb(var(--overlay)/8%)] bg-[rgb(var(--overlay)/1.5%)]">

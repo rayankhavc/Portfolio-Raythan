@@ -44,6 +44,14 @@ export interface CityPage {
   /** Slugs d'autres communes couvertes, pour le maillage interne. */
   nearby: string[]
   faq: LocalFAQ[]
+  /**
+   * Étude de cas montrée en preuve sur la page. Renseignée uniquement quand
+   * le projet est vraiment de cette commune : un exemple approximatif ne
+   * prouve rien.
+   */
+  caseStudySlug?: string
+  /** Phrase qui introduit l'exemple. */
+  caseStudyLead?: string
 }
 
 export const CITIES: CityPage[] = [
@@ -95,6 +103,9 @@ export const CITIES: CityPage[] = [
           "Seul, non. Un site bien construit vous rend éligible et crédible, mais sur un marché dense il travaille en binôme avec votre fiche Google Business et vos avis clients. On aligne les deux pour qu'ils se renforcent.",
       },
     ],
+    caseStudySlug: 'anas-pizza',
+    caseStudyLead:
+      "Un site livré à Nantes, en ligne aujourd'hui.",
   },
   {
     slug: 'saint-herblain',
@@ -139,6 +150,9 @@ export const CITIES: CityPage[] = [
           "Oui. Une clientèle qui vient de loin compare davantage avant de se déplacer, donc le site doit rassurer et différencier plus qu'un simple site de proximité. On adapte le contenu à ça.",
       },
     ],
+    caseStudySlug: 'mk-boulangeries',
+    caseStudyLead:
+      "Un site livré à Saint-Herblain, en ligne aujourd'hui.",
   },
   {
     slug: 'reze',
@@ -227,6 +241,9 @@ export const CITIES: CityPage[] = [
           "Oui, on connecte votre outil de réservation existant ou on en met un en place. Le rendez-vous se prend depuis le site, sans appel.",
       },
     ],
+    caseStudySlug: 'alex-moret',
+    caseStudyLead:
+      "Une maquette faite pour un atelier de Saint-Sébastien-sur-Loire.",
   },
   {
     slug: 'vertou',
@@ -508,6 +525,10 @@ export interface TradePage {
   /** Éléments concrets du site pour ce métier. */
   features: LocalFocus[]
   faq: LocalFAQ[]
+  /** Étude de cas du même métier, montrée en preuve sur la page. */
+  caseStudySlug?: string
+  /** Phrase qui introduit l'exemple. */
+  caseStudyLead?: string
 }
 
 export const TRADES: TradePage[] = [
@@ -563,6 +584,9 @@ export const TRADES: TradePage[] = [
           "Ça dépend de votre organisation. Si vous gérez au téléphone, un bouton d'appel bien placé suffit. Si vous avez déjà un outil, on l'intègre proprement au site.",
       },
     ],
+    caseStudySlug: 'chikano',
+    caseStudyLead:
+      "Un site de restauration rapide, livré et en ligne.",
   },
   {
     slug: 'artisan',
@@ -808,6 +832,118 @@ export const TRADES: TradePage[] = [
           "On audite d'abord l'existant : rendu serveur, structure, vitesse, contenu. Selon l'état, on rénove ou on reconstruit. Le diagnostic est gratuit.",
       },
     ],
+  },
+  {
+    slug: 'boulangerie',
+    name: 'boulangerie',
+    h1: 'Création de site internet pour boulangerie',
+    title: 'Création de site internet pour boulangerie',
+    metaDescription:
+      "Site internet pour boulangerie : horaires justes, une page par boutique, appel et itinéraire en un tap, référencement local. Agence web à Nantes. Devis gratuit.",
+    intro:
+      "Une boulangerie se cherche à 7h du matin, sur un téléphone, avec deux questions : c'est ouvert, et c'est loin ? Le site doit répondre à ça en une seconde, avant même de parler de savoir-faire. On construit ces sites-là, avec les horaires justes et l'itinéraire à portée de pouce.",
+    angle:
+      "L'action utile n'est pas un formulaire de contact, c'est un appel, un itinéraire, ou un message pour commander un gâteau. On met ces trois gestes en avant et on cale le reste autour : spécialités, quartier, horaires réels, et les données structurées que Google reprend directement dans ses résultats.",
+    context:
+      "Le pain se décide dans un rayon de dix minutes, en marchant ou sur le trajet du travail. La recherche est brève, très locale, souvent dictée à voix haute. Ce qui fait perdre le client, c'est un horaire faux, une page lente en 4G, ou une adresse imprécise qui envoie au mauvais bout de la rue. Et quand une maison tient plusieurs boutiques, chaque adresse a besoin de sa page : deux boutiques sur une seule page se font concurrence, et Google finit par n'en montrer qu'une.",
+    features: [
+      {
+        title: 'Des horaires justes, jour de fermeture compris',
+        description:
+          "Le badge ouvert ou fermé se calcule à l'heure de Paris, pas à celle du visiteur, et reste muet tant que le site n'en est pas sûr. Mieux vaut ne rien annoncer qu'annoncer « ouvert » à tort.",
+      },
+      {
+        title: 'Une page complète par boutique',
+        description:
+          "Adresse, téléphone, quartier et données structurées propres à chaque boutique. Elles ressortent séparément sur Google tout en partageant l'autorité d'un seul domaine.",
+      },
+      {
+        title: 'Appel et itinéraire à portée de pouce',
+        description:
+          "Barre fixe sur mobile, présente du haut au bas de la page. Le client est debout, téléphone en main : il ne remplira pas un formulaire.",
+      },
+      {
+        title: 'Commandes écrites pour les commandes spéciales',
+        description:
+          "WhatsApp ou SMS avec message pré-rempli. Beaucoup de clients n'osent pas appeler, et un gâteau sur mesure se décrit mieux à l'écrit.",
+      },
+    ],
+    faq: [
+      {
+        question: 'On a plusieurs boutiques, il faut plusieurs sites ?',
+        answer:
+          "Non, et c'est même contre-productif : trois sites, ce sont trois référencements qui repartent de zéro et trois endroits où corriger un horaire. Un seul domaine, une page complète par boutique : chacune ressort sur son quartier, toutes profitent de l'autorité du domaine.",
+      },
+      {
+        question: 'Nos horaires changent l\'été, on peut les modifier ?',
+        answer:
+          "Oui. Les horaires vivent à un seul endroit et se répercutent partout : pages, badge ouvert ou fermé, données envoyées à Google. Une ligne à changer, ou on s'en charge.",
+      },
+      {
+        question: 'Faut-il afficher notre note Google sur le site ?',
+        answer:
+          "On préfère renvoyer vers la fiche. Une note recopiée en dur devient fausse en quelques semaines, et personne ne pense à la corriger.",
+      },
+    ],
+    caseStudySlug: 'mk-boulangeries',
+    caseStudyLead:
+      'Trois boulangeries réunies sur un seul site, en ligne aujourd\'hui.',
+  },
+  {
+    slug: 'pizzeria',
+    name: 'pizzeria',
+    h1: 'Création de site internet pour pizzeria',
+    title: 'Création de site internet pour pizzeria',
+    metaDescription:
+      'Site internet pour pizzeria : carte en ligne, commande et paiement, zone de livraison, écran de cuisine. Agence web à Nantes. Devis gratuit.',
+    intro:
+      "Une pizzeria vit du téléphone, et le téléphone sature au coup de feu. Un site qui prend la commande, encaisse et affiche le ticket en cuisine libère le service au moment où il en a le plus besoin. On développe ce site-là, de la carte au paiement.",
+    angle:
+      "La carte n'est pas un PDF à télécharger : c'est la source qui alimente la commande, les prix, les allergènes et ce que Google affiche. On la traite comme telle, puis on branche dessus la prise de commande, le paiement et l'écran de cuisine.",
+    context:
+      "La commande se décide vite, entre 19h et 21h, presque toujours sur mobile, souvent en comparant deux ou trois enseignes ouvertes à proximité. Un PDF qui met dix secondes à s'ouvrir, une attente au téléphone ou une zone de livraison floue coûtent des paniers. Côté cuisine, l'enjeu est autant l'encaissement que la prise de commande : un site qui impose un second compte marchand et une seconde comptabilité crée plus de travail qu'il n'en enlève.",
+    features: [
+      {
+        title: 'Une carte tenue à un seul endroit',
+        description:
+          "Un plat modifié une fois, et la page carte, la commande, le calcul du prix et le tableau des allergènes suivent. Aucune recopie, donc aucune divergence entre ce qui est affiché et ce qui est facturé.",
+      },
+      {
+        title: 'Commande et paiement en ligne',
+        description:
+          "Le navigateur n'envoie jamais un prix, seulement des identifiants de plats et de tailles. Le serveur relit chaque tarif et recalcule le total avant d'encaisser, et le paiement peut tomber sur le compte déjà utilisé au comptoir.",
+      },
+      {
+        title: 'Zone de livraison, minimum et frais',
+        description:
+          'Codes postaux desservis, minimum de commande et frais vérifiés côté serveur, pas seulement masqués dans la page.',
+      },
+      {
+        title: 'Écran de cuisine',
+        description:
+          "Les commandes payées s'affichent au fur et à mesure et sonnent à l'arrivée. Aucune base de données à sauvegarder, aucun matériel à acheter.",
+      },
+    ],
+    faq: [
+      {
+        question: 'Il faut ouvrir un compte de paiement en plus ?',
+        answer:
+          "Non, si vous encaissez déjà par SumUp ou Stripe au comptoir : le site utilise le même compte, donc les recettes du site et celles de la boutique tombent au même endroit, avec une seule réconciliation bancaire.",
+      },
+      {
+        question: 'On peut couper les commandes en pleine soirée ?',
+        answer:
+          "Oui. Un bouton suspend les commandes en ligne à toute heure, avec un motif affiché au client, et un plat épuisé se retire en un appui. Une commande qui le contiendrait encore est refusée côté serveur.",
+      },
+      {
+        question: 'Un client peut-il trafiquer les prix ?',
+        answer:
+          "Non. Le site n'envoie que des identifiants ; le serveur relit les prix dans le catalogue et recalcule le total avant le paiement. Des tests automatiques vérifient ce calcul à chaque déploiement.",
+      },
+    ],
+    caseStudySlug: 'anas-pizza',
+    caseStudyLead:
+      'Une pizzeria nantaise qui prend et encaisse ses commandes en ligne.',
   },
 ]
 

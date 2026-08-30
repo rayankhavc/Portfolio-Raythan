@@ -67,6 +67,8 @@ export default async function TradePage({
       serviceType="Création de site internet"
       areaServed={['Nantes', 'Loire-Atlantique']}
       hub={{ href: '/site-internet', label: 'Site internet par activité' }}
+      caseStudySlug={trade.caseStudySlug}
+      caseStudyLead={trade.caseStudyLead}
     />
   )
 }

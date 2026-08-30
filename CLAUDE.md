@@ -66,10 +66,19 @@ Langue du projet et des échanges : français.
 ## Portfolio public (livré)
 
 - `/portfolio` (index) + `/projets/[slug]` (études de cas), données dans
-  `lib/data.ts` (`CASE_STUDIES`). Cinq études de cas : Chikano (featured),
-  FundedCalc, BJ Coach Pro, ZenHertz, Au Fournil (deux adresses regroupées).
-  `/projets` sans slug redirige vers `/portfolio` (next.config.mjs) ; les
-  anciennes redirections vers la home sont retirées.
+  `lib/data.ts` (`CASE_STUDIES`). Huit études de cas : Chikano (featured),
+  Anas Pizza Original, MK Boulangeries, FundedCalc, BJ Coach Pro,
+  Science Based Quiz, ZenHertz, Alex Moret. `/projets` sans slug redirige
+  vers `/portfolio` (next.config.mjs) ; les anciennes redirections vers la
+  home sont retirées.
+- L'étude « Au Fournil » (deux sites séparés) est remplacée par
+  « MK Boulangeries » (les trois boutiques sur un domaine unique) ;
+  `/projets/au-fournil` redirige en 308 vers la nouvelle.
+- `type` accepte `'Maquette'` en plus de `'Site vitrine'` et `'Web App'` :
+  Alex Moret est une proposition non sollicitée, en noindex, formulaire non
+  branché. Elle est affichée comme telle (chip « Maquette », statut écrit
+  dans le résumé et le contexte) et le titre du portfolio ne promet plus
+  « pas des maquettes ».
 - Captures d'écran réelles dans `public/projects/`, prises via Playwright sur
   les projets buildés et servis en local (les repos sœurs sont clonés à côté
   du portfolio dans les sessions Claude). Refaire pareil pour toute nouvelle
@@ -90,12 +99,32 @@ Langue du projet et des échanges : français.
   souris uniquement) + parallax douce sur les couvertures. Tout passe par
   transform/opacity, `MotionConfig reducedMotion="user"` couvre l'ensemble,
   TiltCard et les parallax vérifient aussi `useReducedMotion` explicitement.
-- Home : section « Ils nous ont fait confiance » (`WorkTeaser`, trois projets)
-  entre ServicesOverview et WhyRaythan.
+- Home : section « Ils nous ont fait confiance » (`WorkTeaser`) entre
+  ServicesOverview et WhyRaythan. Trois sites clients (Chikano, Anas Pizza,
+  MK Boulangeries), pas les produits maison : la section parle de confiance
+  accordée.
+- Données structurées des réalisations : `BreadcrumbList` + `CreativeWork`
+  sur chaque étude de cas, `CollectionPage` + `ItemList` sur `/portfolio`.
+  Rendues côté serveur, comme tout le reste du JSON-LD du site.
+- `/llms.txt` (`app/llms.txt/route.ts`, `force-static`) : résumé factuel du
+  site pour les assistants IA, dérivé de `lib/data.ts` et `lib/local-seo.ts`.
+  Ne jamais l'écrire à la main, il divergerait au premier projet ajouté.
 - Sites d'inspiration (`rayhan.website`, `ltweb.fr`) toujours inaccessibles
   depuis le sandbox (proxy liste blanche, 403 sur curl ET WebFetch, vérifié
   juillet 2026). Le niveau de finition visé a été construit sans eux ; si
   Rayan fournit des captures/enregistrements, itérer à partir de là.
+
+## Pages locales (SEO)
+
+- `lib/local-seo.ts` : dix communes (`CITIES`) et huit métiers (`TRADES`),
+  dont `boulangerie` et `pizzeria` ajoutés avec les études de cas
+  correspondantes. Chaque page doit rester majoritairement propre : une
+  première version à 56% de phrases communes s'était fait déprioriter au
+  crawl (« Détectée, actuellement non indexée »).
+- `caseStudySlug` / `caseStudyLead` (optionnels, sur une ville ou un métier) :
+  affichent une étude de cas en preuve au milieu de la page, avec lien vers
+  `/projets/[slug]`. À ne renseigner que si le projet est vraiment de cette
+  commune ou de ce métier, sinon ça ne prouve rien et ça dilue le maillage.
 
 ## Points d'architecture
 
