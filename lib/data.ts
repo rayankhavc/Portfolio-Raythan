@@ -87,6 +87,12 @@ export interface CaseStudy {
   /** « Ce qu'on a construit » : la réponse apportée. */
   approach: string[]
   type: 'Site vitrine' | 'Web App' | 'Maquette'
+  /**
+   * Statut affiché quand le projet n'est pas terminé, ex. « Projet en
+   * cours ». Absent = livré : la majorité des études de cas, donc pas de
+   * pastille et pas de bruit visuel sur les cartes.
+   */
+  status?: string
   year: string
   featured: boolean
   stack: string[]
@@ -204,8 +210,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Un seul site Astro, généré en statique : une page d'accueil qui oriente vers la bonne boutique, puis une page complète par boulangerie, avec son adresse, ses horaires, son téléphone, son quartier et ses données structurées Bakery. Les trois pages ressortent séparément sur Google tout en partageant l'autorité d'un seul domaine.",
       "Tout descend d'un fichier de données unique : pages, plans, données structurées, pied de page et badge d'ouverture. Le badge se calcule à l'heure de Paris quelle que soit la zone du visiteur, et reste masqué tant que le JavaScript n'a pas répondu, pour ne jamais annoncer « ouvert » à tort.",
       "Sur mobile, la barre d'appel reste à portée de pouce : sur un site de boulangerie, l'action utile est un appel ou un itinéraire, jamais un formulaire. Les commandes écrites partent en WhatsApp ou en SMS avec un message pré-rempli, et les clics appel, itinéraire et message sont comptés pour mesurer ce que le site rapporte vraiment.",
+      "Le projet n'est pas terminé et c'est écrit ici plutôt que caché : le site tourne sur son adresse de déploiement, le temps que le nom de domaine soit réservé et branché. Les prix du catalogue et les photos des produits restent à venir de la boutique, et ils resteront absents jusque-là : un prix inventé se retourne contre la maison au premier client.",
     ],
     type: 'Site vitrine',
+    status: 'Projet en cours',
     year: '2026',
     featured: false,
     stack: ['Astro', 'TypeScript', 'CSS'],
