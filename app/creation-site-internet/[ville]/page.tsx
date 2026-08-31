@@ -70,6 +70,8 @@ export default async function CityPage({
       serviceType="Création de site internet"
       areaServed={[city.name, 'Loire-Atlantique']}
       hub={{ href: '/creation-site-internet', label: 'Création de site internet' }}
+      caseStudySlug={city.caseStudySlug}
+      caseStudyLead={city.caseStudyLead}
     />
   )
 }

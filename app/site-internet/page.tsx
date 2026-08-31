@@ -4,9 +4,9 @@ import { ArrowRight, Store } from 'lucide-react'
 import { TRADES } from '@/lib/local-seo'
 
 export const metadata: Metadata = {
-  title: 'Site internet par activité : restaurant, artisan, commerce, PME',
+  title: 'Site internet par activité : restaurant, boulangerie, pizzeria, artisan',
   description:
-    "Création de site internet adaptée à votre métier : restaurant, artisan, commerce local, coach, photographe, PME. Sites sur-mesure, SEO inclus. Agence web à Nantes.",
+    "Création de site internet adaptée à votre métier : restaurant, boulangerie, pizzeria, artisan, commerce local, coach, photographe, PME. Sites sur-mesure, SEO inclus. Agence web à Nantes.",
   alternates: { canonical: 'https://raythan.fr/site-internet' },
 }
 

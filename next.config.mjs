@@ -13,6 +13,11 @@ const nextConfig = {
       // signal de l'ancienne URL vers la nouvelle. /projets ne redeviendra
       // jamais une page : la redirection est définitive, autant le dire.
       { source: '/projets', destination: '/portfolio', permanent: true },
+      // L'étude « Au Fournil » couvrait les deux anciens sites séparés du
+      // Sillon et du Sud. Ils ont été regroupés avec MK Boulangerie dans un
+      // site unique : l'étude est remplacée, pas supprimée. 308 pour
+      // transférer le signal de l'ancienne URL vers la nouvelle.
+      { source: '/projets/au-fournil', destination: '/projets/mk-boulangeries', permanent: true },
     ]
   },
 }
