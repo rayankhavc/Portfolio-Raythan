@@ -208,9 +208,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     approach: [
       "Un seul site Astro, généré en statique : une page d'accueil qui oriente vers la bonne boutique, puis une page complète par boulangerie, avec son adresse, ses horaires, son téléphone, son quartier et ses données structurées Bakery. Les trois pages ressortent séparément sur Google tout en partageant l'autorité d'un seul domaine.",
-      "Tout descend d'un fichier de données unique : pages, plans, données structurées, pied de page et badge d'ouverture. Le badge se calcule à l'heure de Paris quelle que soit la zone du visiteur, et reste masqué tant que le JavaScript n'a pas répondu, pour ne jamais annoncer « ouvert » à tort.",
+      "Tout descend des mêmes données : pages, plans, données structurées, pied de page, badge d'ouverture et adresse canonique, écrite à un seul endroit. Le badge se calcule à l'heure de Paris quelle que soit la zone du visiteur, et reste masqué tant que le JavaScript n'a pas répondu, pour ne jamais annoncer « ouvert » à tort.",
       "Sur mobile, la barre d'appel reste à portée de pouce : sur un site de boulangerie, l'action utile est un appel ou un itinéraire, jamais un formulaire. Les commandes écrites partent en WhatsApp ou en SMS avec un message pré-rempli, et les clics appel, itinéraire et message sont comptés pour mesurer ce que le site rapporte vraiment.",
-      "Le projet n'est pas terminé et c'est écrit ici plutôt que caché : le site tourne sur son adresse de déploiement, le temps que le nom de domaine soit réservé et branché. Les prix du catalogue et les photos des produits restent à venir de la boutique, et ils resteront absents jusque-là : un prix inventé se retourne contre la maison au premier client.",
+      "Le projet n'est pas terminé et c'est écrit ici plutôt que caché : le site tourne sur son adresse de déploiement, le temps que le nom de domaine soit réservé et branché. Les 21 prix communiqués par le gérant sont publiés et repris en données structurées ; les produits dont le prix n'a pas été transmis restent affichés sans prix, et les photos d'ambiance attendent celles de la maison. Un prix estimé serait ensuite cité comme un fait par les moteurs et les assistants.",
     ],
     type: 'Site vitrine',
     status: 'Projet en cours',
@@ -220,8 +220,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     missions: ['Direction artistique', 'Développement', 'SEO local', 'Regroupement de trois sites'],
     stats: [
       { value: '3', label: 'boutiques, une page autonome chacune' },
-      { value: '1', label: 'fichier de données pour tout le site' },
-      { value: '7', label: 'pages générées en statique' },
+      { value: '9', label: 'pages générées en statique' },
+      { value: '21', label: 'prix publiés, aucun estimé' },
       { value: '3', label: 'actions mesurées : appel, itinéraire, message' },
     ],
     cover: {
@@ -236,8 +236,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         src: '/projects/mk-produits.jpg',
-        alt: 'Catalogue produits du site MK Boulangeries',
-        caption: 'Le catalogue produits, commun aux trois maisons.',
+        alt: 'Catalogue produits du site MK Boulangeries, avec les prix des pains',
+        caption:
+          'Le catalogue, commun aux trois maisons. Les prix communiqués sont affichés, les autres restent vides plutôt qu\'estimés.',
       },
       {
         src: '/projects/mk-avant-fournil-sillon.jpg',
