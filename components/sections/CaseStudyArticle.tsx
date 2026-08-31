@@ -165,6 +165,15 @@ export function CaseStudyArticle({
                 <dd className="mt-1 text-sm text-foreground">{study.year}</dd>
               </div>
             </div>
+            {study.status && (
+              <div>
+                <dt className="text-[11px] tracking-widest text-metallic uppercase">Statut</dt>
+                <dd className="mt-1 flex items-center gap-2 text-sm text-foreground">
+                  <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  {study.status}
+                </dd>
+              </div>
+            )}
             <div>
               <dt className="text-[11px] tracking-widest text-metallic uppercase">Stack</dt>
               <dd className="mt-2 flex flex-wrap gap-1.5">

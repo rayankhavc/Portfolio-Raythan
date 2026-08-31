@@ -16,12 +16,24 @@ function DemoBadge() {
   )
 }
 
+/* Pastille de statut : uniquement sur les projets encore en cours. Un point
+   plein plutôt qu'une couleur d'alerte, l'identité n'a qu'un accent. */
+function StatusChip({ label }: { label: string }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgb(var(--overlay)/20%)] bg-[rgb(var(--overlay)/6%)] px-3 py-1 text-[11px] font-medium text-foreground">
+      <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+      {label}
+    </span>
+  )
+}
+
 function MetaChips({ study }: { study: CaseStudy }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span className="rounded-full border border-[rgb(var(--overlay)/10%)] px-3 py-1 text-[11px] text-metallic-light">
         {study.type}
       </span>
+      {study.status && <StatusChip label={study.status} />}
       <span className="rounded-full border border-[rgb(var(--overlay)/10%)] px-3 py-1 text-[11px] text-metallic-light">
         {study.year}
       </span>

@@ -74,6 +74,16 @@ Langue du projet et des échanges : français.
 - L'étude « Au Fournil » (deux sites séparés) est remplacée par
   « MK Boulangeries » (les trois boutiques sur un domaine unique) ;
   `/projets/au-fournil` redirige en 308 vers la nouvelle.
+- `status` (optionnel) affiche une pastille « Projet en cours » sur la carte
+  et une ligne « Statut » dans la fiche projet. Renseigné sur MK Boulangeries :
+  le site tourne sur son adresse de déploiement en attendant que
+  `mkboulangeries.fr` soit réservé, une partie des prix n'a pas été
+  communiquée et les photos produits sont encore des photos d'ambiance.
+  Absent partout ailleurs, donc aucune pastille sur les projets livrés.
+- Vérifier l'état réel des repos sœurs avant d'écrire ou de recapturer une
+  étude de cas : le clone d'une session peut dater. MK avait gagné les prix,
+  les pages légales et la correction des canoniques entre-temps, ce qui
+  rendait faux à la fois le texte de l'étude et les captures.
 - `type` accepte `'Maquette'` en plus de `'Site vitrine'` et `'Web App'` :
   Alex Moret est une proposition non sollicitée, en noindex, formulaire non
   branché. Elle est affichée comme telle (chip « Maquette », statut écrit

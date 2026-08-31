@@ -27,7 +27,7 @@ const LAST_CONTENT_UPDATE = {
    * concernées. */
   localPages: '2026-08-28',
   /** Études de cas. */
-  caseStudies: '2026-08-28',
+  caseStudies: '2026-08-31',
   /** Pages légales, très stables. */
   legal: '2026-07-20',
 } as const
