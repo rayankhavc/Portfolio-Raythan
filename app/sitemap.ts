@@ -20,8 +20,10 @@ const BASE_URL = 'https://raythan.fr'
 const LAST_CONTENT_UPDATE = {
   /** Home, services, portfolio, contact : socle du site. */
   core: '2026-08-28',
-  /** Hubs listant les pages locales. */
-  localHubs: '2026-08-28',
+  /** Hubs listant les pages locales : contenu propre enrichi le 01/09
+   * (angle, contexte, quatre points, FAQ, lien croisé entre les deux hubs).
+   * Ils passaient de ~65 mots de contenu propre à un vrai contenu de page. */
+  localHubs: '2026-09-01',
   /** Pages villes et métiers : contenu enrichi, deux métiers ajoutés
    * (boulangerie, pizzeria) et exemple de projet ajouté sur les pages
    * concernées. */

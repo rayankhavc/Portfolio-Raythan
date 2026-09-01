@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { CopyableLink } from '@/components/CopyableLink'
 import { Logo } from '@/components/ui/Logo'
-import { CITIES } from '@/lib/local-seo'
+import { CITIES, TRADES } from '@/lib/local-seo'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -19,7 +19,7 @@ const LEGAL_LINKS = [
 // Date de dernière mise à jour du contenu, affichée en bas de page. Constante
 // volontaire (pas new Date()) : elle doit refléter la dernière révision réelle
 // du contenu, pas la date de rendu. À bumper quand le contenu évolue.
-const LAST_UPDATED = '15 août 2026'
+const LAST_UPDATED = '1er septembre 2026'
 
 export function Footer() {
   return (
@@ -101,6 +101,28 @@ export function Footer() {
                 className="text-xs text-metallic hover:text-metallic-light transition-colors"
               >
                 {name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Par activité : même logique que le bloc villes ci-dessus. Sans lui,
+            les pages métier n'étaient atteignables que via leur hub, soit deux
+            clics depuis la home et un seul lien entrant chacune. Un lien
+            présent sur toutes les pages les remonte au même niveau que les
+            pages villes dans le graphe interne. */}
+        <div className="border-t border-[rgb(var(--overlay)/5%)] pt-6 mb-6">
+          <p className="text-xs text-metallic uppercase tracking-widest mb-3">
+            Par activité
+          </p>
+          <nav className="flex flex-wrap gap-x-4 gap-y-2">
+            {TRADES.map(({ slug, name }) => (
+              <Link
+                key={slug}
+                href={`/site-internet/${slug}`}
+                className="text-xs text-metallic hover:text-metallic-light transition-colors"
+              >
+                {name.charAt(0).toUpperCase() + name.slice(1)}
               </Link>
             ))}
           </nav>
