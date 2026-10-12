@@ -18,8 +18,9 @@ const BASE_URL = 'https://raythan.fr'
 // trop ancienne sur du contenu qu'on vient de réécrire annule tout l'intérêt
 // de la réécriture.
 const LAST_CONTENT_UPDATE = {
-  /** Home, services, portfolio, contact : socle du site. */
-  core: '2026-08-28',
+  /** Home, services, portfolio, contact : socle du site. 12/10 : intro et
+   * metadata de /portfolio mises à jour avec O'dinner et Subly. */
+  core: '2026-10-12',
   /** Hubs listant les pages locales : contenu propre enrichi le 01/09
    * (angle, contexte, quatre points, FAQ, lien croisé entre les deux hubs).
    * Ils passaient de ~65 mots de contenu propre à un vrai contenu de page. */
@@ -29,7 +30,7 @@ const LAST_CONTENT_UPDATE = {
    * concernées. */
   localPages: '2026-08-28',
   /** Études de cas. */
-  caseStudies: '2026-08-31',
+  caseStudies: '2026-10-12',
   /** Pages légales, très stables. */
   legal: '2026-07-20',
 } as const
