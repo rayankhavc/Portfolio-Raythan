@@ -66,20 +66,25 @@ Langue du projet et des échanges : français.
 ## Portfolio public (livré)
 
 - `/portfolio` (index) + `/projets/[slug]` (études de cas), données dans
-  `lib/data.ts` (`CASE_STUDIES`). Huit études de cas : Chikano (featured),
-  Anas Pizza Original, MK Boulangeries, FundedCalc, BJ Coach Pro,
-  Science Based Quiz, ZenHertz, Alex Moret. `/projets` sans slug redirige
+  `lib/data.ts` (`CASE_STUDIES`). Dix études de cas : Chikano (featured),
+  Anas Pizza Original, MK Boulangeries, O'dinner, FundedCalc, BJ Coach Pro,
+  Science Based Quiz, ZenHertz, Subly, Alex Moret. `/projets` sans slug redirige
   vers `/portfolio` (next.config.mjs) ; les anciennes redirections vers la
   home sont retirées.
 - L'étude « Au Fournil » (deux sites séparés) est remplacée par
   « MK Boulangeries » (les trois boutiques sur un domaine unique) ;
   `/projets/au-fournil` redirige en 308 vers la nouvelle.
-- `status` (optionnel) affiche une pastille « Projet en cours » sur la carte
-  et une ligne « Statut » dans la fiche projet. Renseigné sur MK Boulangeries :
-  le site tourne sur son adresse de déploiement en attendant que
-  `mkboulangeries.fr` soit réservé, une partie des prix n'a pas été
-  communiquée et les photos produits sont encore des photos d'ambiance.
-  Absent partout ailleurs, donc aucune pastille sur les projets livrés.
+- `status` (optionnel) affiche une pastille sur la carte et une ligne
+  « Statut » dans la fiche projet. Seul Subly en porte une (« Prototype
+  hackathon » : démo en ligne, données fictives, noindex). MK Boulangeries
+  et O'dinner sont considérés livrés et terminés par Rayan (12/10/2026)
+  même si leur nom de domaine définitif n'est pas encore branché : pas de
+  pastille, liens vers l'adresse Vercel en attendant.
+- ZenHertz v2 (octobre 2026) a retiré hormones, ondes cérébrales et 432 Hz,
+  jugés non mesurables depuis un fichier audio. Ne jamais les réintroduire
+  dans l'étude de cas : elle décrit les scores d'usage avec niveau de preuve.
+- Anas Pizza : l'envoi des commandes vers l'écran cuisine SumUp (API
+  Goodtill) est codé mais pas actif. Rayan ne veut pas qu'on en parle.
 - Vérifier l'état réel des repos sœurs avant d'écrire ou de recapturer une
   étude de cas : le clone d'une session peut dater. MK avait gagné les prix,
   les pages légales et la correction des canoniques entre-temps, ce qui
@@ -91,7 +96,10 @@ Langue du projet et des échanges : français.
   « pas des maquettes ».
 - Captures d'écran réelles dans `public/projects/`, prises via Playwright sur
   les projets buildés et servis en local (les repos sœurs sont clonés à côté
-  du portfolio dans les sessions Claude). Refaire pareil pour toute nouvelle
+  du portfolio dans les sessions Claude), ou directement sur la production
+  quand le sandbox y a accès (cas d'octobre 2026). 1440×900 @2x pour le
+  bureau, 390×844 @2x pour le mobile, JPEG qualité 82. Lancer Chromium avec
+  `LANG=fr_FR.UTF-8` sinon les champs date s'affichent en mm/dd/yyyy. Refaire pareil pour toute nouvelle
   capture : `/opt/pw-browsers/chromium`, `executablePath` explicite, jamais
   `playwright install`. Les stats affichées dans les études de cas sont
   factuelles et vérifiables dans le code des projets, ne jamais inventer de

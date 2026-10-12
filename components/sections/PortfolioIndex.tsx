@@ -162,8 +162,8 @@ export function PortfolioIndex() {
             className="reveal max-w-xl text-lg leading-relaxed text-metallic-light"
           >
             Chaque étude de cas montre le vrai produit : de vraies captures d'écran, les décisions qui ont
-            été prises, et quand le projet s'y prête, une démo à tester directement dans la page. Une seule
-            page fait exception, la maquette Alex Moret, signalée comme telle.
+            été prises, et quand le projet s'y prête, une démo à tester directement dans la page. Deux exceptions,
+            signalées comme telles : la maquette Alex Moret et Subly, prototype de hackathon.
           </motion.p>
 
           <motion.div

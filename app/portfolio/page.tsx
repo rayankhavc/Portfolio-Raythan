@@ -8,7 +8,7 @@ const BASE_URL = 'https://raythan.fr'
 export const metadata: Metadata = {
   title: 'Réalisations : études de cas et démos testables',
   description:
-    'Sites vitrines et web apps livrés en production : Anas Pizza, MK Boulangeries, Chikano, FundedCalc, BJ Coach Pro, Science Based Quiz, ZenHertz. Vraies captures, vraies décisions, démos testables en direct.',
+    "Sites vitrines et web apps : Anas Pizza, MK Boulangeries, O'dinner, Chikano, FundedCalc, BJ Coach Pro, ZenHertz, Subly. Vraies captures, démos en direct.",
   alternates: { canonical: `${BASE_URL}/portfolio` },
   openGraph: {
     title: 'Réalisations · Raythan Web Design',
