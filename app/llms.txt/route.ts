@@ -1,5 +1,6 @@
 import { SERVICES, CASE_STUDIES } from '@/lib/data'
 import { CITIES, TRADES } from '@/lib/local-seo'
+import { getAllPosts } from '@/lib/blog'
 
 const BASE_URL = 'https://raythan.fr'
 
@@ -31,6 +32,10 @@ function build(): string {
   }).join('\n\n')
 
   const villes = CITIES.map((v) => `- ${v.name} : ${BASE_URL}/creation-site-internet/${v.slug}`).join('\n')
+  const posts = getAllPosts()
+  const blog = posts.length
+    ? `\n## Blog\n\n${posts.map((p) => `- ${p.title} (${p.date}) : ${p.description} ${BASE_URL}/blog/${p.slug}`).join('\n')}\n`
+    : ''
   const metiers = TRADES.map((m) => `- ${m.name} : ${BASE_URL}/site-internet/${m.slug}`).join('\n')
 
   return `# Raythan Web Design
@@ -71,7 +76,7 @@ ${villes}
 ## Pages par métier
 
 ${metiers}
-`
+${blog}`
 }
 
 export function GET() {

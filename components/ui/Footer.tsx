@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { CopyableLink } from '@/components/CopyableLink'
 import { Logo } from '@/components/ui/Logo'
 import { CITIES, TRADES } from '@/lib/local-seo'
+import { getAllPosts } from '@/lib/blog'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -56,7 +57,10 @@ export function Footer() {
           <div>
             <p className="text-xs text-metallic uppercase tracking-widest mb-4">Navigation</p>
             <nav className="flex flex-col gap-3">
-              {NAV_LINKS.map(({ href, label }) => (
+              {(getAllPosts().length > 0
+                ? [...NAV_LINKS.slice(0, 2), { href: '/blog', label: 'Blog' }, ...NAV_LINKS.slice(2)]
+                : NAV_LINKS
+              ).map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}

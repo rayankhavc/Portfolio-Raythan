@@ -259,3 +259,60 @@ html[data-theme='light'] .theme-icon-moon {
     transform: none !important;
   }
 }
+
+/* Corps des articles du blog (Markdown rendu en HTML). Tokens uniquement :
+   les deux thèmes suivent sans règle dédiée. */
+.blog-prose {
+  color: var(--metallic-light);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.blog-prose > * + * { margin-top: 1.25em; }
+.blog-prose h2 {
+  margin-top: 2.2em;
+  color: var(--foreground);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.blog-prose h3 {
+  margin-top: 1.8em;
+  color: var(--foreground);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.blog-prose strong { color: var(--foreground); font-weight: 600; }
+.blog-prose a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--overlay) / 40%);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.3s;
+}
+.blog-prose a:hover { text-decoration-color: var(--foreground); }
+.blog-prose ul, .blog-prose ol { padding-left: 1.4em; }
+.blog-prose ul { list-style: disc; }
+.blog-prose ol { list-style: decimal; }
+.blog-prose li + li { margin-top: 0.4em; }
+.blog-prose li::marker { color: var(--metallic); }
+.blog-prose blockquote {
+  border-left: 2px solid rgb(var(--overlay) / 20%);
+  padding-left: 1.2em;
+  color: var(--foreground);
+}
+.blog-prose code {
+  border-radius: 0.375rem;
+  background: rgb(var(--overlay) / 6%);
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+.blog-prose table { display: block; overflow-x: auto; width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.blog-prose th, .blog-prose td {
+  border-bottom: 1px solid rgb(var(--overlay) / 10%);
+  padding: 0.6em 0.5em;
+  text-align: left;
+}
+.blog-prose th { color: var(--foreground); font-weight: 600; }
+.blog-prose hr { border: 0; border-top: 1px solid rgb(var(--overlay) / 10%); margin: 2.5em 0; }
