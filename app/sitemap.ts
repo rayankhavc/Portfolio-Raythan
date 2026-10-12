@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { CASE_STUDIES } from '@/lib/data'
 import { CITIES, TRADES } from '@/lib/local-seo'
+import { getAllPosts } from '@/lib/blog'
 
 const BASE_URL = 'https://raythan.fr'
 
@@ -85,5 +86,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...corePages, ...hubs, ...cityPages, ...tradePages, ...caseStudies, ...legalPages]
+  // Blog : chaque article porte sa propre date de révision, l'index prend
+  // celle de l'article le plus récemment publié ou modifié.
+  const posts = getAllPosts()
+  const blogPages = posts.length
+    ? [
+        {
+          url: `${BASE_URL}/blog`,
+          lastModified: posts.map((p) => p.updated ?? p.date).sort().at(-1),
+          changeFrequency: 'weekly' as const,
+          priority: 0.7,
+        },
+        ...posts.map((p) => ({
+          url: `${BASE_URL}/blog/${p.slug}`,
+          lastModified: p.updated ?? p.date,
+          changeFrequency: 'yearly' as const,
+          priority: 0.6,
+        })),
+      ]
+    : []
+
+  return [...corePages, ...hubs, ...cityPages, ...tradePages, ...caseStudies, ...blogPages, ...legalPages]
 }

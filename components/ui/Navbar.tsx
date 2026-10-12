@@ -7,19 +7,23 @@ import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 
-const NAV_LINKS = [
+const BASE_LINKS = [
   { href: '/', label: 'Accueil' },
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Réalisations' },
   { href: '/#faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ]
+const BLOG_LINK = { href: '/blog', label: 'Blog' }
 
 // Ressort commun à la contraction du header au scroll : assez raide pour
 // rester posé (pas de rebond exagéré), assez vif pour se sentir physique.
 const barSpring = { type: 'spring' as const, stiffness: 340, damping: 32, mass: 0.9 }
 
-export function Navbar() {
+/** showBlog : vrai dès qu'un article est publié (calculé côté serveur dans
+ *  app/layout.tsx), pour ne jamais pointer vers une page vide. */
+export function Navbar({ showBlog = false }: { showBlog?: boolean }) {
+  const NAV_LINKS = showBlog ? [...BASE_LINKS.slice(0, 3), BLOG_LINK, ...BASE_LINKS.slice(3)] : BASE_LINKS
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const pathname = usePathname()

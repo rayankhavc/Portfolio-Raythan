@@ -132,6 +132,26 @@ Langue du projet et des échanges : français.
   juillet 2026). Le niveau de finition visé a été construit sans eux ; si
   Rayan fournit des captures/enregistrements, itérer à partir de là.
 
+## Blog (semi-automatique)
+
+- Articles en Markdown dans `content/blog/<slug>.md` (en-tête `clé: valeur`
+  entre deux `---`), lus par `lib/blog.ts` au build et rendus par `marked`.
+  Pages `/blog` et `/blog/[slug]`, JSON-LD `Blog` / `BlogPosting` +
+  `BreadcrumbList`, entrées sitemap et `llms.txt` dérivées des fichiers.
+- Tant qu'aucun article n'est publié : `/blog` répond 404, aucun lien dans
+  la Navbar ni le Footer, rien au sitemap. Le lien apparaît avec le premier
+  article (`showBlog` calculé dans `app/layout.tsx`).
+- Garde-fous au build (`lib/blog.ts`) : champs obligatoires, titre ≤ 70 et
+  description ≤ 160 caractères, aucun tiret long, pas de `#` dans le corps,
+  `caseStudySlug` existant. Un brouillon fautif fait échouer sa PR.
+- Circuit voulu par Rayan : deux brouillons par semaine rédigés par une
+  tâche planifiée, chacun en PR **non mergée** ; Rayan relit et merge. Les
+  règles de rédaction sont dans `content/blog/GUIDE.md`, l'ordre des sujets
+  dans `content/blog/SUJETS.md` (liste validée par Rayan, premier sujet non
+  coché en premier). Les fichiers en majuscules ne sont jamais publiés.
+- Ne jamais merger soi-même une PR d'article : c'est la seule étape où un
+  humain relit avant publication.
+
 ## Pages locales (SEO)
 
 - `lib/local-seo.ts` : dix communes (`CITIES`) et huit métiers (`TRADES`),

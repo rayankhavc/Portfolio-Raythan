@@ -4,6 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import { Navbar } from '@/components/ui/Navbar'
 import { Footer } from '@/components/ui/Footer'
+import { getAllPosts } from '@/lib/blog'
 import { MotionProvider } from '@/components/motion-provider'
 import { SERVICES } from '@/lib/data'
 
@@ -157,7 +158,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="grain-overlay hidden md:block pointer-events-none fixed inset-0 z-40 opacity-[0.035] mix-blend-overlay"
         />
         <MotionProvider>
-          <Navbar />
+          <Navbar showBlog={getAllPosts().length > 0} />
           <main>{children}</main>
           <Footer />
         </MotionProvider>
