@@ -11,6 +11,11 @@ Langue du projet et des échanges : français.
    (projet `v0-portfolio-homepage-design` → raythan.fr, alias historique
    portfolioraythanwebdesign.vercel.app toujours actif).
 4. Vérifier que le déploiement production est READY et que le contenu servi est le bon.
+   Si le déploiement tombe en ERROR en quelques secondes avec
+   `errorCode: git_info_fail` (vu le 12/10/2026 sur le squash de la PR #39),
+   le build n'a même pas démarré : Vercel n'arrive pas à lire ce commit-là,
+   et un redeploy du même SHA échoue pareil. Un nouveau commit sur `main`
+   (via PR) repasse normalement.
 
 ## Identité visuelle (validée, ne pas dévier)
 
